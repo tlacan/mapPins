@@ -1,0 +1,30 @@
+strings:
+  - inputs: resources/en.lproj
+    filter: .+\.strings$
+    outputs:
+      templateName: structured-swift5
+      output: resources/generated/Strings.swift
+
+json:
+    inputs:
+      - resources/animations/
+    outputs:
+        templatePath: Lottie.stencil
+        output: resources/generated/Lotties.swift
+xcassets:
+   inputs:
+     - resources/Colors.xcassets
+     - resources/Assets.xcassets
+   outputs:
+     - templateName: swift5
+       params:
+         forceProvidesNamespaces: true
+         enumName: XCAsset
+       output: resources/generated/Assets.swift
+  
+fonts:
+  inputs:
+    - resources/fonts
+  outputs:
+    - templateName: swift5
+      output: resources/generated/Fonts.swift

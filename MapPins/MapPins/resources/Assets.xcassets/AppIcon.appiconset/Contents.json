@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "filename" : "TomTom_Food_pin_map_application_logo_c55a5cfe-b9c9-4725-8862-5d8b1e22bb1c.png",
+      "idiom" : "universal",
+      "platform" : "ios",
+      "size" : "1024x1024"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

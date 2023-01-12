@@ -1,0 +1,59 @@
+excluded:
+  - Carthage
+  - vendor
+  - Pods
+disabled_rules:
+  - nesting
+  - comment_spacing
+  - multiple_closures_with_trailing_closure
+  - vertical_parameter_alignment
+  - vertical_parameter_alignment_on_call
+custom_rules:
+  swiftgen_assets:
+    name: "SwiftGen Assets"
+    regex: '(UIImage|UIColor)(\.init)?\(named: ?"?.+"?(, ?in:.+?, ?compatibleWith:.+?)?\)|#imageLiteral\(resourceName: ?".+"\)'
+    message: "Use Asset.<asset> instead"
+    severity: error
+  swiftgen_colors:
+    name: "SwiftGen Colors"
+    regex: '(UIColor(\.init)?|#colorLiteral)\(((red|displayP3Red):.+?,green:.+?,blue:.+?,alpha:.+?)|(white:.+?,alpha:.+?)|(hue:.+?,saturation:.+?,brightness:.+?,alpha:.+?)\)'
+    message: "Use ColorName.<color> instead"
+    severity: error
+  swiftgen_files:
+    name: "SwiftGen Files"
+    regex: '(url\(forResource: ?"?.+"?, ?withExtension: ?"?.+"?, ?subdirectory: ?"?.+"?(, ?localization: ?"?.+"?)?\))|(path\(forResource: ?"?.+"?, ?ofType: ?"?.+"?(, ?inDirectory: ?"?.+"?(, ?forLocalization: ?"?.+"?)?)?\))'
+    message: "Use Files.<dir/file> instead"
+    severity: error
+  swiftgen_fonts:
+    name: "SwiftGen Fonts"
+    regex: 'UIFont(\.init)?\(name: ?"?.+"?, ?size:.+?\)'
+    message: "Use FontFamily.<family>.<variant>.size(<size>) instead"
+    severity: error
+  swiftgen_strings:
+    name: "SwiftGen Strings"
+    regex: 'NSLocalizedString'
+    message: "Use L10n.key instead"
+    severity: error
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - closure_spacing
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - private_outlet
+  - nimble_operator
+  - attributes
+  - operator_usage_whitespace
+  - first_where
+  - object_literal
+  - number_separator
+  - prohibited_super_call
+  - fatal_error_message
+  - vertical_parameter_alignment_on_call
+  - let_var_whitespace
+identifier_name:
+  excluded:
+    - id
+line_length: 196
+number_separator:
+  minimum_length: 5
