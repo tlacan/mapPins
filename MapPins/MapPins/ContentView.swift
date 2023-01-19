@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage(UserDefaultsKeys.onboardingCompleted.rawValue) var onboardingCompleted: Bool = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            if onboardingCompleted {
+                VStack {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                    Text("Hello, world!")
+                }
+            } else {
+                OnboardingIntroView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
         }
-        .padding()
     }
 }
 

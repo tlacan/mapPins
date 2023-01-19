@@ -30,6 +30,7 @@ internal enum XCAsset {
   }
   internal enum Colors {
     internal static let background = ColorAsset(name: "background")
+    internal static let black = ColorAsset(name: "black")
     internal static let text = ColorAsset(name: "text")
   }
 }

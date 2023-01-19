@@ -43,6 +43,14 @@
 		1D239C87297050DB00A166A2 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C6D297050C300A166A2 /* Poppins-ExtraBold.ttf */; };
 		1D239C8A297052A800A166A2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C89297052A800A166A2 /* Fonts.swift */; };
 		1D239C8C297053E800A166A2 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C8B297053E800A166A2 /* Assets.swift */; };
+		1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */; };
+		1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9BBC7829795023005DDBA9 /* TextViews.swift */; };
+		1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */; };
+		1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */; };
+		1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */; };
+		1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F42976980500AF4E64 /* LottieView.swift */; };
+		1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */; };
+		1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +110,14 @@
 		1D239C882970514B00A166A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1D239C89297052A800A166A2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		1D239C8B297053E800A166A2 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
+		1D9BBC7829795023005DDBA9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroViewStep.swift; sourceTree = "<group>"; };
+		1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroView.swift; sourceTree = "<group>"; };
+		1DE6F2F42976980500AF4E64 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProperties.swift; sourceTree = "<group>"; };
+		1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +169,8 @@
 		1D239C14296F4C4200A166A2 /* MapPins */ = {
 			isa = PBXGroup;
 			children = (
+				1DE6F2F12976955F00AF4E64 /* Helper */,
+				1DE6F2EC29768E4700AF4E64 /* Views */,
 				1D239C882970514B00A166A2 /* Info.plist */,
 				1D239C40296F563500A166A2 /* resources */,
 				1D239C15296F4C4200A166A2 /* MapPinsApp.swift */,
@@ -245,6 +263,52 @@
 				1D239C75297050C400A166A2 /* Poppins-ThinItalic.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		1DC7C2FD2979759C00A451DE /* OnboardingIntroView */ = {
+			isa = PBXGroup;
+			children = (
+				1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */,
+				1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */,
+			);
+			path = OnboardingIntroView;
+			sourceTree = "<group>";
+		};
+		1DE6F2EC29768E4700AF4E64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1DE6F2F92976E93F00AF4E64 /* Components */,
+				1DE6F2EE29768E5000AF4E64 /* Onboarding */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1DE6F2EE29768E5000AF4E64 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				1DC7C2FD2979759C00A451DE /* OnboardingIntroView */,
+				1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1DE6F2F12976955F00AF4E64 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */,
+				1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1DE6F2F92976E93F00AF4E64 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1DE6F2F42976980500AF4E64 /* LottieView.swift */,
+				1D9BBC7829795023005DDBA9 /* TextViews.swift */,
+				1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,12 +514,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */,
+				1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */,
 				1D239C56297040C400A166A2 /* Lotties.swift in Sources */,
+				1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */,
 				1D239C8A297052A800A166A2 /* Fonts.swift in Sources */,
 				1D239C8C297053E800A166A2 /* Assets.swift in Sources */,
+				1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */,
 				1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */,
+				1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */,
 				1D239C49296F71B700A166A2 /* Strings.swift in Sources */,
+				1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */,
 				1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */,
+				1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */,
+				1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

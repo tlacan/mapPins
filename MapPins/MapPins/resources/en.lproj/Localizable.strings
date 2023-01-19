@@ -7,3 +7,16 @@
 */
 
 "general.ok" = "OK";
+"general.next" = "Next";
+"intro.title" = "Welcome!";
+"intro.step1.description" = "Pins your favorite places!";
+"intro.step1.subtitle" = "Find easily all the places you like, classified in categories.";
+"intro.step2.description" = "Rate them and add pictures.";
+"intro.step1.subtitle" = "You visited it, want to rember if you liked it, how it looked like.";
+"intro.step3.description" = "Never lose your favorite places and find them.";
+"intro.step3.description" = "You will be able to find them on map or in list to get them even easily.";
+"intro.step3.action" = "Let's Go";
+
+"onboarding.name.title" = "Hey!";
+"onboarding.name.description" = "We would like to know, what is your name?";
+"onboarding.name.placeholder" = "Name";
