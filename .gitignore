@@ -1,0 +1,6 @@
+MapPins.xcodeproj/xcuserdata/*
+
+# Others
+.DS_Store
+Pods/Pods.xcodeproj/xcuserdata
+.idea/
