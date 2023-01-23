@@ -11,7 +11,7 @@
 		1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C17296F4C4200A166A2 /* ContentView.swift */; };
 		1D239C1A296F4C4300A166A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C19296F4C4300A166A2 /* Assets.xcassets */; };
 		1D239C1D296F4C4300A166A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C1C296F4C4300A166A2 /* Preview Assets.xcassets */; };
-		1D239C27296F4C4300A166A2 /* MapPinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C26296F4C4300A166A2 /* MapPinsTests.swift */; };
+		1D239C27296F4C4300A166A2 /* PinServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C26296F4C4300A166A2 /* PinServiceTests.swift */; };
 		1D239C31296F4C4300A166A2 /* MapPinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C30296F4C4300A166A2 /* MapPinsUITests.swift */; };
 		1D239C33296F4C4300A166A2 /* MapPinsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C32296F4C4300A166A2 /* MapPinsUITestsLaunchTests.swift */; };
 		1D239C44296F57C500A166A2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C46296F57C500A166A2 /* Localizable.strings */; };
@@ -43,10 +43,17 @@
 		1D239C87297050DB00A166A2 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C6D297050C300A166A2 /* Poppins-ExtraBold.ttf */; };
 		1D239C8A297052A800A166A2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C89297052A800A166A2 /* Fonts.swift */; };
 		1D239C8C297053E800A166A2 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C8B297053E800A166A2 /* Assets.swift */; };
+		1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D32ED62297EC97F003126D9 /* FileSystemStore */; };
 		1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */; };
 		1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9BBC7829795023005DDBA9 /* TextViews.swift */; };
 		1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */; };
 		1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */; };
+		1DC7C31F297AEB7800A451DE /* AddressAutocompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */; };
+		1DC7C321297AEC0800A451DE /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C320297AEC0800A451DE /* PinModel.swift */; };
+		1DC7C324297AEE4000A451DE /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C323297AEE4000A451DE /* Engine.swift */; };
+		1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C325297AEE6B00A451DE /* PinService.swift */; };
+		1DC7C328297AEF0700A451DE /* LoadedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C327297AEF0700A451DE /* LoadedData.swift */; };
+		1DC7C32E297E803C00A451DE /* FileStoredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C32D297E803C00A451DE /* FileStoredData.swift */; };
 		1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */; };
 		1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F42976980500AF4E64 /* LottieView.swift */; };
 		1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */; };
@@ -77,7 +84,7 @@
 		1D239C19296F4C4300A166A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D239C1C296F4C4300A166A2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1D239C22296F4C4300A166A2 /* MapPinsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapPinsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D239C26296F4C4300A166A2 /* MapPinsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinsTests.swift; sourceTree = "<group>"; };
+		1D239C26296F4C4300A166A2 /* PinServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinServiceTests.swift; sourceTree = "<group>"; };
 		1D239C2C296F4C4300A166A2 /* MapPinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapPinsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D239C30296F4C4300A166A2 /* MapPinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinsUITests.swift; sourceTree = "<group>"; };
 		1D239C32296F4C4300A166A2 /* MapPinsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinsUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -114,6 +121,12 @@
 		1D9BBC7829795023005DDBA9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroViewStep.swift; sourceTree = "<group>"; };
+		1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutocompleteModel.swift; sourceTree = "<group>"; };
+		1DC7C320297AEC0800A451DE /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
+		1DC7C323297AEE4000A451DE /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		1DC7C325297AEE6B00A451DE /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
+		1DC7C327297AEF0700A451DE /* LoadedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedData.swift; sourceTree = "<group>"; };
+		1DC7C32D297E803C00A451DE /* FileStoredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStoredData.swift; sourceTree = "<group>"; };
 		1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroView.swift; sourceTree = "<group>"; };
 		1DE6F2F42976980500AF4E64 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProperties.swift; sourceTree = "<group>"; };
@@ -126,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D239C5C297043FB00A166A2 /* Lottie in Frameworks */,
+				1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +167,7 @@
 				1D239C25296F4C4300A166A2 /* MapPinsTests */,
 				1D239C2F296F4C4300A166A2 /* MapPinsUITests */,
 				1D239C13296F4C4200A166A2 /* Products */,
+				1D32ED61297EC95B003126D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +184,8 @@
 		1D239C14296F4C4200A166A2 /* MapPins */ = {
 			isa = PBXGroup;
 			children = (
+				1DC7C322297AEE3600A451DE /* Engine */,
+				1DC7C31D297AEB4F00A451DE /* Model */,
 				1DE6F2F12976955F00AF4E64 /* Helper */,
 				1DE6F2EC29768E4700AF4E64 /* Views */,
 				1D239C882970514B00A166A2 /* Info.plist */,
@@ -191,7 +208,7 @@
 		1D239C25296F4C4300A166A2 /* MapPinsTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D239C26296F4C4300A166A2 /* MapPinsTests.swift */,
+				1D239C26296F4C4300A166A2 /* PinServiceTests.swift */,
 			);
 			path = MapPinsTests;
 			sourceTree = "<group>";
@@ -265,6 +282,13 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		1D32ED61297EC95B003126D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1DC7C2FD2979759C00A451DE /* OnboardingIntroView */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,9 +298,53 @@
 			path = OnboardingIntroView;
 			sourceTree = "<group>";
 		};
+		1DC7C319297AEB1800A451DE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		1DC7C31A297AEB2F00A451DE /* CreatePin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreatePin;
+			sourceTree = "<group>";
+		};
+		1DC7C31D297AEB4F00A451DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1DC7C320297AEC0800A451DE /* PinModel.swift */,
+				1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1DC7C322297AEE3600A451DE /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				1DC7C329297E794F00A451DE /* Capabilities */,
+				1DC7C323297AEE4000A451DE /* Engine.swift */,
+				1DC7C325297AEE6B00A451DE /* PinService.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		1DC7C329297E794F00A451DE /* Capabilities */ = {
+			isa = PBXGroup;
+			children = (
+				1DC7C327297AEF0700A451DE /* LoadedData.swift */,
+				1DC7C32D297E803C00A451DE /* FileStoredData.swift */,
+			);
+			path = Capabilities;
+			sourceTree = "<group>";
+		};
 		1DE6F2EC29768E4700AF4E64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1DC7C31A297AEB2F00A451DE /* CreatePin */,
+				1DC7C319297AEB1800A451DE /* Map */,
 				1DE6F2F92976E93F00AF4E64 /* Components */,
 				1DE6F2EE29768E5000AF4E64 /* Onboarding */,
 			);
@@ -331,6 +399,7 @@
 			name = MapPins;
 			packageProductDependencies = (
 				1D239C5B297043FB00A166A2 /* Lottie */,
+				1D32ED62297EC97F003126D9 /* FileSystemStore */,
 			);
 			productName = MapPins;
 			productReference = 1D239C12296F4C4200A166A2 /* MapPins.app */;
@@ -408,6 +477,7 @@
 				1D239C3F296F4C9900A166A2 /* XCRemoteSwiftPackageReference "SwiftGen" */,
 				1D239C5A297043FB00A166A2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				1D239C8D2970556800A166A2 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */,
 			);
 			productRefGroup = 1D239C13296F4C4200A166A2 /* Products */;
 			projectDirPath = "";
@@ -515,19 +585,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */,
+				1DC7C321297AEC0800A451DE /* PinModel.swift in Sources */,
 				1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */,
 				1D239C56297040C400A166A2 /* Lotties.swift in Sources */,
 				1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */,
 				1D239C8A297052A800A166A2 /* Fonts.swift in Sources */,
 				1D239C8C297053E800A166A2 /* Assets.swift in Sources */,
+				1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */,
+				1DC7C324297AEE4000A451DE /* Engine.swift in Sources */,
+				1DC7C328297AEF0700A451DE /* LoadedData.swift in Sources */,
 				1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */,
 				1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */,
 				1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */,
 				1D239C49296F71B700A166A2 /* Strings.swift in Sources */,
+				1DC7C32E297E803C00A451DE /* FileStoredData.swift in Sources */,
 				1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */,
 				1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */,
 				1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */,
 				1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */,
+				1DC7C31F297AEB7800A451DE /* AddressAutocompleteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,7 +611,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D239C27296F4C4300A166A2 /* MapPinsTests.swift in Sources */,
+				1D239C27296F4C4300A166A2 /* PinServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,6 +963,14 @@
 				kind = branch;
 			};
 		};
+		1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/omaralbeik/Stores";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -894,6 +978,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1D239C5A297043FB00A166A2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		1D32ED62297EC97F003126D9 /* FileSystemStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */;
+			productName = FileSystemStore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
