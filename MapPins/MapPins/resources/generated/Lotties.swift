@@ -15,6 +15,7 @@ internal enum Lottie {
   internal static let people = LottieAnimation.named("people")!
   internal static let rating = LottieAnimation.named("rating")!
   internal static let yummy = LottieAnimation.named("yummy")!
+  internal static let yummyDark = LottieAnimation.named("yummy-dark")!
 }
 // swiftlint:enable identifier_name line_length number_separator type_body_length
 

@@ -46,6 +46,7 @@
 		1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D32ED62297EC97F003126D9 /* FileSystemStore */; };
 		1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */; };
 		1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9BBC7829795023005DDBA9 /* TextViews.swift */; };
+		1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA0A32E298279CC007FED5C /* yummy-dark.json */; };
 		1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */; };
 		1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */; };
 		1DC7C31F297AEB7800A451DE /* AddressAutocompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */; };
@@ -119,6 +120,7 @@
 		1D239C8B297053E800A166A2 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
 		1D9BBC7829795023005DDBA9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		1DA0A32E298279CC007FED5C /* yummy-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "yummy-dark.json"; sourceTree = "<group>"; };
 		1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroViewStep.swift; sourceTree = "<group>"; };
 		1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutocompleteModel.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				1D239C4D2970174A00A166A2 /* people.json */,
 				1D239C4F2970174A00A166A2 /* rating.json */,
 				1D239C4E2970174A00A166A2 /* yummy.json */,
+				1DA0A32E298279CC007FED5C /* yummy-dark.json */,
 			);
 			path = animations;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				1D239C512970174A00A166A2 /* people.json in Resources */,
 				1D239C87297050DB00A166A2 /* Poppins-ExtraBold.ttf in Resources */,
 				1D239C1D296F4C4300A166A2 /* Preview Assets.xcassets in Resources */,
+				1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */,
 				1D239C44296F57C500A166A2 /* Localizable.strings in Resources */,
 				1D239C7C297050DB00A166A2 /* Poppins-Black.ttf in Resources */,
 				1D239C532970174A00A166A2 /* rating.json in Resources */,

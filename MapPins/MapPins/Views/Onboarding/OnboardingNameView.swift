@@ -15,7 +15,7 @@ struct OnboardingNameView: View {
         VStack {
             VStack {
                 LottieView(animation: Lottie.people, loop: true)
-                    .frame(maxHeight: 400)
+                    .frame(maxHeight: 380)
                 VStack {
                     L10n.Onboarding.Name.title.swiftUITitle()
                     L10n.Onboarding.Name.description.swiftUIDescription()

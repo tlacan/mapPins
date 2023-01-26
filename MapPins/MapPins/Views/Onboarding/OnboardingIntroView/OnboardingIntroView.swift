@@ -9,6 +9,8 @@ import SwiftUI
 import Lottie
 
 struct OnboardingIntroView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     @State var showNameScreen: Bool = false
     @State var index: Int = 0
 
@@ -58,7 +60,7 @@ struct OnboardingIntroView: View {
         HStack(spacing: 12) {
             ForEach(0..<steps.count, id: \.self) { pageIndex in
                 Circle()
-                    .fill(index == pageIndex ? Color.black : Color.gray)
+                    .fill(index == pageIndex ? XCAsset.Colors.black.swiftUIColor : Color.gray)
                     .frame(width: index == pageIndex ? 8 : 6,
                            height: index == pageIndex ? 8 : 6)
                     .transition(AnyTransition.opacity)
@@ -69,7 +71,7 @@ struct OnboardingIntroView: View {
 
     @ViewBuilder func onboardingIntroViewStepView(_ step: OnboardingIntroViewStep) -> some View {
         VStack(spacing: UIProperties.Padding.verySmall.rawValue) {
-            LottieView(animation: step.lottie, loop: true)
+            LottieView(animation: colorScheme == .dark ? (step.lottieDark ?? step.lottie) : step.lottie, loop: true)
             step.text.swiftUIDescription()
                 .padding(.horizontal)
                 .multilineTextAlignment(.center)

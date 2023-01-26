@@ -1,5 +1,5 @@
-MapPins.xcodeproj/xcuserdata/*
-
+MapPins/MapPins.xcodeproj/xcuserdata/*
+MapPins/MapPins.xcodeproj/project.xcworkspace/xcuserdata/*
 # Others
 .DS_Store
 Pods/Pods.xcodeproj/xcuserdata
