@@ -15,6 +15,12 @@ extension String {
             .foregroundColor(XCAsset.Colors.text.swiftUIColor)
     }
 
+    func swiftUISectionHeader() -> some View {
+        Text(self)
+            .font(FontFamily.Poppins.bold.swiftUIFont(size: UIProperties.TextSize.sectionHeader.rawValue))
+            .foregroundColor(XCAsset.Colors.text.swiftUIColor)
+    }
+
     func swiftUIDescription() -> some View {
         Text(self)
             .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))

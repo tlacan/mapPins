@@ -8,6 +8,10 @@
 
 "general.ok" = "OK";
 "general.next" = "Next";
+"general.save" = "Save";
+"general.noResult" = "No Result";
+"general.delete" = "Delete";
+
 "intro.title" = "Welcome!";
 "intro.step1.description" = "Pins your favorite places!";
 "intro.step1.subtitle" = "Find easily all the places you like, classified in categories.";
@@ -20,3 +24,24 @@
 "onboarding.name.title" = "Hey!";
 "onboarding.name.description" = "We would like to know, what is your name?";
 "onboarding.name.placeholder" = "Name";
+
+"search.title" = "Search";
+"search.placeholder" = "Search Address";
+
+"createPin.title" = "Let's Add a Pin";
+"createPin.name" = "Name";
+"createPin.address" = "Address";
+"createPin.category" = "Pick a category";
+"createPin.rate" = "Rate";
+"createPin.pictures" = "Pictures";
+"createPin.images" = "Images";
+"createPin.image.library" = "Add From Library";
+"createPin.image.camera" = "Add From Camera";
+
+"category.restaurant" = "Restaurant";
+"category.bar" = "Bar";
+"category.bakery" = "Bakery";
+"category.coffee" = "Coffee";
+"category.site" = "Site";
+"category.accomodation" = "Accomodation";
+

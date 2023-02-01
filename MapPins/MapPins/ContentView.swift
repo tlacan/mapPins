@@ -9,26 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @AppStorage(UserDefaultsKeys.onboardingCompleted.rawValue) var onboardingCompleted: Bool = false
+    let engine: Engine
 
     var body: some View {
         ZStack {
             if onboardingCompleted {
-                VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                    Text("Hello, world!")
-                }
+                CreatePinView(engine: engine)
+                //AddressSearchView(didPickAddress: { _ in })
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 OnboardingIntroView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

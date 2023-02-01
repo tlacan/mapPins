@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "imagepickerview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ralfebert/ImagePickerView",
+      "state" : {
+        "revision" : "b84dd1c85a65cddba40c89699cd63ba0cb248dbd",
+        "version" : "0.5.0"
+      }
+    },
+    {
       "identity" : "kanna",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tid-kijyun/Kanna.git",
@@ -82,6 +91,15 @@
       }
     },
     {
+      "identity" : "starrating",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dkk/StarRating",
+      "state" : {
+        "revision" : "89dba504097ddd4166bb118d615e201619a1602f",
+        "version" : "2.0.0"
+      }
+    },
+    {
       "identity" : "stencil",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/stencilproject/Stencil.git",
@@ -142,6 +160,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "693e504258af50f0a07750c1571196be54e26e66"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
+      "state" : {
+        "revision" : "f2616860a41f9d9932da412a8978fec79c06fe24",
+        "version" : "0.1.4"
       }
     },
     {

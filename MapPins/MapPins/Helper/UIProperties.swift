@@ -8,8 +8,13 @@
 import Foundation
 
 struct UIProperties {
+    enum Button: CGFloat {
+        case height = 50
+    }
+
     enum TextSize: CGFloat {
         case title = 25
+        case sectionHeader = 18
         case description = 15
         case subtitle = 13
     }

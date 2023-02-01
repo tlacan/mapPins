@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MapPinsApp: App {
+    let engine = Engine()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(engine: engine)
         }
     }
 }

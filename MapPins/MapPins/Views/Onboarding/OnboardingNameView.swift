@@ -23,7 +23,7 @@ struct OnboardingNameView: View {
                         .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
                         .textFieldStyle(.roundedBorder)
                         .textContentType(.givenName)
-                        .disableAutocorrection(true)
+                        .autocorrectionDisabled()
                 }.padding(.horizontal)
             }.frame(maxHeight: .infinity)
             ButtonView(text: L10n.General.ok, action: {

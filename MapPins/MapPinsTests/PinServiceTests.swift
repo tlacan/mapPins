@@ -10,8 +10,8 @@ import XCTest
 
 final class PinServiceTests: XCTestCase {
     let pinService = PinService()
-    let testPin1 = PinModel(name: "Pin", latitude: 1.0, longitude: 1.0, images: [], rating: 1.0, category: .accomodation)
-    let testPin2 = PinModel(name: "Pin2", latitude: 1.0, longitude: 1.0, images: [], rating: 1.0, category: .bar)
+    let testPin1 = PinModel(name: "Pin", address: AddressAutocompleteModel(title: "address1", subtitle: "address2"), images: [], rating: 1.0, category: .accomodation)
+    let testPin2 = PinModel(name: "Pin2", address: AddressAutocompleteModel(title: "address1", subtitle: "address2"), images: [], rating: 1.0, category: .bar)
 
     override func tearDown() {
         super.tearDown()
@@ -67,7 +67,7 @@ final class PinServiceTests: XCTestCase {
         initTest()
         XCTAssertNil(pinService.savePin(testPin1))
         XCTAssertTrue(pinService.pins.responseArray?.count == 1)
-        guard var pinToDelete = pinService.pins.responseArray?.first else {
+        guard let pinToDelete = pinService.pins.responseArray?.first else {
             XCTFail("[PinServiceTests] test delete no first value")
             return
         }

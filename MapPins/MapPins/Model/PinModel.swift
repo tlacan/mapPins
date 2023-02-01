@@ -12,18 +12,13 @@ import UIKit
 struct PinModel: Identifiable, Codable {
     var id = UUID()
     var name: String
-    var latitude: Double
-    var longitude: Double
-    var images: [String]
-    var rating: Double
+    var address: AddressAutocompleteModel
+    var images: [Data]
+    var rating: Double?
     var category: PinCategory
-
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }
 }
 
-enum PinCategory: String, Codable {
+enum PinCategory: String, Codable, CaseIterable {
     case restaurant
     case bakery
     case coffee
@@ -45,6 +40,23 @@ enum PinCategory: String, Codable {
             return UIImage(systemName: "building.columns")
         case .accomodation:
             return UIImage(systemName: "house")
+        }
+    }
+
+    var uiText: String {
+        switch self {
+        case .restaurant:
+            return L10n.Category.restaurant
+        case .bakery:
+            return L10n.Category.bakery
+        case .coffee:
+            return L10n.Category.coffee
+        case .bar:
+            return L10n.Category.bar
+        case .site:
+            return L10n.Category.site
+        case .accomodation:
+            return L10n.Category.accomodation
         }
     }
 }

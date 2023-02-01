@@ -43,10 +43,14 @@
 		1D239C87297050DB00A166A2 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C6D297050C300A166A2 /* Poppins-ExtraBold.ttf */; };
 		1D239C8A297052A800A166A2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C89297052A800A166A2 /* Fonts.swift */; };
 		1D239C8C297053E800A166A2 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C8B297053E800A166A2 /* Assets.swift */; };
+		1D3020B1298ABBA5009A1C2C /* FooterGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3020B0298ABBA5009A1C2C /* FooterGradient.swift */; };
 		1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D32ED62297EC97F003126D9 /* FileSystemStore */; };
 		1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */; };
 		1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9BBC7829795023005DDBA9 /* TextViews.swift */; };
 		1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA0A32E298279CC007FED5C /* yummy-dark.json */; };
+		1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */; };
+		1DA0A3372982D16E007FED5C /* EmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3362982D16E007FED5C /* EmptyList.swift */; };
+		1DA0A3392982D750007FED5C /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3382982D750007FED5C /* AddressSearchViewModel.swift */; };
 		1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */; };
 		1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */; };
 		1DC7C31F297AEB7800A451DE /* AddressAutocompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */; };
@@ -59,6 +63,12 @@
 		1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F42976980500AF4E64 /* LottieView.swift */; };
 		1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */; };
 		1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */; };
+		1DF947B62983DE5B005B6DDD /* CreatePinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF947B52983DE5B005B6DDD /* CreatePinView.swift */; };
+		1DF947B82983DFD6005B6DDD /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF947B72983DFD6005B6DDD /* CloseButton.swift */; };
+		1DF947BC298411B7005B6DDD /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF947BB298411B7005B6DDD /* BackButton.swift */; };
+		1DF947BF29841DD3005B6DDD /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 1DF947BE29841DD3005B6DDD /* Introspect */; };
+		1DF947C2298434B7005B6DDD /* StarRating in Frameworks */ = {isa = PBXBuildFile; productRef = 1DF947C1298434B7005B6DDD /* StarRating */; };
+		1DF947C52984818A005B6DDD /* ImagePickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 1DF947C42984818A005B6DDD /* ImagePickerView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,9 +128,13 @@
 		1D239C882970514B00A166A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1D239C89297052A800A166A2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		1D239C8B297053E800A166A2 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		1D3020B0298ABBA5009A1C2C /* FooterGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterGradient.swift; sourceTree = "<group>"; };
 		1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
 		1D9BBC7829795023005DDBA9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		1DA0A32E298279CC007FED5C /* yummy-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "yummy-dark.json"; sourceTree = "<group>"; };
+		1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
+		1DA0A3362982D16E007FED5C /* EmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyList.swift; sourceTree = "<group>"; };
+		1DA0A3382982D750007FED5C /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 		1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroViewStep.swift; sourceTree = "<group>"; };
 		1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutocompleteModel.swift; sourceTree = "<group>"; };
@@ -133,6 +147,9 @@
 		1DE6F2F42976980500AF4E64 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProperties.swift; sourceTree = "<group>"; };
 		1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		1DF947B52983DE5B005B6DDD /* CreatePinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinView.swift; sourceTree = "<group>"; };
+		1DF947B72983DFD6005B6DDD /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		1DF947BB298411B7005B6DDD /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +157,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DF947C52984818A005B6DDD /* ImagePickerView in Frameworks */,
 				1D239C5C297043FB00A166A2 /* Lottie in Frameworks */,
+				1DF947C2298434B7005B6DDD /* StarRating in Frameworks */,
+				1DF947BF29841DD3005B6DDD /* Introspect in Frameworks */,
 				1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,16 +321,19 @@
 			path = OnboardingIntroView;
 			sourceTree = "<group>";
 		};
-		1DC7C319297AEB1800A451DE /* Map */ = {
+		1DC7C319297AEB1800A451DE /* AddressSearch */ = {
 			isa = PBXGroup;
 			children = (
+				1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */,
+				1DA0A3382982D750007FED5C /* AddressSearchViewModel.swift */,
 			);
-			path = Map;
+			path = AddressSearch;
 			sourceTree = "<group>";
 		};
 		1DC7C31A297AEB2F00A451DE /* CreatePin */ = {
 			isa = PBXGroup;
 			children = (
+				1DF947B52983DE5B005B6DDD /* CreatePinView.swift */,
 			);
 			path = CreatePin;
 			sourceTree = "<group>";
@@ -347,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				1DC7C31A297AEB2F00A451DE /* CreatePin */,
-				1DC7C319297AEB1800A451DE /* Map */,
+				1DC7C319297AEB1800A451DE /* AddressSearch */,
 				1DE6F2F92976E93F00AF4E64 /* Components */,
 				1DE6F2EE29768E5000AF4E64 /* Onboarding */,
 			);
@@ -378,6 +401,10 @@
 				1DE6F2F42976980500AF4E64 /* LottieView.swift */,
 				1D9BBC7829795023005DDBA9 /* TextViews.swift */,
 				1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */,
+				1DA0A3362982D16E007FED5C /* EmptyList.swift */,
+				1DF947B72983DFD6005B6DDD /* CloseButton.swift */,
+				1DF947BB298411B7005B6DDD /* BackButton.swift */,
+				1D3020B0298ABBA5009A1C2C /* FooterGradient.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -403,6 +430,9 @@
 			packageProductDependencies = (
 				1D239C5B297043FB00A166A2 /* Lottie */,
 				1D32ED62297EC97F003126D9 /* FileSystemStore */,
+				1DF947BE29841DD3005B6DDD /* Introspect */,
+				1DF947C1298434B7005B6DDD /* StarRating */,
+				1DF947C42984818A005B6DDD /* ImagePickerView */,
 			);
 			productName = MapPins;
 			productReference = 1D239C12296F4C4200A166A2 /* MapPins.app */;
@@ -481,6 +511,9 @@
 				1D239C5A297043FB00A166A2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				1D239C8D2970556800A166A2 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */,
+				1DF947BD29841DD3005B6DDD /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				1DF947C0298434B7005B6DDD /* XCRemoteSwiftPackageReference "StarRating" */,
+				1DF947C32984818A005B6DDD /* XCRemoteSwiftPackageReference "ImagePickerView" */,
 			);
 			productRefGroup = 1D239C13296F4C4200A166A2 /* Products */;
 			projectDirPath = "";
@@ -592,7 +625,9 @@
 				1DC7C321297AEC0800A451DE /* PinModel.swift in Sources */,
 				1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */,
 				1D239C56297040C400A166A2 /* Lotties.swift in Sources */,
+				1DF947B62983DE5B005B6DDD /* CreatePinView.swift in Sources */,
 				1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */,
+				1DA0A3392982D750007FED5C /* AddressSearchViewModel.swift in Sources */,
 				1D239C8A297052A800A166A2 /* Fonts.swift in Sources */,
 				1D239C8C297053E800A166A2 /* Assets.swift in Sources */,
 				1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */,
@@ -601,12 +636,17 @@
 				1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */,
 				1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */,
 				1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */,
+				1DF947B82983DFD6005B6DDD /* CloseButton.swift in Sources */,
 				1D239C49296F71B700A166A2 /* Strings.swift in Sources */,
+				1D3020B1298ABBA5009A1C2C /* FooterGradient.swift in Sources */,
+				1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */,
 				1DC7C32E297E803C00A451DE /* FileStoredData.swift in Sources */,
 				1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */,
 				1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */,
 				1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */,
+				1DA0A3372982D16E007FED5C /* EmptyList.swift in Sources */,
 				1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */,
+				1DF947BC298411B7005B6DDD /* BackButton.swift in Sources */,
 				1DC7C31F297AEB7800A451DE /* AddressAutocompleteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -782,8 +822,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapPins/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -810,8 +849,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapPins/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -975,6 +1013,30 @@
 				minimumVersion = 0.4.1;
 			};
 		};
+		1DF947BD29841DD3005B6DDD /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+		1DF947C0298434B7005B6DDD /* XCRemoteSwiftPackageReference "StarRating" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/StarRating";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		1DF947C32984818A005B6DDD /* XCRemoteSwiftPackageReference "ImagePickerView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ralfebert/ImagePickerView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -987,6 +1049,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */;
 			productName = FileSystemStore;
+		};
+		1DF947BE29841DD3005B6DDD /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DF947BD29841DD3005B6DDD /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+		1DF947C1298434B7005B6DDD /* StarRating */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DF947C0298434B7005B6DDD /* XCRemoteSwiftPackageReference "StarRating" */;
+			productName = StarRating;
+		};
+		1DF947C42984818A005B6DDD /* ImagePickerView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DF947C32984818A005B6DDD /* XCRemoteSwiftPackageReference "ImagePickerView" */;
+			productName = ImagePickerView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,14 +10,56 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Category {
+    /// Accomodation
+    internal static let accomodation = L10n.tr("Localizable", "category.accomodation", fallback: "Accomodation")
+    /// Bakery
+    internal static let bakery = L10n.tr("Localizable", "category.bakery", fallback: "Bakery")
+    /// Bar
+    internal static let bar = L10n.tr("Localizable", "category.bar", fallback: "Bar")
+    /// Coffee
+    internal static let coffee = L10n.tr("Localizable", "category.coffee", fallback: "Coffee")
+    /// Restaurant
+    internal static let restaurant = L10n.tr("Localizable", "category.restaurant", fallback: "Restaurant")
+    /// Site
+    internal static let site = L10n.tr("Localizable", "category.site", fallback: "Site")
+  }
+  internal enum CreatePin {
+    /// Address
+    internal static let address = L10n.tr("Localizable", "createPin.address", fallback: "Address")
+    /// Pick a category
+    internal static let category = L10n.tr("Localizable", "createPin.category", fallback: "Pick a category")
+    /// Images
+    internal static let images = L10n.tr("Localizable", "createPin.images", fallback: "Images")
+    /// Name
+    internal static let name = L10n.tr("Localizable", "createPin.name", fallback: "Name")
+    /// Pictures
+    internal static let pictures = L10n.tr("Localizable", "createPin.pictures", fallback: "Pictures")
+    /// Rate
+    internal static let rate = L10n.tr("Localizable", "createPin.rate", fallback: "Rate")
+    /// Let's Add a Pin
+    internal static let title = L10n.tr("Localizable", "createPin.title", fallback: "Let's Add a Pin")
+    internal enum Image {
+      /// Add From Camera
+      internal static let camera = L10n.tr("Localizable", "createPin.image.camera", fallback: "Add From Camera")
+      /// Add From Library
+      internal static let library = L10n.tr("Localizable", "createPin.image.library", fallback: "Add From Library")
+    }
+  }
   internal enum General {
+    /// Delete
+    internal static let delete = L10n.tr("Localizable", "general.delete", fallback: "Delete")
     /// Next
     internal static let next = L10n.tr("Localizable", "general.next", fallback: "Next")
+    /// No Result
+    internal static let noResult = L10n.tr("Localizable", "general.noResult", fallback: "No Result")
     /// Localizable.strings
     ///   MapPins
     /// 
     ///   Created by thomas lacan on 11/01/2023.
     internal static let ok = L10n.tr("Localizable", "general.ok", fallback: "OK")
+    /// Save
+    internal static let save = L10n.tr("Localizable", "general.save", fallback: "Save")
   }
   internal enum Intro {
     /// Welcome!
@@ -48,6 +90,12 @@ internal enum L10n {
       /// Hey!
       internal static let title = L10n.tr("Localizable", "onboarding.name.title", fallback: "Hey!")
     }
+  }
+  internal enum Search {
+    /// Search Address
+    internal static let placeholder = L10n.tr("Localizable", "search.placeholder", fallback: "Search Address")
+    /// Search
+    internal static let title = L10n.tr("Localizable", "search.title", fallback: "Search")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
