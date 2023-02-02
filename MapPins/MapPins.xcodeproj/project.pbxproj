@@ -13,6 +13,12 @@
 		1D0353DE298BE25500B4AFD2 /* PinImages16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353DD298BE25500B4AFD2 /* PinImages16View.swift */; };
 		1D0353E0298BE30400B4AFD2 /* PinImageThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353DF298BE30400B4AFD2 /* PinImageThumbView.swift */; };
 		1D0353E2298BEC4B00B4AFD2 /* PinImages15View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353E1298BEC4B00B4AFD2 /* PinImages15View.swift */; };
+		1D0353E8298C106600B4AFD2 /* PinMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353E7298C106600B4AFD2 /* PinMapViewController.swift */; };
+		1D0353EA298C118200B4AFD2 /* PinMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D0353E9298C118200B4AFD2 /* PinMapViewController.xib */; };
+		1D0353EC298C13DC00B4AFD2 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353EB298C13DC00B4AFD2 /* MapItem.swift */; };
+		1D0353EE298C175E00B4AFD2 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353ED298C175E00B4AFD2 /* ClusterAnnotationView.swift */; };
+		1D0353F0298C18D200B4AFD2 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353EF298C18D200B4AFD2 /* PinAnnotationView.swift */; };
+		1D0353F2298C19BD00B4AFD2 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353F1298C19BD00B4AFD2 /* MapScreen.swift */; };
 		1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C15296F4C4200A166A2 /* MapPinsApp.swift */; };
 		1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C17296F4C4200A166A2 /* ContentView.swift */; };
 		1D239C1A296F4C4300A166A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C19296F4C4300A166A2 /* Assets.xcassets */; };
@@ -101,6 +107,12 @@
 		1D0353DD298BE25500B4AFD2 /* PinImages16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImages16View.swift; sourceTree = "<group>"; };
 		1D0353DF298BE30400B4AFD2 /* PinImageThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImageThumbView.swift; sourceTree = "<group>"; };
 		1D0353E1298BEC4B00B4AFD2 /* PinImages15View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImages15View.swift; sourceTree = "<group>"; };
+		1D0353E7298C106600B4AFD2 /* PinMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMapViewController.swift; sourceTree = "<group>"; };
+		1D0353E9298C118200B4AFD2 /* PinMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinMapViewController.xib; sourceTree = "<group>"; };
+		1D0353EB298C13DC00B4AFD2 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
+		1D0353ED298C175E00B4AFD2 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
+		1D0353EF298C18D200B4AFD2 /* PinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotationView.swift; sourceTree = "<group>"; };
+		1D0353F1298C19BD00B4AFD2 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		1D239C12296F4C4200A166A2 /* MapPins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapPins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D239C15296F4C4200A166A2 /* MapPinsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinsApp.swift; sourceTree = "<group>"; };
 		1D239C17296F4C4200A166A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -198,6 +210,12 @@
 			isa = PBXGroup;
 			children = (
 				1D0353D0298BBEC000B4AFD2 /* PinMapView.swift */,
+				1D0353E7298C106600B4AFD2 /* PinMapViewController.swift */,
+				1D0353E9298C118200B4AFD2 /* PinMapViewController.xib */,
+				1D0353EB298C13DC00B4AFD2 /* MapItem.swift */,
+				1D0353ED298C175E00B4AFD2 /* ClusterAnnotationView.swift */,
+				1D0353EF298C18D200B4AFD2 /* PinAnnotationView.swift */,
+				1D0353F1298C19BD00B4AFD2 /* MapScreen.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -582,6 +600,7 @@
 				1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */,
 				1D239C44296F57C500A166A2 /* Localizable.strings in Resources */,
 				1D239C7C297050DB00A166A2 /* Poppins-Black.ttf in Resources */,
+				1D0353EA298C118200B4AFD2 /* PinMapViewController.xib in Resources */,
 				1D239C532970174A00A166A2 /* rating.json in Resources */,
 				1D239C7F297050DB00A166A2 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				1D239C5E2970465200A166A2 /* Colors.xcassets in Resources */,
@@ -674,9 +693,14 @@
 				1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */,
 				1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */,
 				1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */,
+				1D0353E8298C106600B4AFD2 /* PinMapViewController.swift in Sources */,
+				1D0353EC298C13DC00B4AFD2 /* MapItem.swift in Sources */,
 				1DF947B82983DFD6005B6DDD /* CloseButton.swift in Sources */,
+				1D0353EE298C175E00B4AFD2 /* ClusterAnnotationView.swift in Sources */,
 				1D239C49296F71B700A166A2 /* Strings.swift in Sources */,
+				1D0353F2298C19BD00B4AFD2 /* MapScreen.swift in Sources */,
 				1D3020B1298ABBA5009A1C2C /* FooterGradient.swift in Sources */,
+				1D0353F0298C18D200B4AFD2 /* PinAnnotationView.swift in Sources */,
 				1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */,
 				1DC7C32E297E803C00A451DE /* FileStoredData.swift in Sources */,
 				1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */,

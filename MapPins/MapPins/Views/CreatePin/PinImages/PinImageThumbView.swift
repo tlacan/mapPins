@@ -10,7 +10,7 @@ import SwiftUI
 struct PinImageThumbView: View {
     @Environment(\.mainWindowSize) var mainWindowSize
 
-    @StateObject var viewModel: CreateEditPinViewModel
+    @ObservedObject var viewModel: CreateEditPinViewModel
     let col: Int
     let row: Int
 

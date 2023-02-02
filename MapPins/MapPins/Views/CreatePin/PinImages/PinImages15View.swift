@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct PinImages15View: View {
-    @StateObject var viewModel: CreateEditPinViewModel
-
-    init(viewModel: CreateEditPinViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
+    @ObservedObject var viewModel: CreateEditPinViewModel
 
     var body: some View {
         VStack(alignment: .leading) {

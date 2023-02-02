@@ -13,9 +13,10 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
+            MapScreen(engine: engine)
             //if onboardingCompleted {
                 //PinMapView(engine: engine)
-                CreateEditPinView(engine: engine)
+                //CreateEditPinView(engine: engine)
                 //AddressSearchView(didPickAddress: { _ in })
             //        .frame(maxWidth: .infinity, maxHeight: .infinity)
             //} else {

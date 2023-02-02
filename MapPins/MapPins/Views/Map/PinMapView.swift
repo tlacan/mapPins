@@ -8,19 +8,15 @@
 import SwiftUI
 import MapKit
 
-struct PinMapView: View {
+struct PinMapView: UIViewControllerRepresentable {
     let engine: Engine
-    @StateObject var pinService: PinService
-    @State var annotations: [PinModel]
-    @State private var region = MKCoordinateRegion(center: UIProperties.Location.parisCenter, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    let delegate: PinMapViewControllerDelegate
 
-    init(engine: Engine) {
-        self.engine = engine
-        _pinService = StateObject(wrappedValue: engine.pinService)
-        annotations = []
+    func makeUIViewController(context: UIViewControllerRepresentableContext<PinMapView>) -> PinMapViewController {
+        PinMapViewController(engine: engine, delegate: delegate)
     }
 
-    var body: some View {
-        EmptyView()
+    func updateUIViewController(_ uiViewController: PinMapViewController, context: UIViewControllerRepresentableContext<PinMapView>) {
+
     }
 }

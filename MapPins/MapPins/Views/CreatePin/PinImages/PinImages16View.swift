@@ -10,12 +10,8 @@ import PhotosUI
 
 @available(iOS 16.0, *)
 struct PinImages16View: View {
-    @StateObject var viewModel: CreateEditPinViewModel
+    @ObservedObject var viewModel: CreateEditPinViewModel
     @State private var selectedItems = [PhotosPickerItem]()
-
-    init(viewModel: CreateEditPinViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
 
     var body: some View {
         VStack(alignment: .leading) {
