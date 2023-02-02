@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct UIProperties {
     enum Button: CGFloat {
@@ -30,5 +31,9 @@ struct UIProperties {
     enum Opacity: CGFloat {
         case disabled = 0.3
         case enabled = 1.0
+    }
+
+    enum Location {
+        static let parisCenter = CLLocationCoordinate2D(latitude: 48.8444, longitude: 2.3333)
     }
 }

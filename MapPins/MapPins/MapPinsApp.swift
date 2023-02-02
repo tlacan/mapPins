@@ -7,13 +7,27 @@
 
 import SwiftUI
 
+struct MainWindowSizeKey: EnvironmentKey {
+    static let defaultValue: CGSize = .zero
+}
+
+extension EnvironmentValues {
+    var mainWindowSize: CGSize {
+        get { self[MainWindowSizeKey.self] }
+        set { self[MainWindowSizeKey.self] = newValue }
+    }
+}
+
 @main
 struct MapPinsApp: App {
     let engine = Engine()
 
     var body: some Scene {
         WindowGroup {
-            ContentView(engine: engine)
+            GeometryReader { geo in
+                ContentView(engine: engine)
+                    .environment(\.mainWindowSize, geo.size)
+            }
         }
     }
 }

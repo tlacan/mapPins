@@ -10,43 +10,35 @@ import StarRating
 import ImagePickerView
 import PhotosUI
 
-struct CreatePinView: View {
+struct CreateEditPinView: View {
     let engine: Engine
 
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel: CreatePinViewModel
+
+    @StateObject var viewModel: CreateEditPinViewModel
     @State var showAddressAutocomplete: Bool = false
-    @State var showCamera: Bool = false
-    @State var showImageDetails: Bool = false
-    @State var detailIndex = 0
     @State var starConfig = StarRatingConfiguration(borderWidth: 1.0, borderColor: Color.yellow, shadowColor: Color.clear)
     @State var imageWidth: CGFloat = 0
-    @State private var selectedItems = [PhotosPickerItem]()
 
     init(engine: Engine) {
         self.engine = engine
-        _viewModel = StateObject(wrappedValue: CreatePinViewModel(engine: engine, editedPin: engine.pinService.pins.responseArray?.first))
+        _viewModel = StateObject(wrappedValue: CreateEditPinViewModel(engine: engine, editedPin: nil))
 
     }
 
     var body: some View {
+        if #available(iOS 16, *) {
+            body16()
+        } else {
+            body15()
+        }
+    }
+
+    @available(iOS 16, *)
+    @ViewBuilder func body16() -> some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
-                VStack(spacing: UIProperties.Padding.medium.rawValue) {
-                    ScrollView(showsIndicators: false) {
-                        VStack(alignment: .leading, spacing: UIProperties.Padding.small.rawValue) {
-                            name()
-                            address()
-                            categories()
-                            rating()
-                            images()
-                            EmptyView().frame(height: UIProperties.Padding.big.rawValue)
-                        }.padding(UIProperties.Padding.medium.rawValue)
-                    }.frame(maxHeight: .infinity)
-                    Color.clear.frame(height: UIProperties.Padding.medium.rawValue * 1 + UIProperties.Button.height.rawValue)
-                }.frame(maxHeight: .infinity)
-                FooterGradient().offset(y: -UIProperties.Padding.medium.rawValue)
-                saveButton().offset(y: -UIProperties.Padding.medium.rawValue)
+                mainContent()
             }
                 .navigationDestination(isPresented: $showAddressAutocomplete) {
                     AddressSearchView { address in
@@ -69,69 +61,88 @@ struct CreatePinView: View {
                         L10n.CreatePin.title.swiftUITitle()
                     }
                 }
-                .sheet(isPresented: $showCamera) {
+                .sheet(isPresented: $viewModel.showCamera) {
                     ImagePickerView(sourceType: .camera) { image in
                         self.viewModel.selectedImages.append(image)
                     }
                 }
-                .sheet(isPresented: $showImageDetails) {
+                .sheet(isPresented: $viewModel.showImageDetails) {
                     imageDetailsView()
                 }
         }
     }
 
-    @ViewBuilder func images() -> some View {
-        VStack(alignment: .leading) {
-            L10n.CreatePin.images.swiftUISectionHeader()
-            VStack(alignment: .leading, spacing: 2) {
-                ForEach(0..<viewModel.imageRows + 1, id: \.self) { row in
-                    HStack(spacing: 2) {
-                        ForEach(0..<3) { col in
-                            if let image = viewModel.image(col: col, row: row) {
-                                Button {
-                                    withAnimation(.default) {
-                                        detailIndex = row * 3 + col
-                                        showImageDetails = true
-                                    }
-                                } label: {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: (UIScreen.main.bounds.width - (6 + UIProperties.Padding.medium.rawValue * 2)) / 3, height: 120)
-                                        .clipped()
-                                }
-                            } else {
-                                Spacer()
-                                    .frame(maxWidth: .infinity)
-                            }
+    @ViewBuilder func body15() -> some View {
+        NavigationView {
+            ZStack(alignment: .bottom) {
+                NavigationLink(isActive: $showAddressAutocomplete) {
+                    AddressSearchView { address in
+                        withAnimation(.default) {
+                            showAddressAutocomplete = false
+                            viewModel.address = address
                         }
                     }
-                }
-            }.frame(maxWidth: .infinity)
-            HStack {
-                PhotosPicker(selection: $selectedItems, matching: .images) {
-                    ButtonView(image: UIImage(systemName: "photo"), text: L10n.CreatePin.Image.library) {
-                    }.disabled(true)
-                }
-                ButtonView(image: UIImage(systemName: "camera"), text: L10n.CreatePin.Image.camera) {
-                    showCamera = true
-                }
-            }.frame(maxWidth: .infinity)
-        }.onChange(of: selectedItems) { items in
-            Task {
-                for item in items {
-                    if let imageData = try? await item.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
-                        viewModel.selectedImages.append(image)
+                } label: { EmptyView() }
+                mainContent()
+            }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        CloseButton {
+                            dismiss()
+                        }
+                    }
+                    ToolbarItem(placement: .principal) {
+                        L10n.CreatePin.title.swiftUITitle()
                     }
                 }
-                selectedItems.removeAll()
-            }
+                .sheet(isPresented: $viewModel.showCamera) {
+                    ImagePickerView(sourceType: .camera) { image in
+                        self.viewModel.selectedImages.append(image)
+                    }
+                }
+                .sheet(isPresented: $viewModel.showImageDetails) {
+                    imageDetailsView()
+                }
+                .sheet(isPresented: $viewModel.showLibrary) {
+                    ImagePickerView(sourceType: .photoLibrary) { image in
+                        self.viewModel.selectedImages.append(image)
+                    }
+                }
+                .onAppear {
+                    let appearance = UINavigationBarAppearance()
+                    appearance.backgroundColor = XCAsset.Colors.background.color
+                    UINavigationBar.appearance().standardAppearance = appearance
+                    UINavigationBar.appearance().scrollEdgeAppearance = appearance
+                }
         }
+    }
+
+    @ViewBuilder func mainContent() -> some View {
+        VStack(spacing: UIProperties.Padding.medium.rawValue) {
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: UIProperties.Padding.small.rawValue) {
+                    name()
+                    address()
+                    categories()
+                    rating()
+                    if #available(iOS 16, *) {
+                        PinImages16View(viewModel: viewModel)
+                    } else {
+                        PinImages15View(viewModel: viewModel)
+                    }
+                    EmptyView().frame(height: UIProperties.Padding.big.rawValue)
+                }.padding(UIProperties.Padding.medium.rawValue)
+            }.frame(maxHeight: .infinity)
+            Color.clear.frame(height: UIProperties.Padding.medium.rawValue * 1 + UIProperties.Button.height.rawValue)
+        }.frame(maxHeight: .infinity)
+        FooterGradient().offset(y: -UIProperties.Padding.medium.rawValue)
+        saveButton().offset(y: -UIProperties.Padding.medium.rawValue)
     }
 
     @ViewBuilder func imageDetailsView() -> some View {
         NavigationView {
-            TabView(selection: $detailIndex) {
+            TabView(selection: $viewModel.detailIndex) {
                 ForEach(0...viewModel.selectedImages.count - 1, id: \.self) { index in
                     Image(uiImage: viewModel.selectedImages[index])
                         .resizable()
@@ -145,19 +156,19 @@ struct CreatePinView: View {
                 .toolbar(content: {
                     ToolbarItem(placement: .cancellationAction, content: {
                         CloseButton {
-                            showImageDetails = false
+                            viewModel.showImageDetails = false
                         }
                     })
                     ToolbarItem(placement: .bottomBar, content: {
                         ButtonView(image: UIImage(systemName: "trash"), text: L10n.General.delete) {
                             if viewModel.selectedImages.count == 1 {
-                                showImageDetails = false
+                                viewModel.showImageDetails = false
                                 viewModel.selectedImages = []
                                 return
                             }
-                            let indexToDelete = detailIndex
-                            if detailIndex == viewModel.selectedImages.count - 1 {
-                                detailIndex -= 1
+                            let indexToDelete = viewModel.detailIndex
+                            if viewModel.detailIndex == viewModel.selectedImages.count - 1 {
+                                viewModel.detailIndex -= 1
                             }
                             viewModel.selectedImages.remove(at: indexToDelete)
                         }
@@ -225,10 +236,13 @@ struct CreatePinView: View {
                                     Circle().fill(XCAsset.Colors.black.swiftUIColor)
                                     if let image = category.image {
                                         Image(uiImage: image)
+                                            .resizable()
                                             .renderingMode(.template)
+                                            .scaledToFit()
                                             .foregroundColor( XCAsset.Colors.background.swiftUIColor)
+                                            .frame(width: 26, height: 26)
                                     }
-                                }
+                                }.frame(width: 36, height: 36)
                             }
                         } else {
                             Button(action: {
@@ -240,8 +254,11 @@ struct CreatePinView: View {
                                     Circle().fill(.clear)
                                     if let image = category.image {
                                         Image(uiImage: image)
+                                            .resizable()
                                             .renderingMode(.template)
+                                            .scaledToFit()
                                             .foregroundColor( XCAsset.Colors.black.swiftUIColor)
+                                            .frame(width: 26, height: 26)
                                     }
                                 }
                             }
@@ -260,79 +277,10 @@ struct CreatePinView: View {
 
     @ViewBuilder func saveButton() -> some View {
         ButtonView(text: L10n.General.save) {
-            viewModel.savePin()
+            Task {
+                await viewModel.savePin()
+            }
         }.opacity(viewModel.formValid ? UIProperties.Opacity.enabled.rawValue : UIProperties.Opacity.disabled.rawValue)
             .disabled(!viewModel.formValid)
-    }
-}
-
-class CreatePinViewModel: ObservableObject {
-    let editedPin: PinModel?
-    let engine: Engine
-
-    @Published var name: String {
-        didSet {
-            updateFormValid()
-        }
-    }
-    @Published var address: AddressAutocompleteModel? {
-        didSet {
-            updateFormValid()
-        }
-    }
-    @Published var category: PinCategory? {
-        didSet {
-            updateFormValid()
-        }
-    }
-    @Published var rating: Double?
-    @Published var formValid = false
-    @Published var selectedImages: [UIImage]
-
-    init(engine: Engine, editedPin: PinModel?) {
-        self.editedPin = editedPin
-        self.engine = engine
-        self.name = editedPin?.name ?? ""
-        self.address = editedPin?.address
-        self.category = editedPin?.category
-        self.rating = editedPin?.rating
-        self.selectedImages = editedPin?.images.compactMap({ UIImage(data: $0) }) ?? []
-        updateFormValid()
-    }
-
-    func updateFormValid() {
-        withAnimation(.default) {
-            if name.isEmpty || address == nil || category == nil {
-                formValid = false
-                return
-            }
-            formValid = true
-        }
-    }
-
-    var imageRows: Int {
-        selectedImages.count % 3 == 0 ? selectedImages.count / 3 : (selectedImages.count / 3 + 1)
-    }
-
-    func image(col: Int, row: Int) -> UIImage? {
-        let index = row * 3 + col
-        if index < selectedImages.count {
-            return selectedImages[index]
-        }
-        return nil
-    }
-
-    func savePin() {
-        guard let address = address, let category = category else { return }
-        let images = selectedImages.compactMap({ $0.pngData() })
-        let newPin = PinModel(id: editedPin?.id ?? UUID(), name: name,
-                              address: address, images: images, rating: rating, category: category)
-        engine.pinService.savePin(newPin)
-    }
-}
-
-struct CreatePinView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreatePinView(engine: Engine())
     }
 }

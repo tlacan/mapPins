@@ -8,5 +8,6 @@
 import Foundation
 
 class Engine {
-    let pinService: PinService = PinService()
+    let pinService = PinService()
+    let geoLocationService = GeoLocationService()
 }

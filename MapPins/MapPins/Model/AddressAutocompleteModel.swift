@@ -15,7 +15,15 @@ struct AddressAutocompleteModel: Identifiable, Codable {
     var latitude: Double?
     var longitude: Double?
 
-    mutating func coordinate() async -> CLLocationCoordinate2D? {
+    var coordinate: CLLocationCoordinate2D? {
+        if let latitude = latitude, let longitude = longitude {
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
+        return nil
+    }
+
+    @discardableResult
+    mutating func loadCoordinate() async -> CLLocationCoordinate2D? {
         if let latitude = latitude, let longitude = longitude {
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         }

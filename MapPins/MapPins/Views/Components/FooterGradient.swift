@@ -15,7 +15,9 @@ struct FooterGradient: View {
                     .init(color: XCAsset.Colors.background.swiftUIColor.opacity(0.01), location: 0),
                     .init(color: XCAsset.Colors.background.swiftUIColor, location: 0.3)
              ]), startPoint: .top, endPoint: .bottom)
-        ).frame(width: UIScreen.main.bounds.width, height: UIProperties.Button.height.rawValue + UIProperties.Padding.medium.rawValue * 2)
+        )
+            .frame(height: UIProperties.Button.height.rawValue + UIProperties.Padding.medium.rawValue * 2)
+            .frame(maxWidth: .infinity)
             .allowsHitTesting(false)
     }
 }

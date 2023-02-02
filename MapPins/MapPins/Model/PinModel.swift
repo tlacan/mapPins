@@ -31,11 +31,19 @@ enum PinCategory: String, Codable, CaseIterable {
         case .restaurant:
             return UIImage(systemName: "fork.knife")
         case .bakery:
-            return UIImage(systemName: "birthday.cake")
+            if #available(iOS 16, *) {
+                return UIImage(systemName: "birthday.cake")
+            } else {
+                return XCAsset.Assets.croissant.image
+            }
         case .coffee:
             return UIImage(systemName: "cup.and.saucer")
         case .bar:
-            return UIImage(systemName: "wineglass")
+            if #available(iOS 16, *) {
+                return UIImage(systemName: "wineglass")
+            } else {
+                return XCAsset.Assets.cocktail.image
+            }
         case .site:
             return UIImage(systemName: "building.columns")
         case .accomodation:

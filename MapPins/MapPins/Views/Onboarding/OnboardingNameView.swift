@@ -31,6 +31,7 @@ struct OnboardingNameView: View {
             })
                 .disabled(name.isEmpty)
                 .opacity(name.isEmpty ? UIProperties.Opacity.disabled.rawValue : UIProperties.Opacity.enabled.rawValue)
+                .padding(.bottom, UIProperties.Padding.medium.rawValue)
         }.navigationBarHidden(true)
     }
 }
