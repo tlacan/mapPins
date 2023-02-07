@@ -29,6 +29,7 @@ internal enum XCAsset {
     internal static let cocktail = ImageAsset(name: "cocktail")
     internal static let croissant = ImageAsset(name: "croissant")
     internal static let logo = ImageAsset(name: "logo")
+    internal static let pin = ImageAsset(name: "pin")
   }
   internal enum Colors {
     internal static let background = ColorAsset(name: "background")

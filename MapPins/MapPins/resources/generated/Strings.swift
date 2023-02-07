@@ -97,6 +97,20 @@ internal enum L10n {
     /// Search
     internal static let title = L10n.tr("Localizable", "search.title", fallback: "Search")
   }
+  internal enum Tab {
+    internal enum List {
+      /// List
+      internal static let title = L10n.tr("Localizable", "tab.list.title", fallback: "List")
+    }
+    internal enum Map {
+      /// Map
+      internal static let title = L10n.tr("Localizable", "tab.map.title", fallback: "Map")
+    }
+    internal enum Settings {
+      /// Settings
+      internal static let title = L10n.tr("Localizable", "tab.settings.title", fallback: "Settings")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

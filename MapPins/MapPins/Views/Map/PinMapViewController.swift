@@ -10,7 +10,6 @@ import UIKit
 import Combine
 import MapKit
 
-
 protocol PinMapViewControllerDelegate: AnyObject {
     func didSelectPin(id: UUID)
 }

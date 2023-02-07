@@ -19,6 +19,10 @@
 		1D0353EE298C175E00B4AFD2 /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353ED298C175E00B4AFD2 /* ClusterAnnotationView.swift */; };
 		1D0353F0298C18D200B4AFD2 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353EF298C18D200B4AFD2 /* PinAnnotationView.swift */; };
 		1D0353F2298C19BD00B4AFD2 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353F1298C19BD00B4AFD2 /* MapScreen.swift */; };
+		1D18F14F298E529500BC0DCA /* UIImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F14E298E529500BC0DCA /* UIImage+Helper.swift */; };
+		1D18F152298FF1EC00BC0DCA /* PinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F151298FF1EC00BC0DCA /* PinListView.swift */; };
+		1D18F1542990489600BC0DCA /* ListSectionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F1532990489600BC0DCA /* ListSectionIndex.swift */; };
+		1D18F156299048C500BC0DCA /* TouchEnterExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F155299048C500BC0DCA /* TouchEnterExit.swift */; };
 		1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C15296F4C4200A166A2 /* MapPinsApp.swift */; };
 		1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C17296F4C4200A166A2 /* ContentView.swift */; };
 		1D239C1A296F4C4300A166A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C19296F4C4300A166A2 /* Assets.xcassets */; };
@@ -113,6 +117,10 @@
 		1D0353ED298C175E00B4AFD2 /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
 		1D0353EF298C18D200B4AFD2 /* PinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotationView.swift; sourceTree = "<group>"; };
 		1D0353F1298C19BD00B4AFD2 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
+		1D18F14E298E529500BC0DCA /* UIImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helper.swift"; sourceTree = "<group>"; };
+		1D18F151298FF1EC00BC0DCA /* PinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinListView.swift; sourceTree = "<group>"; };
+		1D18F1532990489600BC0DCA /* ListSectionIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionIndex.swift; sourceTree = "<group>"; };
+		1D18F155299048C500BC0DCA /* TouchEnterExit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEnterExit.swift; sourceTree = "<group>"; };
 		1D239C12296F4C4200A166A2 /* MapPins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapPins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D239C15296F4C4200A166A2 /* MapPinsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinsApp.swift; sourceTree = "<group>"; };
 		1D239C17296F4C4200A166A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -228,6 +236,14 @@
 				1D0353DF298BE30400B4AFD2 /* PinImageThumbView.swift */,
 			);
 			path = PinImages;
+			sourceTree = "<group>";
+		};
+		1D18F150298FF19D00BC0DCA /* PinList */ = {
+			isa = PBXGroup;
+			children = (
+				1D18F151298FF1EC00BC0DCA /* PinListView.swift */,
+			);
+			path = PinList;
 			sourceTree = "<group>";
 		};
 		1D239C09296F4C4100A166A2 = {
@@ -421,10 +437,11 @@
 		1DE6F2EC29768E4700AF4E64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D18F150298FF19D00BC0DCA /* PinList */,
 				1D0353CB298BBBBE00B4AFD2 /* Map */,
+				1DE6F2EE29768E5000AF4E64 /* Onboarding */,
 				1DC7C31A297AEB2F00A451DE /* CreatePin */,
 				1DE6F2F92976E93F00AF4E64 /* Components */,
-				1DE6F2EE29768E5000AF4E64 /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -443,6 +460,7 @@
 			children = (
 				1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */,
 				1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */,
+				1D18F14E298E529500BC0DCA /* UIImage+Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -457,6 +475,8 @@
 				1DF947B72983DFD6005B6DDD /* CloseButton.swift */,
 				1DF947BB298411B7005B6DDD /* BackButton.swift */,
 				1D3020B0298ABBA5009A1C2C /* FooterGradient.swift */,
+				1D18F1532990489600BC0DCA /* ListSectionIndex.swift */,
+				1D18F155299048C500BC0DCA /* TouchEnterExit.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -684,7 +704,9 @@
 				1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */,
 				1DA0A3392982D750007FED5C /* AddressSearchViewModel.swift in Sources */,
 				1D0353D1298BBEC000B4AFD2 /* PinMapView.swift in Sources */,
+				1D18F152298FF1EC00BC0DCA /* PinListView.swift in Sources */,
 				1D0353DE298BE25500B4AFD2 /* PinImages16View.swift in Sources */,
+				1D18F156299048C500BC0DCA /* TouchEnterExit.swift in Sources */,
 				1D239C8A297052A800A166A2 /* Fonts.swift in Sources */,
 				1D239C8C297053E800A166A2 /* Assets.swift in Sources */,
 				1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */,
@@ -693,6 +715,7 @@
 				1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */,
 				1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */,
 				1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */,
+				1D18F14F298E529500BC0DCA /* UIImage+Helper.swift in Sources */,
 				1D0353E8298C106600B4AFD2 /* PinMapViewController.swift in Sources */,
 				1D0353EC298C13DC00B4AFD2 /* MapItem.swift in Sources */,
 				1DF947B82983DFD6005B6DDD /* CloseButton.swift in Sources */,
@@ -700,6 +723,7 @@
 				1D239C49296F71B700A166A2 /* Strings.swift in Sources */,
 				1D0353F2298C19BD00B4AFD2 /* MapScreen.swift in Sources */,
 				1D3020B1298ABBA5009A1C2C /* FooterGradient.swift in Sources */,
+				1D18F1542990489600BC0DCA /* ListSectionIndex.swift in Sources */,
 				1D0353F0298C18D200B4AFD2 /* PinAnnotationView.swift in Sources */,
 				1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */,
 				1DC7C32E297E803C00A451DE /* FileStoredData.swift in Sources */,

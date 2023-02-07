@@ -20,10 +20,19 @@ class MapItem: NSObject, MKAnnotation {
         self.itemType = pin.category
         self.coordinate = pin.address.coordinate ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
         self.id = pin.id
-        self.image = UIImage(systemName: "mappin") ?? UIImage()
+        self.image = UIImage()
+        super.init()
+        self.image = imageBuilder(category: itemType)
     }
 
-    /*func updateImage() {
-        image = itemType.icon
-    }*/
+    func imageBuilder(category: PinCategory) -> UIImage {
+        let pinImage = XCAsset.Assets.pin.image.preparingThumbnail(of: CGSize(width: 45, height: 45)) ?? XCAsset.Assets.pin.image
+
+        if var catagoryImage = category.image {
+            catagoryImage = catagoryImage.preparingThumbnail(of: CGSize(width: 8, height: 8)) ?? catagoryImage
+            catagoryImage = catagoryImage.withRenderingMode(.alwaysTemplate).withTintColor(.white)
+            return pinImage.withRenderingMode(.alwaysTemplate).withTintColor(category.uiColor).mergeImage(with: catagoryImage, point: CGPoint(x: 13.5, y: 6))
+        }
+        return pinImage
+    }
 }

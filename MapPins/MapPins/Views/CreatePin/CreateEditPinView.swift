@@ -19,6 +19,7 @@ struct CreateEditPinView: View {
     @State var showAddressAutocomplete: Bool = false
     @State var starConfig = StarRatingConfiguration(borderWidth: 1.0, borderColor: Color.yellow, shadowColor: Color.clear)
     @State var imageWidth: CGFloat = 0
+    @FocusState private var addressFocus: Bool
 
     init(engine: Engine) {
         self.engine = engine
@@ -69,6 +70,11 @@ struct CreateEditPinView: View {
                 .sheet(isPresented: $viewModel.showImageDetails) {
                     imageDetailsView()
                 }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                        addressFocus = false
+                    }
+                }
         }
     }
 
@@ -114,6 +120,9 @@ struct CreateEditPinView: View {
                     appearance.backgroundColor = XCAsset.Colors.background.color
                     UINavigationBar.appearance().standardAppearance = appearance
                     UINavigationBar.appearance().scrollEdgeAppearance = appearance
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                        addressFocus = false
+                    }
                 }
         }
     }
@@ -194,6 +203,7 @@ struct CreateEditPinView: View {
         }, set: { _, _ in
 
         }))
+        .focused($addressFocus)
         .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
         .textFieldStyle(.roundedBorder)
         .textContentType(.givenName)

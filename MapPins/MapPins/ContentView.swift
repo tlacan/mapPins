@@ -13,16 +13,25 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            MapScreen(engine: engine)
-            //if onboardingCompleted {
-                //PinMapView(engine: engine)
-                //CreateEditPinView(engine: engine)
-                //AddressSearchView(didPickAddress: { _ in })
-            //        .frame(maxWidth: .infinity, maxHeight: .infinity)
-            //} else {
-                //OnboardingIntroView()
-                //    .frame(maxWidth: .infinity, maxHeight: .infinity)
-           // }
-        }
+            if onboardingCompleted {
+                TabView {
+                    MapScreen(engine: engine)
+                        .tabItem {
+                            Label(L10n.Tab.Map.title, systemImage: "map.fill")
+                        }
+
+                    PinListView(engine: engine)
+                        .tabItem {
+                            Label(L10n.Tab.List.title, systemImage: "list.bullet")
+                        }
+                    Text("toto")
+                        .tabItem {
+                            Label(L10n.Tab.Settings.title, systemImage: "gearshape.fill")
+                        }
+                }
+            } else {
+                OnboardingIntroView()
+            }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

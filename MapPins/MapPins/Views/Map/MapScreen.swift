@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MapScreen: View {
+    @State var showCreate: Bool = false
     @StateObject var viewModel: MapScreenViewModel
     let engine: Engine
 
@@ -17,7 +18,28 @@ struct MapScreen: View {
     }
 
     var body: some View {
-        PinMapView(engine: engine, delegate: viewModel)
+        ZStack(alignment: .bottomTrailing) {
+            PinMapView(engine: engine, delegate: viewModel)
+            addButton()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .sheet(isPresented: $showCreate) {
+            CreateEditPinView(engine: engine)
+        }
+    }
+
+    @ViewBuilder func addButton() -> some View {
+        Button {
+            showCreate = true
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(XCAsset.Colors.background.swiftUIColor)
+                Image(systemName: "plus")
+                    .foregroundColor(XCAsset.Colors.black.swiftUIColor)
+            }.frame(width: 32, height: 32)
+
+        }.offset(x: -UIProperties.Padding.medium.rawValue, y: -UIProperties.Padding.medium.rawValue)
     }
 }
 

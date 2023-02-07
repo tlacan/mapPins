@@ -67,4 +67,21 @@ enum PinCategory: String, Codable, CaseIterable {
             return L10n.Category.accomodation
         }
     }
+
+    var uiColor: UIColor {
+        switch self {
+        case .restaurant:
+            return .red
+        case .bakery:
+            return .yellow
+        case .coffee:
+            return .brown
+        case .bar:
+            return .blue
+        case .site:
+            return .orange
+        case .accomodation:
+            return .green
+        }
+    }
 }
