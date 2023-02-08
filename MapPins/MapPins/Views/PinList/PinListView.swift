@@ -28,8 +28,12 @@ struct PinListView: View {
                         }
                     }.id(letter)
                 }
-
             }.firstLetterSectionIndex(proxy: proxy, sections: viewModel.content.keys.sorted(by: { $0 < $1 }))
+            .emptyListView(displayEmptyList: viewModel.content.isEmpty, emptyListView: {
+                Text(L10n.General.noResult)
+                    .foregroundColor(Color(uiColor: UIColor.systemGray2))
+                    .font(.system(size: 28.0))
+            })
         }.task {
             viewModel.updateContent(pinService.pins.responseArray ?? [])
         }

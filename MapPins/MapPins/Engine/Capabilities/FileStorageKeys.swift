@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum FileStoredData {
+enum FileStorageKeys: String {
     case pins
-
-    var path: String {
-        switch self {
-        case .pins: return "pins"
-        }
-    }
 }

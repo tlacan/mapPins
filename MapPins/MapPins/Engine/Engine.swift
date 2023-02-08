@@ -10,4 +10,5 @@ import Foundation
 class Engine {
     let pinService = PinService()
     let geoLocationService = GeoLocationService()
+    let preferenceService = PreferenceService()
 }

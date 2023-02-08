@@ -91,6 +91,10 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "onboarding.name.title", fallback: "Hey!")
     }
   }
+  internal enum PinFilterView {
+    /// Category Filter
+    internal static let title = L10n.tr("Localizable", "pinFilterView.title", fallback: "Category Filter")
+  }
   internal enum Search {
     /// Search Address
     internal static let placeholder = L10n.tr("Localizable", "search.placeholder", fallback: "Search Address")

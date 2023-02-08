@@ -48,3 +48,5 @@
 "tab.map.title" = "Map";
 "tab.list.title" = "List";
 "tab.settings.title" = "Settings";
+
+"pinFilterView.title" = "Category Filter";

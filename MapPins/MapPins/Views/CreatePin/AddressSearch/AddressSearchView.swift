@@ -40,12 +40,14 @@ struct AddressSearchView: View {
                 .foregroundColor(Color(uiColor: UIColor.systemGray2))
                 .font(.system(size: 28.0))
         })
-        .navigationTitle(L10n.Search.title)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 BackButton {
                     dismiss()
                 }
+            }
+            ToolbarItem(placement: .principal) {
+                L10n.Search.title.swiftUITitle()
             }
         }
         .navigationBarBackButtonHidden()

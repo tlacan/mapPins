@@ -48,10 +48,18 @@ class PinMapViewController: UIViewController {
         }).store(in: &self.cancellables)
 
         engine.pinService.$pins.sink(receiveValue: { [weak self] pins in
-            //remove all anotations
-            self?.mapView.removeAnnotations(self?.mapView.annotations ?? [])
-            self?.configureAnnotations(pins: pins.responseArray ?? [])
+            self?.updateAnnotations(filters: self?.engine.preferenceService.filters ?? [], pins: pins.responseArray ?? [])
         }).store(in: &self.cancellables)
+
+        engine.preferenceService.$filters.sink { [weak self] categories in
+            self?.updateAnnotations(filters: categories, pins: self?.engine.pinService.pins.responseArray ?? [])
+        }.store(in: &self.cancellables)
+    }
+
+    func updateAnnotations(filters: [PinCategory], pins: [PinModel]) {
+        mapView.removeAnnotations(mapView.annotations)
+        let filteredPins = engine.preferenceService.filterPins(filters: filters, pins: pins)
+        configureAnnotations(pins: filteredPins)
     }
 
     func configureCenter() {

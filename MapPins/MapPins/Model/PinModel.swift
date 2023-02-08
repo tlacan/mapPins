@@ -18,7 +18,7 @@ struct PinModel: Identifiable, Codable {
     var category: PinCategory
 }
 
-enum PinCategory: String, Codable, CaseIterable {
+enum PinCategory: String, Codable, CaseIterable, Equatable {
     case restaurant
     case bakery
     case coffee

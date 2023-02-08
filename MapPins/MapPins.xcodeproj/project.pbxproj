@@ -23,6 +23,9 @@
 		1D18F152298FF1EC00BC0DCA /* PinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F151298FF1EC00BC0DCA /* PinListView.swift */; };
 		1D18F1542990489600BC0DCA /* ListSectionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F1532990489600BC0DCA /* ListSectionIndex.swift */; };
 		1D18F156299048C500BC0DCA /* TouchEnterExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F155299048C500BC0DCA /* TouchEnterExit.swift */; };
+		1D18F15C2993993A00BC0DCA /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F15B2993993A00BC0DCA /* PreferencesService.swift */; };
+		1D18F1602993FE4500BC0DCA /* PinFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F15F2993FE4500BC0DCA /* PinFilterView.swift */; };
+		1D18F162299407A600BC0DCA /* Array+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F161299407A600BC0DCA /* Array+Helper.swift */; };
 		1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C15296F4C4200A166A2 /* MapPinsApp.swift */; };
 		1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C17296F4C4200A166A2 /* ContentView.swift */; };
 		1D239C1A296F4C4300A166A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D239C19296F4C4300A166A2 /* Assets.xcassets */; };
@@ -74,7 +77,7 @@
 		1DC7C324297AEE4000A451DE /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C323297AEE4000A451DE /* Engine.swift */; };
 		1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C325297AEE6B00A451DE /* PinService.swift */; };
 		1DC7C328297AEF0700A451DE /* LoadedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C327297AEF0700A451DE /* LoadedData.swift */; };
-		1DC7C32E297E803C00A451DE /* FileStoredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C32D297E803C00A451DE /* FileStoredData.swift */; };
+		1DC7C32E297E803C00A451DE /* FileStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C32D297E803C00A451DE /* FileStorageKeys.swift */; };
 		1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */; };
 		1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F42976980500AF4E64 /* LottieView.swift */; };
 		1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */; };
@@ -121,6 +124,9 @@
 		1D18F151298FF1EC00BC0DCA /* PinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinListView.swift; sourceTree = "<group>"; };
 		1D18F1532990489600BC0DCA /* ListSectionIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionIndex.swift; sourceTree = "<group>"; };
 		1D18F155299048C500BC0DCA /* TouchEnterExit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEnterExit.swift; sourceTree = "<group>"; };
+		1D18F15B2993993A00BC0DCA /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
+		1D18F15F2993FE4500BC0DCA /* PinFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinFilterView.swift; sourceTree = "<group>"; };
+		1D18F161299407A600BC0DCA /* Array+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helper.swift"; sourceTree = "<group>"; };
 		1D239C12296F4C4200A166A2 /* MapPins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapPins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D239C15296F4C4200A166A2 /* MapPinsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinsApp.swift; sourceTree = "<group>"; };
 		1D239C17296F4C4200A166A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -174,7 +180,7 @@
 		1DC7C323297AEE4000A451DE /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		1DC7C325297AEE6B00A451DE /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
 		1DC7C327297AEF0700A451DE /* LoadedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedData.swift; sourceTree = "<group>"; };
-		1DC7C32D297E803C00A451DE /* FileStoredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStoredData.swift; sourceTree = "<group>"; };
+		1DC7C32D297E803C00A451DE /* FileStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageKeys.swift; sourceTree = "<group>"; };
 		1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroView.swift; sourceTree = "<group>"; };
 		1DE6F2F42976980500AF4E64 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProperties.swift; sourceTree = "<group>"; };
@@ -244,6 +250,24 @@
 				1D18F151298FF1EC00BC0DCA /* PinListView.swift */,
 			);
 			path = PinList;
+			sourceTree = "<group>";
+		};
+		1D18F15D29939FD300BC0DCA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1DC7C325297AEE6B00A451DE /* PinService.swift */,
+				1D18F15B2993993A00BC0DCA /* PreferencesService.swift */,
+				1D0353D4298BBFE600B4AFD2 /* GeoLocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1D18F15E2993FE3200BC0DCA /* PinFilter */ = {
+			isa = PBXGroup;
+			children = (
+				1D18F15F2993FE4500BC0DCA /* PinFilterView.swift */,
+			);
+			path = PinFilter;
 			sourceTree = "<group>";
 		};
 		1D239C09296F4C4100A166A2 = {
@@ -417,10 +441,9 @@
 		1DC7C322297AEE3600A451DE /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				1D18F15D29939FD300BC0DCA /* Services */,
 				1DC7C329297E794F00A451DE /* Capabilities */,
 				1DC7C323297AEE4000A451DE /* Engine.swift */,
-				1DC7C325297AEE6B00A451DE /* PinService.swift */,
-				1D0353D4298BBFE600B4AFD2 /* GeoLocationService.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -429,7 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				1DC7C327297AEF0700A451DE /* LoadedData.swift */,
-				1DC7C32D297E803C00A451DE /* FileStoredData.swift */,
+				1DC7C32D297E803C00A451DE /* FileStorageKeys.swift */,
+				1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */,
 			);
 			path = Capabilities;
 			sourceTree = "<group>";
@@ -437,6 +461,7 @@
 		1DE6F2EC29768E4700AF4E64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1D18F15E2993FE3200BC0DCA /* PinFilter */,
 				1D18F150298FF19D00BC0DCA /* PinList */,
 				1D0353CB298BBBBE00B4AFD2 /* Map */,
 				1DE6F2EE29768E5000AF4E64 /* Onboarding */,
@@ -459,8 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */,
-				1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */,
 				1D18F14E298E529500BC0DCA /* UIImage+Helper.swift */,
+				1D18F161299407A600BC0DCA /* Array+Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -698,11 +723,13 @@
 				1D0353E2298BEC4B00B4AFD2 /* PinImages15View.swift in Sources */,
 				1D0353E0298BE30400B4AFD2 /* PinImageThumbView.swift in Sources */,
 				1DC7C321297AEC0800A451DE /* PinModel.swift in Sources */,
+				1D18F15C2993993A00BC0DCA /* PreferencesService.swift in Sources */,
 				1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */,
 				1D239C56297040C400A166A2 /* Lotties.swift in Sources */,
 				1DF947B62983DE5B005B6DDD /* CreateEditPinView.swift in Sources */,
 				1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */,
 				1DA0A3392982D750007FED5C /* AddressSearchViewModel.swift in Sources */,
+				1D18F1602993FE4500BC0DCA /* PinFilterView.swift in Sources */,
 				1D0353D1298BBEC000B4AFD2 /* PinMapView.swift in Sources */,
 				1D18F152298FF1EC00BC0DCA /* PinListView.swift in Sources */,
 				1D0353DE298BE25500B4AFD2 /* PinImages16View.swift in Sources */,
@@ -716,6 +743,7 @@
 				1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */,
 				1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */,
 				1D18F14F298E529500BC0DCA /* UIImage+Helper.swift in Sources */,
+				1D18F162299407A600BC0DCA /* Array+Helper.swift in Sources */,
 				1D0353E8298C106600B4AFD2 /* PinMapViewController.swift in Sources */,
 				1D0353EC298C13DC00B4AFD2 /* MapItem.swift in Sources */,
 				1DF947B82983DFD6005B6DDD /* CloseButton.swift in Sources */,
@@ -726,7 +754,7 @@
 				1D18F1542990489600BC0DCA /* ListSectionIndex.swift in Sources */,
 				1D0353F0298C18D200B4AFD2 /* PinAnnotationView.swift in Sources */,
 				1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */,
-				1DC7C32E297E803C00A451DE /* FileStoredData.swift in Sources */,
+				1DC7C32E297E803C00A451DE /* FileStorageKeys.swift in Sources */,
 				1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */,
 				1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */,
 				1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */,

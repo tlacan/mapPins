@@ -10,4 +10,6 @@ import Foundation
 enum UserDefaultsKeys: String {
     case onboardingCompleted
     case name
+    case filters
+    case colors
 }

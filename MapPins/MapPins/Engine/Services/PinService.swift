@@ -10,7 +10,7 @@ import FileSystemStore
 
 class PinService: ObservableObject {
     @Published var pins: LoadedData<PinModel> = LoadedData()
-    private let store = MultiFileSystemStore<PinModel>(path: FileStoredData.pins.path)
+    private let store = MultiFileSystemStore<PinModel>(path: FileStorageKeys.pins.rawValue)
 
     init() {
         pins = loadPins()
