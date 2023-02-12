@@ -48,11 +48,15 @@ class PinMapViewController: UIViewController {
         }).store(in: &self.cancellables)
 
         engine.pinService.$pins.sink(receiveValue: { [weak self] pins in
-            self?.updateAnnotations(filters: self?.engine.preferenceService.filters ?? [], pins: pins.responseArray ?? [])
+            DispatchQueue.main.async { [weak self] in
+                self?.updateAnnotations(filters: self?.engine.preferenceService.filters ?? [], pins: pins.responseArray ?? [])
+            }
         }).store(in: &self.cancellables)
 
         engine.preferenceService.$filters.sink { [weak self] categories in
-            self?.updateAnnotations(filters: categories, pins: self?.engine.pinService.pins.responseArray ?? [])
+            DispatchQueue.main.async { [weak self] in
+                self?.updateAnnotations(filters: categories, pins: self?.engine.pinService.pins.responseArray ?? [])
+            }
         }.store(in: &self.cancellables)
     }
 

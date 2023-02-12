@@ -50,3 +50,5 @@
 "tab.settings.title" = "Settings";
 
 "pinFilterView.title" = "Category Filter";
+
+"error.geocodeAddress" = "Impossible to get coordinates for this place.";

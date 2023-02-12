@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreLocation
-import UIKit
+import SwiftUI
 
 struct PinModel: Identifiable, Codable {
     var id = UUID()
@@ -68,7 +68,7 @@ enum PinCategory: String, Codable, CaseIterable, Equatable {
         }
     }
 
-    var uiColor: UIColor {
+    var uiColor: Color {
         switch self {
         case .restaurant:
             return .red

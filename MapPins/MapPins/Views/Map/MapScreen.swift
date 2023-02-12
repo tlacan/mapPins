@@ -10,6 +10,7 @@ import SwiftUI
 struct MapScreen: View {
     @State var showCreate: Bool = false
     @State var showFilter: Bool = false
+    @State var showSelected: Bool = false
     @StateObject var viewModel: MapScreenViewModel
     @ObservedObject var preferenceService: PreferenceService
     let engine: Engine
@@ -34,6 +35,11 @@ struct MapScreen: View {
         }
         .sheet(isPresented: $showFilter) {
             PinFilterView(engine: engine)
+        }
+        .sheet(isPresented: $showSelected) {
+            VStack {
+                Text(viewModel.selectedPin?.name ?? "")
+            }
         }
     }
 
@@ -74,6 +80,7 @@ struct MapScreen: View {
     }
 }
 
+@MainActor
 class MapScreenViewModel: ObservableObject {
     let engine: Engine
     @Published var selectedPin: PinModel?

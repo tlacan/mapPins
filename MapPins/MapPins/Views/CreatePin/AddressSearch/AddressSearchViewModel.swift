@@ -30,7 +30,7 @@ extension AddressSearchViewModel: MKLocalSearchCompleterDelegate {
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         Task { @MainActor in
             address = completer.results.map {
-                AddressAutocompleteModel(title: $0.title, subtitle: $0.subtitle)
+                return AddressAutocompleteModel(title: $0.title, subtitle: $0.subtitle)
             }
         }
     }

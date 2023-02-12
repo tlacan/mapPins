@@ -7,12 +7,13 @@
 
 import SwiftUI
 import Introspect
+import MapKit
 
 struct AddressSearchView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: AddressSearchViewModel
     @State var initialized: Bool = false
-
+    @State var displayGeocoderError: Bool = false
     var didPickAddress: (AddressAutocompleteModel) -> Void
 
     init(didPickAddress: @escaping (AddressAutocompleteModel) -> Void) {
@@ -24,7 +25,7 @@ struct AddressSearchView: View {
         List {
             ForEach(viewModel.address) { address in
                 Button(action: {
-                    didPickAddress(address)
+                    addressSelected(address)
                 }) {
                     VStack(alignment: .leading) {
                         Text(address.title)
@@ -60,6 +61,26 @@ struct AddressSearchView: View {
         })
         .onReceive(viewModel.$search.debounce(for: .seconds(1), scheduler: DispatchQueue.main)) {
             viewModel.searchAddress($0)
+        }
+        .alert(L10n.Error.geocodeAddress, isPresented: $displayGeocoderError) {
+            Button(L10n.General.ok, role: .cancel) { }
+        }
+    }
+
+    func addressSelected(_ address: AddressAutocompleteModel) {
+        Task {
+            let geoCoder = CLGeocoder()
+            let location = try? await geoCoder.geocodeAddressString("\(address.title) \(address.subtitle)")
+            if let coordinate = location?.first?.location?.coordinate {
+                var addressResult = address
+                addressResult.latitude = coordinate.latitude
+                addressResult.longitude = coordinate.longitude
+                didPickAddress(addressResult)
+                return
+            }
+            withAnimation(.default) {
+                displayGeocoderError = true
+            }
         }
     }
 }

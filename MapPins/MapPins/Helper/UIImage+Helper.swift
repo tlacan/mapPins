@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImage {
 
-    func mergeImage(with secondImage: UIImage, point: CGPoint? = nil) -> UIImage {
+    func mergeImage(with secondImage: UIImage, point: CGPoint? = nil, offsetY: CGFloat? = nil) -> UIImage {
         let firstImage = self
         let newImageWidth = max(firstImage.size.width, secondImage.size.width)
         let newImageHeight = max(firstImage.size.height, secondImage.size.height)
@@ -21,9 +21,11 @@ extension UIImage {
         let firstImagePoint = CGPoint(x: round((newImageSize.width - firstImage.size.width) / 2),
                                       y: round((newImageSize.height - firstImage.size.height) / 2))
 
-        let secondImagePoint = point ?? CGPoint(x: round((newImageSize.width - secondImage.size.width) / 2),
+        var secondImagePoint = point ?? CGPoint(x: round((newImageSize.width - secondImage.size.width) / 2),
                                                 y: round((newImageSize.height - secondImage.size.height) / 2))
-
+        if let offsetY = offsetY {
+            secondImagePoint.y += offsetY
+        }
         firstImage.draw(at: firstImagePoint)
         secondImage.draw(at: secondImagePoint)
 

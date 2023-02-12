@@ -56,6 +56,7 @@ struct PinListView: View {
     }
 }
 
+@MainActor
 class PinListViewModel: ObservableObject {
     @Published var content: [String: [PinModel]] = [:]
 

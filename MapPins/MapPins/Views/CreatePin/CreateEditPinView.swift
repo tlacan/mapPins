@@ -289,6 +289,7 @@ struct CreateEditPinView: View {
         ButtonView(text: L10n.General.save) {
             Task {
                 await viewModel.savePin()
+                dismiss()
             }
         }.opacity(viewModel.formValid ? UIProperties.Opacity.enabled.rawValue : UIProperties.Opacity.disabled.rawValue)
             .disabled(!viewModel.formValid)

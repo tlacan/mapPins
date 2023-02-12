@@ -46,6 +46,10 @@ internal enum L10n {
       internal static let library = L10n.tr("Localizable", "createPin.image.library", fallback: "Add From Library")
     }
   }
+  internal enum Error {
+    /// Impossible to get coordinates for this place.
+    internal static let geocodeAddress = L10n.tr("Localizable", "error.geocodeAddress", fallback: "Impossible to get coordinates for this place.")
+  }
   internal enum General {
     /// Delete
     internal static let delete = L10n.tr("Localizable", "general.delete", fallback: "Delete")

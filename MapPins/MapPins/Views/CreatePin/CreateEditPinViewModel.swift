@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
+@MainActor
 class CreateEditPinViewModel: ObservableObject {
     let editedPin: PinModel?
     let engine: Engine
@@ -70,9 +71,8 @@ class CreateEditPinViewModel: ObservableObject {
     }
 
     func savePin() async {
-        guard var address = address, let category = category else { return }
+        guard let address = address, let category = category else { return }
         let images = selectedImages.compactMap({ $0.pngData() })
-        await address.loadCoordinate()
         let newPin = PinModel(id: editedPin?.id ?? UUID(), name: name,
                               address: address, images: images, rating: rating, category: category)
         engine.pinService.savePin(newPin)
