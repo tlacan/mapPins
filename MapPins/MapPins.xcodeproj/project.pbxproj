@@ -70,6 +70,11 @@
 		1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */; };
 		1DA0A3372982D16E007FED5C /* EmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3362982D16E007FED5C /* EmptyList.swift */; };
 		1DA0A3392982D750007FED5C /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3382982D750007FED5C /* AddressSearchViewModel.swift */; };
+		1DA0B55529998E51006B6A9E /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA0B55429998E51006B6A9E /* PartialSheet */; };
+		1DA0B55E299A8D40006B6A9E /* AckGen in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA0B55D299A8D40006B6A9E /* AckGen */; };
+		1DA0B560299A8D40006B6A9E /* AckGenUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA0B55F299A8D40006B6A9E /* AckGenUI */; };
+		1DA0B564299A8DA7006B6A9E /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0B563299A8DA7006B6A9E /* SettingsScreen.swift */; };
+		1DA0B566299A92FB006B6A9E /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DA0B565299A92FB006B6A9E /* Acknowledgements.plist */; };
 		1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */; };
 		1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */; };
 		1DC7C31F297AEB7800A451DE /* AddressAutocompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */; };
@@ -173,6 +178,8 @@
 		1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
 		1DA0A3362982D16E007FED5C /* EmptyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyList.swift; sourceTree = "<group>"; };
 		1DA0A3382982D750007FED5C /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
+		1DA0B563299A8DA7006B6A9E /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		1DA0B565299A92FB006B6A9E /* Acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
 		1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroViewStep.swift; sourceTree = "<group>"; };
 		1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutocompleteModel.swift; sourceTree = "<group>"; };
@@ -195,11 +202,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA0B55529998E51006B6A9E /* PartialSheet in Frameworks */,
 				1DF947C52984818A005B6DDD /* ImagePickerView in Frameworks */,
 				1D239C5C297043FB00A166A2 /* Lottie in Frameworks */,
 				1DF947C2298434B7005B6DDD /* StarRating in Frameworks */,
 				1DF947BF29841DD3005B6DDD /* Introspect in Frameworks */,
 				1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */,
+				1DA0B55E299A8D40006B6A9E /* AckGen in Frameworks */,
+				1DA0B560299A8D40006B6A9E /* AckGenUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +351,7 @@
 				1D239C19296F4C4300A166A2 /* Assets.xcassets */,
 				1D239C5D2970465200A166A2 /* Colors.xcassets */,
 				1D239C46296F57C500A166A2 /* Localizable.strings */,
+				1DA0B565299A92FB006B6A9E /* Acknowledgements.plist */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -398,6 +409,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1DA0B562299A8D96006B6A9E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1DA0B563299A8DA7006B6A9E /* SettingsScreen.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		1DC7C2FD2979759C00A451DE /* OnboardingIntroView */ = {
@@ -461,6 +480,7 @@
 		1DE6F2EC29768E4700AF4E64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1DA0B562299A8D96006B6A9E /* Settings */,
 				1D18F15E2993FE3200BC0DCA /* PinFilter */,
 				1D18F150298FF19D00BC0DCA /* PinList */,
 				1D0353CB298BBBBE00B4AFD2 /* Map */,
@@ -514,6 +534,7 @@
 			buildConfigurationList = 1D239C36296F4C4300A166A2 /* Build configuration list for PBXNativeTarget "MapPins" */;
 			buildPhases = (
 				1D239C43296F56B400A166A2 /* SwiftGen */,
+				1DA0B561299A8D55006B6A9E /* Ack Gen */,
 				1D239C0E296F4C4200A166A2 /* Sources */,
 				1D239C0F296F4C4200A166A2 /* Frameworks */,
 				1D239C10296F4C4200A166A2 /* Resources */,
@@ -530,6 +551,9 @@
 				1DF947BE29841DD3005B6DDD /* Introspect */,
 				1DF947C1298434B7005B6DDD /* StarRating */,
 				1DF947C42984818A005B6DDD /* ImagePickerView */,
+				1DA0B55429998E51006B6A9E /* PartialSheet */,
+				1DA0B55D299A8D40006B6A9E /* AckGen */,
+				1DA0B55F299A8D40006B6A9E /* AckGenUI */,
 			);
 			productName = MapPins;
 			productReference = 1D239C12296F4C4200A166A2 /* MapPins.app */;
@@ -611,6 +635,8 @@
 				1DF947BD29841DD3005B6DDD /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				1DF947C0298434B7005B6DDD /* XCRemoteSwiftPackageReference "StarRating" */,
 				1DF947C32984818A005B6DDD /* XCRemoteSwiftPackageReference "ImagePickerView" */,
+				1DA0B55329998E51006B6A9E /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				1DA0B55C299A8D40006B6A9E /* XCRemoteSwiftPackageReference "AckGen" */,
 			);
 			productRefGroup = 1D239C13296F4C4200A166A2 /* Products */;
 			projectDirPath = "";
@@ -651,6 +677,7 @@
 				1D239C5E2970465200A166A2 /* Colors.xcassets in Resources */,
 				1D239C7D297050DB00A166A2 /* Poppins-BlackItalic.ttf in Resources */,
 				1D239C76297050DB00A166A2 /* Poppins-SemiBold.ttf in Resources */,
+				1DA0B566299A92FB006B6A9E /* Acknowledgements.plist in Resources */,
 				1D239C85297050DB00A166A2 /* Poppins-Bold.ttf in Resources */,
 				1D239C1A296F4C4300A166A2 /* Assets.xcassets in Resources */,
 				1D239C542970174A00A166A2 /* map.json in Resources */,
@@ -712,6 +739,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		1DA0B561299A8D55006B6A9E /* Ack Gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Ack Gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "DIR=$PROJECT_TEMP_DIR/../../../SourcePackages/checkouts/AckGen\nif [ -d \"$DIR\" ]; then\n  cd $DIR\n  SDKROOT=(xcrun --sdk macosx --show-sdk-path)\n  swift run ackgen\nelse\n  echo \"warning: AckGen not found. Please install the package via SPM (https://github.com/MartinP7r/AckGen#installation)\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -747,6 +792,7 @@
 				1D0353E8298C106600B4AFD2 /* PinMapViewController.swift in Sources */,
 				1D0353EC298C13DC00B4AFD2 /* MapItem.swift in Sources */,
 				1DF947B82983DFD6005B6DDD /* CloseButton.swift in Sources */,
+				1DA0B564299A8DA7006B6A9E /* SettingsScreen.swift in Sources */,
 				1D0353EE298C175E00B4AFD2 /* ClusterAnnotationView.swift in Sources */,
 				1D239C49296F71B700A166A2 /* Strings.swift in Sources */,
 				1D0353F2298C19BD00B4AFD2 /* MapScreen.swift in Sources */,
@@ -1123,6 +1169,22 @@
 				kind = branch;
 			};
 		};
+		1DA0B55329998E51006B6A9E /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1DA0B55C299A8D40006B6A9E /* XCRemoteSwiftPackageReference "AckGen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MartinP7r/AckGen";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
 		1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/omaralbeik/Stores";
@@ -1167,6 +1229,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */;
 			productName = FileSystemStore;
+		};
+		1DA0B55429998E51006B6A9E /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DA0B55329998E51006B6A9E /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+		1DA0B55D299A8D40006B6A9E /* AckGen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DA0B55C299A8D40006B6A9E /* XCRemoteSwiftPackageReference "AckGen" */;
+			productName = AckGen;
+		};
+		1DA0B55F299A8D40006B6A9E /* AckGenUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DA0B55C299A8D40006B6A9E /* XCRemoteSwiftPackageReference "AckGen" */;
+			productName = AckGenUI;
 		};
 		1DF947BE29841DD3005B6DDD /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;

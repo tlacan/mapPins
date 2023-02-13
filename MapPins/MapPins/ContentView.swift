@@ -24,7 +24,7 @@ struct ContentView: View {
                         .tabItem {
                             Label(L10n.Tab.List.title, systemImage: "list.bullet")
                         }
-                    Text("toto")
+                    SettingsScreen()
                         .tabItem {
                             Label(L10n.Tab.Settings.title, systemImage: "gearshape.fill")
                         }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 struct MainWindowSizeKey: EnvironmentKey {
     static let defaultValue: CGSize = .zero
@@ -25,8 +26,14 @@ struct MapPinsApp: App {
     var body: some Scene {
         WindowGroup {
             GeometryReader { geo in
-                ContentView(engine: engine)
-                    .environment(\.mainWindowSize, geo.size)
+                if #available(iOS 16.0, *) {
+                    ContentView(engine: engine)
+                        .environment(\.mainWindowSize, geo.size)
+                } else {
+                    ContentView(engine: engine)
+                        .environment(\.mainWindowSize, geo.size)
+                        .attachPartialSheetToRoot()
+                }
             }
         }
     }

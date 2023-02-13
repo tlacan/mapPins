@@ -105,6 +105,12 @@ internal enum L10n {
     /// Search
     internal static let title = L10n.tr("Localizable", "search.title", fallback: "Search")
   }
+  internal enum Settings {
+    internal enum Acknowledgements {
+      /// Acknowledgements
+      internal static let entry = L10n.tr("Localizable", "settings.acknowledgements.entry", fallback: "Acknowledgements")
+    }
+  }
   internal enum Tab {
     internal enum List {
       /// List

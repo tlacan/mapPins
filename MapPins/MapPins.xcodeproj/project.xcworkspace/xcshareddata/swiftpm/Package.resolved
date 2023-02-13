@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "ackgen",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MartinP7r/AckGen",
+      "state" : {
+        "revision" : "dc155629c4bcb8eae87407967d4cc777a3b9e438",
+        "version" : "0.1.5"
+      }
+    },
+    {
       "identity" : "collectionconcurrencykit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/JohnSundell/CollectionConcurrencyKit.git",
@@ -52,6 +61,15 @@
       "state" : {
         "revision" : "58523193c26fb821ed1720dcd8a21009055c7cdb",
         "version" : "1.1.3"
+      }
+    },
+    {
+      "identity" : "partialsheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AndreaMiotto/PartialSheet",
+      "state" : {
+        "branch" : "master",
+        "revision" : "415fafa8ed719613b3abc787d52a8aa32a4998b9"
       }
     },
     {

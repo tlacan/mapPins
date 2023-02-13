@@ -27,29 +27,10 @@ struct OnboardingIntroView: View {
     @available(iOS 16, *)
     @ViewBuilder func body16() -> some View {
         NavigationStack {
-            VStack {
-                ZStack {
-                    VStack {
-                        Spacer()
-                        L10n.Intro.title.swiftUITitle()
-                        Spacer()
-                        TabView(selection: $index.animation()) {
-                            ForEach(0..<steps.count, id: \.self) { pageIndex in
-                                onboardingIntroViewStepView(steps[pageIndex])
-                                    .tag(pageIndex)
-                            }
-                        }.tabViewStyle(.page(indexDisplayMode: .never))
-                    }
-                }.frame(maxWidth: .infinity)
-                    .padding(.bottom, UIProperties.Padding.medium.rawValue)
-
-                pageControl().padding(.bottom, UIProperties.Padding.medium.rawValue)
-                ButtonView(text: steps[index].action, action: buttonAction())
-                    .padding(.bottom, UIProperties.Padding.medium.rawValue)
-            }
-            .navigationDestination(isPresented: $showNameScreen, destination: {
-                OnboardingNameView()
-            })
+            mainContent()
+                .navigationDestination(isPresented: $showNameScreen, destination: {
+                    OnboardingNameView()
+                })
         }
     }
 
@@ -60,25 +41,31 @@ struct OnboardingIntroView: View {
                     OnboardingNameView()
                 }) { EmptyView() }
 
-                ZStack {
-                    VStack {
-                        Spacer()
-                        L10n.Intro.title.swiftUITitle()
-                        Spacer()
-                        TabView(selection: $index.animation()) {
-                            ForEach(0..<steps.count, id: \.self) { pageIndex in
-                                onboardingIntroViewStepView(steps[pageIndex])
-                                    .tag(pageIndex)
-                            }
-                        }.tabViewStyle(.page(indexDisplayMode: .never))
-                    }
-                }.frame(maxWidth: .infinity)
-                    .padding(.bottom, UIProperties.Padding.medium.rawValue)
-
-                pageControl().padding(.bottom, UIProperties.Padding.medium.rawValue)
-                ButtonView(text: steps[index].action, action: buttonAction())
-                    .padding(.bottom, UIProperties.Padding.medium.rawValue)
+                mainContent()
             }
+        }
+    }
+
+    @ViewBuilder func mainContent() -> some View {
+        VStack {
+            ZStack {
+                VStack {
+                    Spacer()
+                    L10n.Intro.title.swiftUITitle()
+                    Spacer()
+                    TabView(selection: $index.animation()) {
+                        ForEach(0..<steps.count, id: \.self) { pageIndex in
+                            onboardingIntroViewStepView(steps[pageIndex])
+                                .tag(pageIndex)
+                        }
+                    }.tabViewStyle(.page(indexDisplayMode: .never))
+                }
+            }.frame(maxWidth: .infinity)
+                .padding(.bottom, UIProperties.Padding.medium.rawValue)
+
+            pageControl().padding(.bottom, UIProperties.Padding.medium.rawValue)
+            ButtonView(text: steps[index].action, action: buttonAction())
+                .padding(.bottom, UIProperties.Padding.medium.rawValue)
         }
     }
 

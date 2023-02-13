@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import PartialSheet
 
 struct MapScreen: View {
     @State var showCreate: Bool = false
     @State var showFilter: Bool = false
-    @State var showSelected: Bool = false
     @StateObject var viewModel: MapScreenViewModel
     @ObservedObject var preferenceService: PreferenceService
     let engine: Engine
@@ -22,6 +22,32 @@ struct MapScreen: View {
     }
 
     var body: some View {
+        if #available(iOS 16.0, *) {
+            body16()
+        } else {
+            body15()
+        }
+    }
+
+    @available(iOS 16.0, *)
+    @ViewBuilder func body16() -> some View {
+        mainContent()
+            .sheet(isPresented: $viewModel.showSelected) {
+                selectedPinSheetContent()
+                    .presentationDetents([.height(200)])
+                    .presentationDragIndicator(.visible)
+
+            }
+    }
+
+    @ViewBuilder func body15() -> some View {
+        mainContent()
+            .partialSheet(isPresented: $viewModel.showSelected) {
+                selectedPinSheetContent()
+            }
+    }
+
+    @ViewBuilder func mainContent() -> some View {
         ZStack(alignment: .bottomTrailing) {
             PinMapView(engine: engine, delegate: viewModel)
             VStack {
@@ -36,10 +62,11 @@ struct MapScreen: View {
         .sheet(isPresented: $showFilter) {
             PinFilterView(engine: engine)
         }
-        .sheet(isPresented: $showSelected) {
-            VStack {
-                Text(viewModel.selectedPin?.name ?? "")
-            }
+    }
+
+    @ViewBuilder func selectedPinSheetContent() -> some View {
+        VStack {
+            Text(viewModel.selectedPin?.name ?? "")
         }
     }
 
@@ -84,6 +111,7 @@ struct MapScreen: View {
 class MapScreenViewModel: ObservableObject {
     let engine: Engine
     @Published var selectedPin: PinModel?
+    @Published var showSelected: Bool = false
 
     init(engine: Engine, selectedPin: PinModel? = nil) {
         self.engine = engine
@@ -93,7 +121,10 @@ class MapScreenViewModel: ObservableObject {
 
 extension MapScreenViewModel: PinMapViewControllerDelegate {
     func didSelectPin(id: UUID) {
-        selectedPin = engine.pinService.pins.responseArray?.first(where: { $0.id == id })
+        withAnimation(.default) {
+            selectedPin = engine.pinService.pins.responseArray?.first(where: { $0.id == id })
+            showSelected = true
+        }
     }
 
 }

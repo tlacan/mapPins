@@ -51,4 +51,6 @@
 
 "pinFilterView.title" = "Category Filter";
 
+"settings.acknowledgements.entry" = "Acknowledgements";
+
 "error.geocodeAddress" = "Impossible to get coordinates for this place.";
