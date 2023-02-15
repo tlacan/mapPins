@@ -11,20 +11,22 @@ import ImagePickerView
 import PhotosUI
 
 struct CreateEditPinView: View {
-    let engine: Engine
-
     @Environment(\.dismiss) var dismiss
 
+    let engine: Engine
+
     @StateObject var viewModel: CreateEditPinViewModel
+    @StateObject var imagesViewModel: PinImagesViewModel
+
     @State var showAddressAutocomplete: Bool = false
-    @State var starConfig = StarRatingConfiguration(borderWidth: 1.0, borderColor: Color.yellow, shadowColor: Color.clear)
+    @State var starConfig = UIProperties.Star.configuration
     @State var imageWidth: CGFloat = 0
     @FocusState private var addressFocus: Bool
 
-    init(engine: Engine) {
+    init(engine: Engine, editedPin: PinModel?) {
         self.engine = engine
-        _viewModel = StateObject(wrappedValue: CreateEditPinViewModel(engine: engine, editedPin: nil))
-
+        _viewModel = StateObject(wrappedValue: CreateEditPinViewModel(engine: engine, editedPin: editedPin))
+        _imagesViewModel = StateObject(wrappedValue: PinImagesViewModel(pin: editedPin))
     }
 
     var body: some View {
@@ -41,6 +43,7 @@ struct CreateEditPinView: View {
             ZStack(alignment: .bottom) {
                 mainContent()
             }
+                .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel))
                 .navigationDestination(isPresented: $showAddressAutocomplete) {
                     AddressSearchView { address in
                         withAnimation(.default) {
@@ -49,32 +52,8 @@ struct CreateEditPinView: View {
                         }
                     }
                 }
-                .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(XCAsset.Colors.background.swiftUIColor, for: .navigationBar)
                 .toolbarBackground(.visible, for: .navigationBar)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        CloseButton {
-                            dismiss()
-                        }
-                    }
-                    ToolbarItem(placement: .principal) {
-                        L10n.CreatePin.title.swiftUITitle()
-                    }
-                }
-                .sheet(isPresented: $viewModel.showCamera) {
-                    ImagePickerView(sourceType: .camera) { image in
-                        self.viewModel.selectedImages.append(image)
-                    }
-                }
-                .sheet(isPresented: $viewModel.showImageDetails) {
-                    imageDetailsView()
-                }
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                        addressFocus = false
-                    }
-                }
         }
     }
 
@@ -91,28 +70,10 @@ struct CreateEditPinView: View {
                 } label: { EmptyView() }
                 mainContent()
             }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        CloseButton {
-                            dismiss()
-                        }
-                    }
-                    ToolbarItem(placement: .principal) {
-                        L10n.CreatePin.title.swiftUITitle()
-                    }
-                }
-                .sheet(isPresented: $viewModel.showCamera) {
-                    ImagePickerView(sourceType: .camera) { image in
-                        self.viewModel.selectedImages.append(image)
-                    }
-                }
-                .sheet(isPresented: $viewModel.showImageDetails) {
-                    imageDetailsView()
-                }
-                .sheet(isPresented: $viewModel.showLibrary) {
+                .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel))
+                .sheet(isPresented: $imagesViewModel.showLibrary) {
                     ImagePickerView(sourceType: .photoLibrary) { image in
-                        self.viewModel.selectedImages.append(image)
+                        imagesViewModel.images.append(image)
                     }
                 }
                 .onAppear {
@@ -120,9 +81,6 @@ struct CreateEditPinView: View {
                     appearance.backgroundColor = XCAsset.Colors.background.color
                     UINavigationBar.appearance().standardAppearance = appearance
                     UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                        addressFocus = false
-                    }
                 }
         }
     }
@@ -136,9 +94,9 @@ struct CreateEditPinView: View {
                     categories()
                     rating()
                     if #available(iOS 16, *) {
-                        PinImages16View(viewModel: viewModel)
+                        CreatePinImages16View(viewModel: imagesViewModel)
                     } else {
-                        PinImages15View(viewModel: viewModel)
+                        CreatePinImages15View(viewModel: imagesViewModel)
                     }
                     EmptyView().frame(height: UIProperties.Padding.big.rawValue)
                 }.padding(UIProperties.Padding.medium.rawValue)
@@ -147,43 +105,6 @@ struct CreateEditPinView: View {
         }.frame(maxHeight: .infinity)
         FooterGradient().offset(y: -UIProperties.Padding.medium.rawValue)
         saveButton().offset(y: -UIProperties.Padding.medium.rawValue)
-    }
-
-    @ViewBuilder func imageDetailsView() -> some View {
-        NavigationView {
-            TabView(selection: $viewModel.detailIndex) {
-                ForEach(0...viewModel.selectedImages.count - 1, id: \.self) { index in
-                    Image(uiImage: viewModel.selectedImages[index])
-                        .resizable()
-                        .scaledToFill()
-                        .frame(maxWidth: .infinity)
-                }
-            }
-                .navigationBarTitleDisplayMode(.inline)
-                .tabViewStyle(.page)
-                .indexViewStyle(.page(backgroundDisplayMode: .never))
-                .toolbar(content: {
-                    ToolbarItem(placement: .cancellationAction, content: {
-                        CloseButton {
-                            viewModel.showImageDetails = false
-                        }
-                    })
-                    ToolbarItem(placement: .bottomBar, content: {
-                        ButtonView(image: UIImage(systemName: "trash"), text: L10n.General.delete) {
-                            if viewModel.selectedImages.count == 1 {
-                                viewModel.showImageDetails = false
-                                viewModel.selectedImages = []
-                                return
-                            }
-                            let indexToDelete = viewModel.detailIndex
-                            if viewModel.detailIndex == viewModel.selectedImages.count - 1 {
-                                viewModel.detailIndex -= 1
-                            }
-                            viewModel.selectedImages.remove(at: indexToDelete)
-                        }
-                    })
-                })
-        }
     }
 
     @ViewBuilder func name() -> some View {
@@ -200,10 +121,7 @@ struct CreateEditPinView: View {
                 return "\(address.title) \(address.subtitle)"
             }
             return ""
-        }, set: { _, _ in
-
-        }))
-        .focused($addressFocus)
+        }, set: { _, _ in }))
         .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
         .textFieldStyle(.roundedBorder)
         .textContentType(.givenName)
@@ -223,7 +141,7 @@ struct CreateEditPinView: View {
             }.frame(height: 70)
             VStack {
                 if let rating = viewModel.rating {
-                    String(format: "%.1f", rating).swiftUIDescription()
+                    String(format: "%.1f", locale: Locale.current, rating).swiftUIDescription()
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
@@ -236,42 +154,22 @@ struct CreateEditPinView: View {
             HStack {
                 ForEach(PinCategory.allCases, id: \.self.rawValue) { category in
                     VStack {
-                        if viewModel.category?.rawValue == category.rawValue {
-                            Button(action: {
-                                withAnimation(.default) {
-                                    viewModel.category = nil
-                                }
-                            }) {
-                                ZStack {
-                                    Circle().fill(XCAsset.Colors.black.swiftUIColor)
-                                    if let image = category.image {
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .renderingMode(.template)
-                                            .scaledToFit()
-                                            .foregroundColor( XCAsset.Colors.background.swiftUIColor)
-                                            .frame(width: 26, height: 26)
-                                    }
-                                }.frame(width: 36, height: 36)
+                        Button(action: {
+                            withAnimation(.default) {
+                                viewModel.category = viewModel.category?.rawValue == category.rawValue ? nil : category
                             }
-                        } else {
-                            Button(action: {
-                                withAnimation(.default) {
-                                    viewModel.category = category
+                        }) {
+                            ZStack {
+                                Circle().fill(viewModel.category?.rawValue == category.rawValue ? XCAsset.Colors.black.swiftUIColor : .clear)
+                                if let image = category.image {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .scaledToFit()
+                                        .foregroundColor( viewModel.category?.rawValue == category.rawValue ? XCAsset.Colors.background.swiftUIColor : XCAsset.Colors.black.swiftUIColor)
+                                        .frame(width: 26, height: 26)
                                 }
-                            }) {
-                                ZStack {
-                                    Circle().fill(.clear)
-                                    if let image = category.image {
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .renderingMode(.template)
-                                            .scaledToFit()
-                                            .foregroundColor( XCAsset.Colors.black.swiftUIColor)
-                                            .frame(width: 26, height: 26)
-                                    }
-                                }
-                            }
+                            }.frame(width: 36, height: 36)
                         }
                     }.frame(maxWidth: .infinity)
                 }
@@ -288,10 +186,47 @@ struct CreateEditPinView: View {
     @ViewBuilder func saveButton() -> some View {
         ButtonView(text: L10n.General.save) {
             Task {
-                await viewModel.savePin()
+                await viewModel.savePin(images: imagesViewModel.images)
                 dismiss()
             }
         }.opacity(viewModel.formValid ? UIProperties.Opacity.enabled.rawValue : UIProperties.Opacity.disabled.rawValue)
             .disabled(!viewModel.formValid)
+    }
+}
+
+struct CreateEditPinViewNavigationModifier: ViewModifier {
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var viewModel: CreateEditPinViewModel
+    @ObservedObject var imagesViewModel: PinImagesViewModel
+
+    init(viewModel: CreateEditPinViewModel, imagesViewModel: PinImagesViewModel) {
+        _viewModel = ObservedObject(wrappedValue: viewModel)
+        _imagesViewModel = ObservedObject(wrappedValue: imagesViewModel)
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitleDisplayMode(.inline)
+            .sheet(isPresented: $imagesViewModel.showImageDetails) {
+                PinImagesDetailView(viewModel: imagesViewModel, deleteButton: true)
+            }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    CloseButton {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .principal) {
+                    L10n.CreatePin.title.swiftUITitle()
+                }
+            }
+            .sheet(isPresented: $imagesViewModel.showCamera) {
+                ImagePickerView(sourceType: .camera) { image in
+                    imagesViewModel.images.append(image)
+                }
+            }
+            .onAppear {
+                UIView.removeFocus()
+            }
     }
 }

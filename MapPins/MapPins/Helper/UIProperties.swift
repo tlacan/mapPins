@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreLocation
+import StarRating
+import SwiftUI
 
 struct UIProperties {
     enum Button: CGFloat {
@@ -35,5 +37,9 @@ struct UIProperties {
 
     enum Location {
         static let parisCenter = CLLocationCoordinate2D(latitude: 48.8444, longitude: 2.3333)
+    }
+
+    enum Star {
+        static let configuration = StarRatingConfiguration(borderWidth: 1.0, borderColor: Color.yellow, shadowColor: Color.clear)
     }
 }

@@ -12,4 +12,5 @@ enum UserDefaultsKeys: String {
     case name
     case filters
     case colors
+    case transportMode
 }

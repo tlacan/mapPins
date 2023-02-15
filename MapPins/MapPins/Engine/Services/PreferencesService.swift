@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 class PreferenceService: ObservableObject {
     @Published var filters: [PinCategory] {
@@ -18,10 +19,20 @@ class PreferenceService: ObservableObject {
             UserDefaults.standard.set(colors, forKey: UserDefaultsKeys.colors.rawValue)
         }
     }
+    @Published var transportMode: MKDirectionsTransportType {
+        didSet {
+            UserDefaults.standard.set(transportMode.rawValue, forKey: UserDefaultsKeys.transportMode.rawValue)
+        }
+    }
 
     init() {
         filters = (UserDefaults.standard.array(forKey: UserDefaultsKeys.filters.rawValue) as? [String] ?? []).compactMap({ PinCategory(rawValue: $0) })
         colors = UserDefaults.standard.dictionary(forKey: UserDefaultsKeys.colors.rawValue) as? [String: String] ?? [:]
+        guard let storedTransportMode = UserDefaults.standard.value(forKey: UserDefaultsKeys.transportMode.rawValue) as? UInt else {
+            transportMode = .walking
+            return
+        }
+        transportMode = MKDirectionsTransportType(rawValue: storedTransportMode)
     }
 
     var allValues: Bool {
@@ -30,6 +41,14 @@ class PreferenceService: ObservableObject {
 
     func isCategoryOn(_ category: PinCategory) -> Bool {
         filters.isEmpty || filters.contains(where: { $0 == category })
+    }
+
+    var transportModeImage: UIImage? {
+        switch transportMode {
+        case .walking: return UIImage(systemName: "figure.walk")
+        case .automobile: return UIImage(systemName: "car")
+        default: return UIImage(systemName: "tram")
+        }
     }
 
     func updateFilter(category: PinCategory, add: Bool) {

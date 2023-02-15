@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct PinImages15View: View {
-    @ObservedObject var viewModel: CreateEditPinViewModel
+struct CreatePinImages15View: View {
+    @ObservedObject var viewModel: PinImagesViewModel
 
     var body: some View {
         VStack(alignment: .leading) {

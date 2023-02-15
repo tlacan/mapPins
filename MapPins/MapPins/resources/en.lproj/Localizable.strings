@@ -53,4 +53,8 @@
 
 "settings.acknowledgements.entry" = "Acknowledgements";
 
+"map.directions.button" = "Directions";
+"map.maps.button" = "Maps";
+"map.google.button" = "Google Maps";
+
 "error.geocodeAddress" = "Impossible to get coordinates for this place.";

@@ -10,9 +10,9 @@
 		1D0353D1298BBEC000B4AFD2 /* PinMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353D0298BBEC000B4AFD2 /* PinMapView.swift */; };
 		1D0353D5298BBFE600B4AFD2 /* GeoLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353D4298BBFE600B4AFD2 /* GeoLocationService.swift */; };
 		1D0353DA298BC8E700B4AFD2 /* CreateEditPinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353D9298BC8E700B4AFD2 /* CreateEditPinViewModel.swift */; };
-		1D0353DE298BE25500B4AFD2 /* PinImages16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353DD298BE25500B4AFD2 /* PinImages16View.swift */; };
+		1D0353DE298BE25500B4AFD2 /* CreatePinImages16View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353DD298BE25500B4AFD2 /* CreatePinImages16View.swift */; };
 		1D0353E0298BE30400B4AFD2 /* PinImageThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353DF298BE30400B4AFD2 /* PinImageThumbView.swift */; };
-		1D0353E2298BEC4B00B4AFD2 /* PinImages15View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353E1298BEC4B00B4AFD2 /* PinImages15View.swift */; };
+		1D0353E2298BEC4B00B4AFD2 /* CreatePinImages15View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353E1298BEC4B00B4AFD2 /* CreatePinImages15View.swift */; };
 		1D0353E8298C106600B4AFD2 /* PinMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353E7298C106600B4AFD2 /* PinMapViewController.swift */; };
 		1D0353EA298C118200B4AFD2 /* PinMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D0353E9298C118200B4AFD2 /* PinMapViewController.xib */; };
 		1D0353EC298C13DC00B4AFD2 /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0353EB298C13DC00B4AFD2 /* MapItem.swift */; };
@@ -64,6 +64,9 @@
 		1D239C8C297053E800A166A2 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C8B297053E800A166A2 /* Assets.swift */; };
 		1D3020B1298ABBA5009A1C2C /* FooterGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3020B0298ABBA5009A1C2C /* FooterGradient.swift */; };
 		1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */ = {isa = PBXBuildFile; productRef = 1D32ED62297EC97F003126D9 /* FileSystemStore */; };
+		1D610138299D49960064E420 /* View+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D610137299D49960064E420 /* View+Helper.swift */; };
+		1D61013A299D87720064E420 /* PinImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D610139299D87720064E420 /* PinImagesViewModel.swift */; };
+		1D61013C299D8CD00064E420 /* PinImagesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61013B299D8CD00064E420 /* PinImagesDetailView.swift */; };
 		1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */; };
 		1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9BBC7829795023005DDBA9 /* TextViews.swift */; };
 		1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA0A32E298279CC007FED5C /* yummy-dark.json */; };
@@ -75,6 +78,9 @@
 		1DA0B560299A8D40006B6A9E /* AckGenUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA0B55F299A8D40006B6A9E /* AckGenUI */; };
 		1DA0B564299A8DA7006B6A9E /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0B563299A8DA7006B6A9E /* SettingsScreen.swift */; };
 		1DA0B566299A92FB006B6A9E /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DA0B565299A92FB006B6A9E /* Acknowledgements.plist */; };
+		1DA0B569299AA940006B6A9E /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 1DA0B568299AA940006B6A9E /* SwiftDate */; };
+		1DA0B574299D3F4E006B6A9E /* MapPinSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0B573299D3F4E006B6A9E /* MapPinSelectedView.swift */; };
+		1DA0B578299D42B6006B6A9E /* MapScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0B577299D42B6006B6A9E /* MapScreenViewModel.swift */; };
 		1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */; };
 		1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */; };
 		1DC7C31F297AEB7800A451DE /* AddressAutocompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */; };
@@ -116,9 +122,9 @@
 		1D0353D0298BBEC000B4AFD2 /* PinMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMapView.swift; sourceTree = "<group>"; };
 		1D0353D4298BBFE600B4AFD2 /* GeoLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationService.swift; sourceTree = "<group>"; };
 		1D0353D9298BC8E700B4AFD2 /* CreateEditPinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditPinViewModel.swift; sourceTree = "<group>"; };
-		1D0353DD298BE25500B4AFD2 /* PinImages16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImages16View.swift; sourceTree = "<group>"; };
+		1D0353DD298BE25500B4AFD2 /* CreatePinImages16View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinImages16View.swift; sourceTree = "<group>"; };
 		1D0353DF298BE30400B4AFD2 /* PinImageThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImageThumbView.swift; sourceTree = "<group>"; };
-		1D0353E1298BEC4B00B4AFD2 /* PinImages15View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImages15View.swift; sourceTree = "<group>"; };
+		1D0353E1298BEC4B00B4AFD2 /* CreatePinImages15View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinImages15View.swift; sourceTree = "<group>"; };
 		1D0353E7298C106600B4AFD2 /* PinMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMapViewController.swift; sourceTree = "<group>"; };
 		1D0353E9298C118200B4AFD2 /* PinMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinMapViewController.xib; sourceTree = "<group>"; };
 		1D0353EB298C13DC00B4AFD2 /* MapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 		1D239C89297052A800A166A2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		1D239C8B297053E800A166A2 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		1D3020B0298ABBA5009A1C2C /* FooterGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterGradient.swift; sourceTree = "<group>"; };
+		1D610137299D49960064E420 /* View+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Helper.swift"; sourceTree = "<group>"; };
+		1D610139299D87720064E420 /* PinImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImagesViewModel.swift; sourceTree = "<group>"; };
+		1D61013B299D8CD00064E420 /* PinImagesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImagesDetailView.swift; sourceTree = "<group>"; };
 		1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
 		1D9BBC7829795023005DDBA9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		1DA0A32E298279CC007FED5C /* yummy-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "yummy-dark.json"; sourceTree = "<group>"; };
@@ -180,6 +189,8 @@
 		1DA0A3382982D750007FED5C /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 		1DA0B563299A8DA7006B6A9E /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		1DA0B565299A92FB006B6A9E /* Acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Acknowledgements.plist; sourceTree = SOURCE_ROOT; };
+		1DA0B573299D3F4E006B6A9E /* MapPinSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinSelectedView.swift; sourceTree = "<group>"; };
+		1DA0B577299D42B6006B6A9E /* MapScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenViewModel.swift; sourceTree = "<group>"; };
 		1DC7C2FB29796F5200A451DE /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		1DC7C2FE297975AB00A451DE /* OnboardingIntroViewStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroViewStep.swift; sourceTree = "<group>"; };
 		1DC7C31E297AEB7800A451DE /* AddressAutocompleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutocompleteModel.swift; sourceTree = "<group>"; };
@@ -210,6 +221,7 @@
 				1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */,
 				1DA0B55E299A8D40006B6A9E /* AckGen in Frameworks */,
 				1DA0B560299A8D40006B6A9E /* AckGenUI in Frameworks */,
+				1DA0B569299AA940006B6A9E /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,13 +245,12 @@
 		1D0353CB298BBBBE00B4AFD2 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				1D0353D0298BBEC000B4AFD2 /* PinMapView.swift */,
-				1D0353E7298C106600B4AFD2 /* PinMapViewController.swift */,
-				1D0353E9298C118200B4AFD2 /* PinMapViewController.xib */,
-				1D0353EB298C13DC00B4AFD2 /* MapItem.swift */,
-				1D0353ED298C175E00B4AFD2 /* ClusterAnnotationView.swift */,
-				1D0353EF298C18D200B4AFD2 /* PinAnnotationView.swift */,
+				1D18F15E2993FE3200BC0DCA /* PinFilter */,
+				1DA0B576299D429A006B6A9E /* PinMapViewController */,
+				1DA0B575299D4283006B6A9E /* Annotations */,
 				1D0353F1298C19BD00B4AFD2 /* MapScreen.swift */,
+				1DA0B577299D42B6006B6A9E /* MapScreenViewModel.swift */,
+				1DA0B573299D3F4E006B6A9E /* MapPinSelectedView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -247,9 +258,11 @@
 		1D0353E3298BEC5500B4AFD2 /* PinImages */ = {
 			isa = PBXGroup;
 			children = (
-				1D0353DD298BE25500B4AFD2 /* PinImages16View.swift */,
-				1D0353E1298BEC4B00B4AFD2 /* PinImages15View.swift */,
+				1D0353DD298BE25500B4AFD2 /* CreatePinImages16View.swift */,
+				1D0353E1298BEC4B00B4AFD2 /* CreatePinImages15View.swift */,
 				1D0353DF298BE30400B4AFD2 /* PinImageThumbView.swift */,
+				1D610139299D87720064E420 /* PinImagesViewModel.swift */,
+				1D61013B299D8CD00064E420 /* PinImagesDetailView.swift */,
 			);
 			path = PinImages;
 			sourceTree = "<group>";
@@ -419,6 +432,26 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		1DA0B575299D4283006B6A9E /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				1D0353EB298C13DC00B4AFD2 /* MapItem.swift */,
+				1D0353ED298C175E00B4AFD2 /* ClusterAnnotationView.swift */,
+				1D0353EF298C18D200B4AFD2 /* PinAnnotationView.swift */,
+			);
+			path = Annotations;
+			sourceTree = "<group>";
+		};
+		1DA0B576299D429A006B6A9E /* PinMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1D0353D0298BBEC000B4AFD2 /* PinMapView.swift */,
+				1D0353E7298C106600B4AFD2 /* PinMapViewController.swift */,
+				1D0353E9298C118200B4AFD2 /* PinMapViewController.xib */,
+			);
+			path = PinMapViewController;
+			sourceTree = "<group>";
+		};
 		1DC7C2FD2979759C00A451DE /* OnboardingIntroView */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,7 +473,6 @@
 		1DC7C31A297AEB2F00A451DE /* CreatePin */ = {
 			isa = PBXGroup;
 			children = (
-				1D0353E3298BEC5500B4AFD2 /* PinImages */,
 				1DC7C319297AEB1800A451DE /* AddressSearch */,
 				1DF947B52983DE5B005B6DDD /* CreateEditPinView.swift */,
 				1D0353D9298BC8E700B4AFD2 /* CreateEditPinViewModel.swift */,
@@ -481,10 +513,10 @@
 			isa = PBXGroup;
 			children = (
 				1DA0B562299A8D96006B6A9E /* Settings */,
-				1D18F15E2993FE3200BC0DCA /* PinFilter */,
 				1D18F150298FF19D00BC0DCA /* PinList */,
 				1D0353CB298BBBBE00B4AFD2 /* Map */,
 				1DE6F2EE29768E5000AF4E64 /* Onboarding */,
+				1D0353E3298BEC5500B4AFD2 /* PinImages */,
 				1DC7C31A297AEB2F00A451DE /* CreatePin */,
 				1DE6F2F92976E93F00AF4E64 /* Components */,
 			);
@@ -506,6 +538,7 @@
 				1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */,
 				1D18F14E298E529500BC0DCA /* UIImage+Helper.swift */,
 				1D18F161299407A600BC0DCA /* Array+Helper.swift */,
+				1D610137299D49960064E420 /* View+Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -554,6 +587,7 @@
 				1DA0B55429998E51006B6A9E /* PartialSheet */,
 				1DA0B55D299A8D40006B6A9E /* AckGen */,
 				1DA0B55F299A8D40006B6A9E /* AckGenUI */,
+				1DA0B568299AA940006B6A9E /* SwiftDate */,
 			);
 			productName = MapPins;
 			productReference = 1D239C12296F4C4200A166A2 /* MapPins.app */;
@@ -637,6 +671,7 @@
 				1DF947C32984818A005B6DDD /* XCRemoteSwiftPackageReference "ImagePickerView" */,
 				1DA0B55329998E51006B6A9E /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				1DA0B55C299A8D40006B6A9E /* XCRemoteSwiftPackageReference "AckGen" */,
+				1DA0B567299AA940006B6A9E /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 1D239C13296F4C4200A166A2 /* Products */;
 			projectDirPath = "";
@@ -764,11 +799,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA0B574299D3F4E006B6A9E /* MapPinSelectedView.swift in Sources */,
 				1DC7C2FF297975AB00A451DE /* OnboardingIntroViewStep.swift in Sources */,
-				1D0353E2298BEC4B00B4AFD2 /* PinImages15View.swift in Sources */,
+				1D0353E2298BEC4B00B4AFD2 /* CreatePinImages15View.swift in Sources */,
 				1D0353E0298BE30400B4AFD2 /* PinImageThumbView.swift in Sources */,
 				1DC7C321297AEC0800A451DE /* PinModel.swift in Sources */,
 				1D18F15C2993993A00BC0DCA /* PreferencesService.swift in Sources */,
+				1D61013C299D8CD00064E420 /* PinImagesDetailView.swift in Sources */,
 				1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */,
 				1D239C56297040C400A166A2 /* Lotties.swift in Sources */,
 				1DF947B62983DE5B005B6DDD /* CreateEditPinView.swift in Sources */,
@@ -776,8 +813,10 @@
 				1DA0A3392982D750007FED5C /* AddressSearchViewModel.swift in Sources */,
 				1D18F1602993FE4500BC0DCA /* PinFilterView.swift in Sources */,
 				1D0353D1298BBEC000B4AFD2 /* PinMapView.swift in Sources */,
+				1DA0B578299D42B6006B6A9E /* MapScreenViewModel.swift in Sources */,
 				1D18F152298FF1EC00BC0DCA /* PinListView.swift in Sources */,
-				1D0353DE298BE25500B4AFD2 /* PinImages16View.swift in Sources */,
+				1D0353DE298BE25500B4AFD2 /* CreatePinImages16View.swift in Sources */,
+				1D610138299D49960064E420 /* View+Helper.swift in Sources */,
 				1D18F156299048C500BC0DCA /* TouchEnterExit.swift in Sources */,
 				1D239C8A297052A800A166A2 /* Fonts.swift in Sources */,
 				1D239C8C297053E800A166A2 /* Assets.swift in Sources */,
@@ -805,6 +844,7 @@
 				1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */,
 				1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */,
 				1DA0A3372982D16E007FED5C /* EmptyList.swift in Sources */,
+				1D61013A299D87720064E420 /* PinImagesViewModel.swift in Sources */,
 				1D0353D5298BBFE600B4AFD2 /* GeoLocationService.swift in Sources */,
 				1DC7C2FC29796F5200A451DE /* UserDefaultsKeys.swift in Sources */,
 				1DF947BC298411B7005B6DDD /* BackButton.swift in Sources */,
@@ -983,7 +1023,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapPins/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Add picture of the place to store";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ask your position to show relevant data on map";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to store place images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1011,7 +1055,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MapPins/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Add picture of the place to store";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ask your position to show relevant data on map";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to store place images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1185,6 +1233,14 @@
 				minimumVersion = 0.1.5;
 			};
 		};
+		1DA0B567299AA940006B6A9E /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		1DC7C32C297E7EA500A451DE /* XCRemoteSwiftPackageReference "Stores" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/omaralbeik/Stores";
@@ -1244,6 +1300,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1DA0B55C299A8D40006B6A9E /* XCRemoteSwiftPackageReference "AckGen" */;
 			productName = AckGenUI;
+		};
+		1DA0B568299AA940006B6A9E /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DA0B567299AA940006B6A9E /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 		1DF947BE29841DD3005B6DDD /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;

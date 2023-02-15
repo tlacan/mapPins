@@ -10,10 +10,10 @@ import MapKit
 
 struct PinMapView: UIViewControllerRepresentable {
     let engine: Engine
-    let delegate: PinMapViewControllerDelegate
+    let viewModel: MapScreenViewModel
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<PinMapView>) -> PinMapViewController {
-        PinMapViewController(engine: engine, delegate: delegate)
+        PinMapViewController(engine: engine, viewModel: viewModel)
     }
 
     func updateUIViewController(_ uiViewController: PinMapViewController, context: UIViewControllerRepresentableContext<PinMapView>) {

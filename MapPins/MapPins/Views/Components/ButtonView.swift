@@ -28,9 +28,11 @@ struct ButtonView: View {
                         .padding(.leading)
                 }
                 Text(text)
+                    .minimumScaleFactor(0.2)
+                    .lineLimit(2)
                     .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
                     .foregroundColor(XCAsset.Colors.background.swiftUIColor)
-                    .padding(.horizontal)
+                    .padding(image != nil ? .trailing : .horizontal)
             }
         }
             .frame(height: UIProperties.Button.height.rawValue)

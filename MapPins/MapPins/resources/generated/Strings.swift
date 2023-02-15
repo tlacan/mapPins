@@ -85,6 +85,20 @@ internal enum L10n {
       internal static let description = L10n.tr("Localizable", "intro.step3.description", fallback: "You will be able to find them on map or in list to get them even easily.")
     }
   }
+  internal enum Map {
+    internal enum Directions {
+      /// Directions
+      internal static let button = L10n.tr("Localizable", "map.directions.button", fallback: "Directions")
+    }
+    internal enum Google {
+      /// Google Maps
+      internal static let button = L10n.tr("Localizable", "map.google.button", fallback: "Google Maps")
+    }
+    internal enum Maps {
+      /// Maps
+      internal static let button = L10n.tr("Localizable", "map.maps.button", fallback: "Maps")
+    }
+  }
   internal enum Onboarding {
     internal enum Name {
       /// We would like to know, what is your name?

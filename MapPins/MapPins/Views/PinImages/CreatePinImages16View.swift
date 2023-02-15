@@ -9,8 +9,8 @@ import SwiftUI
 import PhotosUI
 
 @available(iOS 16.0, *)
-struct PinImages16View: View {
-    @ObservedObject var viewModel: CreateEditPinViewModel
+struct CreatePinImages16View: View {
+    @ObservedObject var viewModel: PinImagesViewModel
     @State private var selectedItems = [PhotosPickerItem]()
 
     var body: some View {
@@ -38,7 +38,7 @@ struct PinImages16View: View {
             Task {
                 for item in items {
                     if let imageData = try? await item.loadTransferable(type: Data.self), let image = UIImage(data: imageData) {
-                        viewModel.selectedImages.append(image)
+                        viewModel.images.append(image)
                     }
                 }
                 selectedItems.removeAll()

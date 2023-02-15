@@ -23,9 +23,6 @@ struct SettingsScreen: View {
     @ViewBuilder func body16() -> some View {
         NavigationStack {
             mainContent()
-                //.navigationDestination(isPresented: $showAcknowledgement) {
-                //    AcknowledgementsList()
-                //}
         }
     }
 

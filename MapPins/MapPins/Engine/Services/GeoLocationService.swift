@@ -8,11 +8,13 @@
 import Foundation
 import CoreLocation
 import Combine
+import MapKit
 
 class GeoLocationService: NSObject, ObservableObject {
     let locationManager: CLLocationManager
     @Published var latestUserLocation: CLLocation?
     @Published var continuous: Bool = false
+    @Published var direction: MKDirections?
 
     override init() {
         locationManager = CLLocationManager()
@@ -42,11 +44,14 @@ class GeoLocationService: NSObject, ObservableObject {
     }
 
     func startUpdateLocationIfNeeded(continuous: Bool) {
-        self.continuous = continuous
-        if hasGeolocationAccess {
-            locationManager.startUpdatingLocation()
-        } else if !hasAskedForGeolocation {
-            locationManager.requestWhenInUseAuthorization()
+        Task { @MainActor in
+            self.continuous = continuous
+            if hasGeolocationAccess {
+                latestUserLocation = locationManager.location
+                locationManager.startUpdatingLocation()
+            } else if !hasAskedForGeolocation {
+                locationManager.requestWhenInUseAuthorization()
+            }
         }
     }
 
@@ -61,7 +66,9 @@ extension GeoLocationService: CLLocationManagerDelegate {
             if !continuous {
                 stopUpdateLocation()
             }
-            latestUserLocation = location
+            Task { @MainActor in
+                latestUserLocation = location
+            }
         }
     }
 

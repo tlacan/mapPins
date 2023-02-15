@@ -31,11 +31,6 @@ class CreateEditPinViewModel: ObservableObject {
     }
     @Published var rating: Double?
     @Published var formValid = false
-    @Published var selectedImages: [UIImage]
-    @Published var showImageDetails: Bool = false
-    @Published var detailIndex = 0
-    @Published var showCamera: Bool = false
-    @Published var showLibrary: Bool = false
 
     init(engine: Engine, editedPin: PinModel?) {
         self.editedPin = editedPin
@@ -44,12 +39,7 @@ class CreateEditPinViewModel: ObservableObject {
         self.address = editedPin?.address
         self.category = editedPin?.category
         self.rating = editedPin?.rating
-        self.selectedImages = editedPin?.images.compactMap({ UIImage(data: $0) }) ?? []
         updateFormValid()
-    }
-
-    var imageRows: Int {
-        selectedImages.count % 3 == 0 ? selectedImages.count / 3 : (selectedImages.count / 3 + 1)
     }
 
     func updateFormValid() {
@@ -62,19 +52,11 @@ class CreateEditPinViewModel: ObservableObject {
         }
     }
 
-    func image(col: Int, row: Int) -> UIImage? {
-        let index = row * 3 + col
-        if index < selectedImages.count {
-            return selectedImages[index]
-        }
-        return nil
-    }
-
-    func savePin() async {
+    func savePin(images: [UIImage]) async {
         guard let address = address, let category = category else { return }
-        let images = selectedImages.compactMap({ $0.pngData() })
+        let imagesData = images.compactMap({ $0.pngData() })
         let newPin = PinModel(id: editedPin?.id ?? UUID(), name: name,
-                              address: address, images: images, rating: rating, category: category)
+                              address: address, images: imagesData, rating: rating, category: category)
         engine.pinService.savePin(newPin)
     }
 }

@@ -9,22 +9,20 @@ import Foundation
 import UIKit
 import Combine
 import MapKit
-
-protocol PinMapViewControllerDelegate: AnyObject {
-    func didSelectPin(id: UUID)
-}
+import SwiftUI
 
 class PinMapViewController: UIViewController {
     let engine: Engine
     var loaded: Bool = false
     var cancellables = [AnyCancellable]()
-    weak var delegate: PinMapViewControllerDelegate?
+    weak var viewModel: MapScreenViewModel?
+    var centerConfigured: Bool = false
 
     @IBOutlet private var mapView: MKMapView!
 
-    init(engine: Engine, delegate: PinMapViewControllerDelegate) {
+    init(engine: Engine, viewModel: MapScreenViewModel) {
         self.engine = engine
-        self.delegate = delegate
+        self.viewModel = viewModel
         super.init(nibName: "PinMapViewController", bundle: Bundle(for: Self.self))
     }
 
@@ -42,8 +40,9 @@ class PinMapViewController: UIViewController {
         configureMapView()
         engine.geoLocationService.startUpdateLocationIfNeeded(continuous: false)
         engine.geoLocationService.$latestUserLocation.sink(receiveValue: { [weak self] location in
-            if location != nil {
-                self?.configureCenter()
+            if let coordinate = location?.coordinate, !(self?.centerConfigured ?? false) {
+                self?.centerConfigured = true
+                self?.configureCenter(coordinate)
             }
         }).store(in: &self.cancellables)
 
@@ -58,6 +57,20 @@ class PinMapViewController: UIViewController {
                 self?.updateAnnotations(filters: categories, pins: self?.engine.pinService.pins.responseArray ?? [])
             }
         }.store(in: &self.cancellables)
+
+        engine.geoLocationService.$direction.sink { [weak self] direction in
+            Task { @MainActor in
+                if let direction = direction {
+                    self?.showRouteOnMap(direction: direction)
+                }
+            }
+        }.store(in: &self.cancellables)
+
+        viewModel?.$centerOnUser.sink { [weak self] centerOnUser in
+            if centerOnUser {
+                self?.configureCenter(self?.engine.geoLocationService.latestUserLocation?.coordinate ?? UIProperties.Location.parisCenter)
+            }
+        }.store(in: &self.cancellables)
     }
 
     func updateAnnotations(filters: [PinCategory], pins: [PinModel]) {
@@ -66,15 +79,16 @@ class PinMapViewController: UIViewController {
         configureAnnotations(pins: filteredPins)
     }
 
-    func configureCenter() {
-        let center = engine.geoLocationService.latestUserLocation?.coordinate ?? UIProperties.Location.parisCenter
+    func configureCenter(_ center: CLLocationCoordinate2D) {
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: center, span: span)
         mapView.setRegion(region, animated: false)
     }
 
     func configureMapView() {
-        configureCenter()
+        centerConfigured = engine.geoLocationService.latestUserLocation?.coordinate != nil
+        configureCenter(engine.geoLocationService.latestUserLocation?.coordinate ?? UIProperties.Location.parisCenter)
+        mapView.showsUserLocation = true
         mapView.delegate = self
         mapView.register(
             PinAnnotationView.self,
@@ -88,12 +102,35 @@ class PinMapViewController: UIViewController {
         loaded = true
         mapView.addAnnotations(pins.map({ MapItem(pin: $0) }))
     }
+
+    func showRouteOnMap(direction: MKDirections) {
+        direction.calculate { [weak self] response, _ in
+            guard let unwrappedResponse = response else { return }
+            if let route = unwrappedResponse.routes.first {
+                self?.mapView.removeOverlays(self?.mapView?.overlays ?? [])
+                self?.mapView.addOverlay(route.polyline)
+                self?.mapView.setVisibleMapRect(route.polyline.boundingMapRect,
+                                                edgePadding: UIEdgeInsets(top: 80.0, left: 20.0, bottom: 100.0, right: 20.0), animated: true)
+            }
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+         let renderer = MKPolylineRenderer(overlay: overlay)
+         renderer.strokeColor = UIColor(Color.red)
+         renderer.lineWidth = 5.0
+         return renderer
+    }
 }
 
 extension PinMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let pinAnnotation = view.annotation as? MapItem {
-            delegate?.didSelectPin(id: pinAnnotation.id)
+            if let selectedPin = engine.pinService.pins.responseArray?.first(where: { $0.id == pinAnnotation.id }) {
+                viewModel?.selectedPin = selectedPin
+            }
+            mapView.selectedAnnotations.removeAll()
+            return
         }
 
         // zoom on selected annotation
@@ -104,5 +141,4 @@ extension PinMapViewController: MKMapViewDelegate {
         let zoomed = MKCoordinateRegion(center: zoomCoordinate, span: zoomSpan)
         mapView.setRegion(zoomed, animated: true)
     }
-
 }
