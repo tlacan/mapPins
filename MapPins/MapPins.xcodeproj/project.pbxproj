@@ -89,6 +89,7 @@
 		1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C325297AEE6B00A451DE /* PinService.swift */; };
 		1DC7C328297AEF0700A451DE /* LoadedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C327297AEF0700A451DE /* LoadedData.swift */; };
 		1DC7C32E297E803C00A451DE /* FileStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C32D297E803C00A451DE /* FileStorageKeys.swift */; };
+		1DD88E8E299E91F700CD2663 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD88E8D299E91F700CD2663 /* Neumorphic */; };
 		1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */; };
 		1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F42976980500AF4E64 /* LottieView.swift */; };
 		1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */; };
@@ -221,6 +222,7 @@
 				1D32ED63297EC97F003126D9 /* FileSystemStore in Frameworks */,
 				1DA0B55E299A8D40006B6A9E /* AckGen in Frameworks */,
 				1DA0B560299A8D40006B6A9E /* AckGenUI in Frameworks */,
+				1DD88E8E299E91F700CD2663 /* Neumorphic in Frameworks */,
 				1DA0B569299AA940006B6A9E /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +590,7 @@
 				1DA0B55D299A8D40006B6A9E /* AckGen */,
 				1DA0B55F299A8D40006B6A9E /* AckGenUI */,
 				1DA0B568299AA940006B6A9E /* SwiftDate */,
+				1DD88E8D299E91F700CD2663 /* Neumorphic */,
 			);
 			productName = MapPins;
 			productReference = 1D239C12296F4C4200A166A2 /* MapPins.app */;
@@ -672,6 +675,7 @@
 				1DA0B55329998E51006B6A9E /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				1DA0B55C299A8D40006B6A9E /* XCRemoteSwiftPackageReference "AckGen" */,
 				1DA0B567299AA940006B6A9E /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				1DD88E8C299E91F700CD2663 /* XCRemoteSwiftPackageReference "neumorphic" */,
 			);
 			productRefGroup = 1D239C13296F4C4200A166A2 /* Products */;
 			projectDirPath = "";
@@ -1249,6 +1253,14 @@
 				minimumVersion = 0.4.1;
 			};
 		};
+		1DD88E8C299E91F700CD2663 /* XCRemoteSwiftPackageReference "neumorphic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/costachung/neumorphic";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		1DF947BD29841DD3005B6DDD /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
@@ -1305,6 +1317,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1DA0B567299AA940006B6A9E /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
+		};
+		1DD88E8D299E91F700CD2663 /* Neumorphic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1DD88E8C299E91F700CD2663 /* XCRemoteSwiftPackageReference "neumorphic" */;
+			productName = Neumorphic;
 		};
 		1DF947BE29841DD3005B6DDD /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;

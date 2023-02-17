@@ -85,6 +85,10 @@ internal enum L10n {
       internal static let description = L10n.tr("Localizable", "intro.step3.description", fallback: "You will be able to find them on map or in list to get them even easily.")
     }
   }
+  internal enum List {
+    /// List
+    internal static let title = L10n.tr("Localizable", "list.title", fallback: "List")
+  }
   internal enum Map {
     internal enum Directions {
       /// Directions

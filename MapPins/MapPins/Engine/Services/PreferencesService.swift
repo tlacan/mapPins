@@ -35,7 +35,7 @@ class PreferenceService: ObservableObject {
         transportMode = MKDirectionsTransportType(rawValue: storedTransportMode)
     }
 
-    var allValues: Bool {
+    var noActiveFilters: Bool {
         filters.isEmpty || filters.count == PinCategory.allCases.count
     }
 

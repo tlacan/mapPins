@@ -109,7 +109,7 @@ struct MapScreen: View {
             sideButton(imageSystemName: "ellipsis") {
                 showFilter = true
             }
-            if !preferenceService.allValues {
+            if !preferenceService.noActiveFilters {
                 ZStack {
                     Circle()
                         .fill(XCAsset.Colors.black.swiftUIColor)
