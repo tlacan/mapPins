@@ -129,8 +129,10 @@ struct PinListView: View {
         let isOn = preferencesService.isCategoryOn(category)
 
         return Button {
-            preferencesService.updateFilter(category: category, add: !isOn)
-            viewModel.updateContent(pins: pinService.pins.responseArray ?? [], filterText: viewModel.search)
+            withAnimation(.default) {
+                preferencesService.updateFilter(category: category, add: !isOn)
+                viewModel.updateContent(pins: pinService.pins.responseArray ?? [], filterText: viewModel.search)
+            }
         } label: {
             ZStack {
                 if isOn {

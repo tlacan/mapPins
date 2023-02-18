@@ -54,6 +54,10 @@
 
 "settings.acknowledgements.entry" = "Acknowledgements";
 "settings.transportMode.entry" = "Transport Mode";
+"settings.localisation.entry" = "Localisation";
+"settings.localisation.whenInUse" = "When In Use";
+"settings.localisation.always" = "Always";
+"settings.localisation.denied" = "Denied";
 
 "map.directions.button" = "Directions";
 "map.maps.button" = "Maps";

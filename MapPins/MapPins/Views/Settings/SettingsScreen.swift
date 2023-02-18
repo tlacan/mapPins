@@ -12,12 +12,14 @@ import MapKit
 struct SettingsScreen: View {
     let engine: Engine
     let transportModes = [MKDirectionsTransportType.automobile, MKDirectionsTransportType.walking, MKDirectionsTransportType.transit]
+    @ObservedObject var geolocationService: GeoLocationService
 
     @State var transportMode: UInt
     @State var showAcknowledgement: Bool = false
 
     init(engine: Engine) {
         self.engine = engine
+        _geolocationService = ObservedObject(wrappedValue: engine.geoLocationService)
         _transportMode = State(wrappedValue: engine.preferenceService.transportMode.rawValue)
     }
 
@@ -52,10 +54,34 @@ struct SettingsScreen: View {
     @ViewBuilder func mainContent() -> some View {
         List {
             transportModeEntry()
+            localisation()
             acknowledgementsEntry()
         }
         .listStyle(.insetGrouped)
         .navigationTitle(L10n.Tab.Settings.title)
+    }
+
+    @ViewBuilder func localisation() -> some View {
+        Button {
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(settingsUrl) else {
+                return
+            }
+            UIApplication.shared.open(settingsUrl)
+        } label: {
+            HStack {
+                Text(L10n.Settings.Localisation.entry)
+                    .foregroundColor(XCAsset.Colors.text.swiftUIColor)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                if geolocationService.locationManager.authorizationStatus == .authorizedWhenInUse {
+                    Text(L10n.Settings.Localisation.whenInUse)
+                        .foregroundColor(XCAsset.Colors.text.swiftUIColor)
+                } else if geolocationService.locationManager.authorizationStatus == .authorizedAlways {
+                    Text(L10n.Settings.Localisation.always)
+                } else {
+                    Text(L10n.Settings.Localisation.denied)
+                }
+            }
+        }
     }
 
     @ViewBuilder func transportModeEntry() -> some View {

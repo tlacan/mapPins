@@ -134,6 +134,16 @@ internal enum L10n {
       /// Acknowledgements
       internal static let entry = L10n.tr("Localizable", "settings.acknowledgements.entry", fallback: "Acknowledgements")
     }
+    internal enum Localisation {
+      /// Always
+      internal static let always = L10n.tr("Localizable", "settings.localisation.always", fallback: "Always")
+      /// Denied
+      internal static let denied = L10n.tr("Localizable", "settings.localisation.denied", fallback: "Denied")
+      /// Localisation
+      internal static let entry = L10n.tr("Localizable", "settings.localisation.entry", fallback: "Localisation")
+      /// When In Use
+      internal static let whenInUse = L10n.tr("Localizable", "settings.localisation.whenInUse", fallback: "When In Use")
+    }
     internal enum TransportMode {
       /// Transport Mode
       internal static let entry = L10n.tr("Localizable", "settings.transportMode.entry", fallback: "Transport Mode")

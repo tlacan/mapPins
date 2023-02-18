@@ -46,7 +46,7 @@ struct MapPinSelectedView: View {
         _imagesViewModel = StateObject(wrappedValue: PinImagesViewModel(pin: pin))
         self.pin = pin
         self.engine = engine
-        _starConfig = State(initialValue: ViewConstants.Rating.starConfig)
+        _starConfig = State(wrappedValue: ViewConstants.Rating.starConfig)
     }
 
     var body: some View {
