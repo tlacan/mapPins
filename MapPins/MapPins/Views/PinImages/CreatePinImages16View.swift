@@ -32,10 +32,10 @@ struct CreatePinImages16View: View {
             }.frame(maxWidth: .infinity)
             HStack {
                 PhotosPicker(selection: $selectedItems, matching: .images) {
-                    ButtonView(image: UIImage(systemName: "photo"), text: L10n.CreatePin.Image.library) {
+                    ButtonView(image: UIImage(systemSymbol: .photo), text: L10n.CreatePin.Image.library) {
                     }.disabled(true)
                 }
-                ButtonView(image: UIImage(systemName: "camera"), text: L10n.CreatePin.Image.camera) {
+                ButtonView(image: UIImage(systemSymbol: .camera), text: L10n.CreatePin.Image.camera) {
                     viewModel.showCamera = true
                 }
             }.frame(maxWidth: .infinity)

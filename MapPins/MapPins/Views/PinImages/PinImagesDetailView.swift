@@ -57,7 +57,7 @@ struct PinImagesDetailView: View {
                 })
                 ToolbarItem(placement: .bottomBar, content: {
                     if deleteButton {
-                        ButtonView(image: UIImage(systemName: "trash"), text: L10n.General.delete) {
+                        ButtonView(image: UIImage(systemSymbol: .trash), text: L10n.General.delete) {
                             viewModel.deleteDetailImage()
                         }
                     }

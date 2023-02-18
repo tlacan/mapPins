@@ -216,7 +216,7 @@ struct CreateEditPinView: View {
     }
 
     @ViewBuilder func mapButton() -> some View {
-        ButtonView(image: UIImage(systemName: "map"), text: L10n.EditPin.Button.viewOnMap) {
+        ButtonView(image: UIImage(systemSymbol: .map), text: L10n.EditPin.Button.viewOnMap) {
             dismiss()
             NotificationConstants.showPinOnMap.post(object: viewModel.editedPin)
         }

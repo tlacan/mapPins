@@ -10,6 +10,7 @@ import CoreLocation
 import StarRating
 import SwiftUI
 import MapKit
+import SFSafeSymbols
 
 struct AppConstants {
     enum Button: CGFloat {
@@ -54,36 +55,36 @@ struct AppConstants {
 extension MKDirectionsTransportType {
     var image: UIImage? {
         switch self {
-        case .walking: return UIImage(systemName: "figure.walk")
-        case .automobile: return UIImage(systemName: "car")
-        default: return UIImage(systemName: "tram")
+        case .walking: return UIImage(systemSymbol: .figureWalk)
+        case .automobile: return UIImage(systemSymbol: .car)
+        default: return UIImage(systemSymbol: .tram)
         }
     }
 }
 
 extension PinCategory {
-    var image: UIImage? {
+    var image: UIImage {
         switch self {
         case .restaurant:
-            return UIImage(systemName: "fork.knife")
+            return UIImage(systemSymbol: .forkKnife)
         case .bakery:
             if #available(iOS 16, *) {
-                return UIImage(systemName: "birthday.cake")
+                return UIImage(systemSymbol: .birthdayCake)
             } else {
                 return XCAsset.Assets.croissant.image
             }
         case .coffee:
-            return UIImage(systemName: "cup.and.saucer")
+            return UIImage(systemSymbol: .cupAndSaucer)
         case .bar:
             if #available(iOS 16, *) {
-                return UIImage(systemName: "wineglass")
+                return UIImage(systemSymbol: .wineglass)
             } else {
                 return XCAsset.Assets.cocktail.image
             }
         case .site:
-            return UIImage(systemName: "building.columns")
+            return UIImage(systemSymbol: .buildingColumns)
         case .accomodation:
-            return UIImage(systemName: "house")
+            return UIImage(systemSymbol: .house)
         }
     }
 

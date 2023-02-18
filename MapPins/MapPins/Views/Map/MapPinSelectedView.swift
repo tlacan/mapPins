@@ -100,17 +100,17 @@ struct MapPinSelectedView: View {
     @ViewBuilder func actionsButtons() -> some View {
         HStack {
             if let direction = viewModel.directionsMap {
-                ButtonView(image: UIImage(systemName: "arrow.uturn.right.circle.fill"), text: L10n.Map.Directions.button) {
+                ButtonView(image: UIImage(systemSymbol: .arrowUturnRightCircleFill), text: L10n.Map.Directions.button) {
                     engine.geoLocationService.direction = direction
                     withAnimation(.default) {
                         viewModel.showSelected = false
                     }
                 }
             }
-            ButtonView(image: UIImage(systemName: "map.circle.fill"), text: L10n.Map.Maps.button) {
+            ButtonView(image: UIImage(systemSymbol: .mapCircleFill), text: L10n.Map.Maps.button) {
                 openSelectedInAppleMap()
             }
-            ButtonView(image: UIImage(systemName: "g.circle.fill"), text: L10n.Map.Google.button) {
+            ButtonView(image: UIImage(systemSymbol: .gCircleFill), text: L10n.Map.Google.button) {
                 openSelectedInGoogleMap()
             }
         }

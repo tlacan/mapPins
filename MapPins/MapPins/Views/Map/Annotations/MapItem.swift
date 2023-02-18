@@ -28,11 +28,9 @@ class MapItem: NSObject, MKAnnotation {
     func imageBuilder(category: PinCategory) -> UIImage {
         let pinImage = XCAsset.Assets.pin.image.preparingThumbnail(of: CGSize(width: 45, height: 45)) ?? XCAsset.Assets.pin.image
 
-        if var catagoryImage = category.image {
-            catagoryImage = catagoryImage.preparingThumbnail(of: CGSize(width: 24, height: 24)) ?? catagoryImage
-            catagoryImage = catagoryImage.withRenderingMode(.alwaysTemplate).withTintColor(.white)
-            return pinImage.withRenderingMode(.alwaysTemplate).withTintColor(UIColor(category.uiColor)).mergeImage(with: catagoryImage, offsetY: -5)
-        }
-        return pinImage
+        var catagoryImage = category.image
+        catagoryImage = catagoryImage.preparingThumbnail(of: CGSize(width: 24, height: 24)) ?? catagoryImage
+        catagoryImage = catagoryImage.withRenderingMode(.alwaysTemplate).withTintColor(.white)
+        return pinImage.withRenderingMode(.alwaysTemplate).withTintColor(UIColor(category.uiColor)).mergeImage(with: catagoryImage, offsetY: -5)
     }
 }

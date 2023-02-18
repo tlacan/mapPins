@@ -146,14 +146,12 @@ struct PinListView: View {
                         .softOuterShadow(offset: ViewConstants.Filter.shaddowOuterOffset, radius: ViewConstants.Filter.shaddowOuterRadius)
                         .frame(height: ViewConstants.Filter.height)
                 }
-                if let image = category.image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .renderingMode(.template)
-                        .scaledToFit()
-                        .foregroundColor(Color.gray)
-                        .frame(height: ViewConstants.Filter.imageHeight)
-                }
+                Image(uiImage: category.image)
+                    .resizable()
+                    .renderingMode(.template)
+                    .scaledToFit()
+                    .foregroundColor(Color.gray)
+                    .frame(height: ViewConstants.Filter.imageHeight)
             }
         }.padding(.vertical)
     }
