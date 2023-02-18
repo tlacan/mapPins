@@ -14,6 +14,12 @@ struct OnboardingIntroView: View {
     @State var showNameScreen: Bool = false
     @State var index: Int = 0
 
+    struct ViewConstants {
+        static let pageControlSelectedSize: CGFloat = 8
+        static let pageControlNotSelectedSize: CGFloat = 6
+        static let pageControlSpacing: CGFloat = 12
+    }
+
     let steps = OnboardingIntroViewStep.steps
 
     var body: some View {
@@ -61,11 +67,11 @@ struct OnboardingIntroView: View {
                     }.tabViewStyle(.page(indexDisplayMode: .never))
                 }
             }.frame(maxWidth: .infinity)
-                .padding(.bottom, UIProperties.Padding.medium.rawValue)
+                .padding(.bottom, AppConstants.Padding.medium.rawValue)
 
-            pageControl().padding(.bottom, UIProperties.Padding.medium.rawValue)
+            pageControl().padding(.bottom, AppConstants.Padding.medium.rawValue)
             ButtonView(text: steps[index].action, action: buttonAction())
-                .padding(.bottom, UIProperties.Padding.medium.rawValue)
+                .padding(.bottom, AppConstants.Padding.medium.rawValue)
         }
     }
 
@@ -82,12 +88,12 @@ struct OnboardingIntroView: View {
     }
 
     @ViewBuilder func pageControl() -> some View {
-        HStack(spacing: 12) {
+        HStack(spacing: ViewConstants.pageControlSpacing) {
             ForEach(0..<steps.count, id: \.self) { pageIndex in
                 Circle()
                     .fill(index == pageIndex ? XCAsset.Colors.black.swiftUIColor : Color.gray)
-                    .frame(width: index == pageIndex ? 8 : 6,
-                           height: index == pageIndex ? 8 : 6)
+                    .frame(width: index == pageIndex ? ViewConstants.pageControlSelectedSize : ViewConstants.pageControlNotSelectedSize,
+                           height: index == pageIndex ? ViewConstants.pageControlSelectedSize : ViewConstants.pageControlNotSelectedSize)
                     .transition(AnyTransition.opacity)
                     .id(pageIndex)
             }
@@ -95,7 +101,7 @@ struct OnboardingIntroView: View {
     }
 
     @ViewBuilder func onboardingIntroViewStepView(_ step: OnboardingIntroViewStep) -> some View {
-        VStack(spacing: UIProperties.Padding.verySmall.rawValue) {
+        VStack(spacing: AppConstants.Padding.verySmall.rawValue) {
             LottieView(animation: colorScheme == .dark ? (step.lottieDark ?? step.lottie) : step.lottie, loop: true)
             step.text.swiftUIDescription()
                 .padding(.horizontal)

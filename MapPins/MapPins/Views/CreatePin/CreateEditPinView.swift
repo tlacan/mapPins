@@ -11,20 +11,37 @@ import ImagePickerView
 import PhotosUI
 
 struct CreateEditPinView: View {
+    enum Context {
+        case create
+        case edit
+    }
+
     @Environment(\.dismiss) var dismiss
 
     let engine: Engine
+    let context: Context
 
     @StateObject var viewModel: CreateEditPinViewModel
     @StateObject var imagesViewModel: PinImagesViewModel
 
     @State var showAddressAutocomplete: Bool = false
-    @State var starConfig = UIProperties.Star.configuration
+    @State var starConfig = AppConstants.Star.configuration
     @State var imageWidth: CGFloat = 0
     @FocusState private var addressFocus: Bool
 
+    struct ViewConstants {
+        struct Rating {
+            static let height: CGFloat = 70
+        }
+        struct Categories {
+            static let imageSize: CGFloat = 26
+            static let categorySize: CGFloat = 36
+        }
+    }
+
     init(engine: Engine, editedPin: PinModel?) {
         self.engine = engine
+        context = editedPin == nil ? .create : .edit
         _viewModel = StateObject(wrappedValue: CreateEditPinViewModel(engine: engine, editedPin: editedPin))
         _imagesViewModel = StateObject(wrappedValue: PinImagesViewModel(pin: editedPin))
     }
@@ -43,7 +60,7 @@ struct CreateEditPinView: View {
             ZStack(alignment: .bottom) {
                 mainContent()
             }
-                .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel))
+            .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel, context: context))
                 .navigationDestination(isPresented: $showAddressAutocomplete) {
                     AddressSearchView { address in
                         withAnimation(.default) {
@@ -70,7 +87,7 @@ struct CreateEditPinView: View {
                 } label: { EmptyView() }
                 mainContent()
             }
-                .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel))
+            .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel, context: context))
                 .sheet(isPresented: $imagesViewModel.showLibrary) {
                     ImagePickerView(sourceType: .photoLibrary) { image in
                         imagesViewModel.images.append(image)
@@ -86,9 +103,9 @@ struct CreateEditPinView: View {
     }
 
     @ViewBuilder func mainContent() -> some View {
-        VStack(spacing: UIProperties.Padding.medium.rawValue) {
+        VStack(spacing: AppConstants.Padding.medium.rawValue) {
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: UIProperties.Padding.small.rawValue) {
+                VStack(alignment: .leading, spacing: AppConstants.Padding.small.rawValue) {
                     name()
                     address()
                     categories()
@@ -98,18 +115,23 @@ struct CreateEditPinView: View {
                     } else {
                         CreatePinImages15View(viewModel: imagesViewModel)
                     }
-                    EmptyView().frame(height: UIProperties.Padding.big.rawValue)
-                }.padding(UIProperties.Padding.medium.rawValue)
+                    EmptyView().frame(height: AppConstants.Padding.big.rawValue)
+                }.padding(AppConstants.Padding.medium.rawValue)
             }.frame(maxHeight: .infinity)
-            Color.clear.frame(height: UIProperties.Padding.medium.rawValue * 1 + UIProperties.Button.height.rawValue)
+            Color.clear.frame(height: AppConstants.Padding.medium.rawValue * 1 + AppConstants.Button.height.rawValue)
         }.frame(maxHeight: .infinity)
-        FooterGradient().offset(y: -UIProperties.Padding.medium.rawValue)
-        saveButton().offset(y: -UIProperties.Padding.medium.rawValue)
+        FooterGradient().offset(y: -AppConstants.Padding.medium.rawValue)
+        HStack {
+            if context == .edit {
+                mapButton()
+            }
+            saveButton()
+        }.offset(y: -AppConstants.Padding.medium.rawValue)
     }
 
     @ViewBuilder func name() -> some View {
         TextField(L10n.CreatePin.name, text: $viewModel.name)
-            .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
+            .font(FontFamily.Poppins.regular.swiftUIFont(size: AppConstants.TextSize.description.rawValue))
             .textFieldStyle(.roundedBorder)
             .textContentType(.givenName)
             .autocorrectionDisabled()
@@ -122,7 +144,7 @@ struct CreateEditPinView: View {
             }
             return ""
         }, set: { _, _ in }))
-        .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
+        .font(FontFamily.Poppins.regular.swiftUIFont(size: AppConstants.TextSize.description.rawValue))
         .textFieldStyle(.roundedBorder)
         .textContentType(.givenName)
         .autocorrectionDisabled()
@@ -138,7 +160,7 @@ struct CreateEditPinView: View {
             L10n.CreatePin.rate.swiftUISectionHeader()
             StarRating(initialRating: viewModel.rating ?? 0, configuration: $starConfig) { value in
                 viewModel.rating = value
-            }.frame(height: 70)
+            }.frame(height: ViewConstants.Rating.height)
             VStack {
                 if let rating = viewModel.rating {
                     String(format: "%.1f", locale: Locale.current, rating).swiftUIDescription()
@@ -167,9 +189,9 @@ struct CreateEditPinView: View {
                                         .renderingMode(.template)
                                         .scaledToFit()
                                         .foregroundColor( viewModel.category?.rawValue == category.rawValue ? XCAsset.Colors.background.swiftUIColor : XCAsset.Colors.black.swiftUIColor)
-                                        .frame(width: 26, height: 26)
+                                        .frame(width: ViewConstants.Categories.imageSize, height: ViewConstants.Categories.imageSize)
                                 }
-                            }.frame(width: 36, height: 36)
+                            }.frame(width: ViewConstants.Categories.categorySize, height: ViewConstants.Categories.categorySize)
                         }
                     }.frame(maxWidth: .infinity)
                 }
@@ -189,8 +211,15 @@ struct CreateEditPinView: View {
                 await viewModel.savePin(images: imagesViewModel.images)
                 dismiss()
             }
-        }.opacity(viewModel.formValid ? UIProperties.Opacity.enabled.rawValue : UIProperties.Opacity.disabled.rawValue)
+        }.opacity(viewModel.formValid ? AppConstants.Opacity.enabled.rawValue : AppConstants.Opacity.disabled.rawValue)
             .disabled(!viewModel.formValid)
+    }
+
+    @ViewBuilder func mapButton() -> some View {
+        ButtonView(image: UIImage(systemName: "map"), text: L10n.EditPin.Button.viewOnMap) {
+            dismiss()
+            NotificationConstants.showPinOnMap.post(object: viewModel.editedPin)
+        }
     }
 }
 
@@ -199,9 +228,12 @@ struct CreateEditPinViewNavigationModifier: ViewModifier {
     @ObservedObject var viewModel: CreateEditPinViewModel
     @ObservedObject var imagesViewModel: PinImagesViewModel
 
-    init(viewModel: CreateEditPinViewModel, imagesViewModel: PinImagesViewModel) {
+    let context: CreateEditPinView.Context
+
+    init(viewModel: CreateEditPinViewModel, imagesViewModel: PinImagesViewModel, context: CreateEditPinView.Context) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
         _imagesViewModel = ObservedObject(wrappedValue: imagesViewModel)
+        self.context = context
     }
 
     func body(content: Content) -> some View {
@@ -212,12 +244,14 @@ struct CreateEditPinViewNavigationModifier: ViewModifier {
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    CloseButton {
-                        dismiss()
+                    if context == .create {
+                        CloseButton {
+                            dismiss()
+                        }
                     }
                 }
                 ToolbarItem(placement: .principal) {
-                    L10n.CreatePin.title.swiftUITitle()
+                    (viewModel.editedPin?.name ?? L10n.CreatePin.title).swiftUITitle()
                 }
             }
             .sheet(isPresented: $imagesViewModel.showCamera) {

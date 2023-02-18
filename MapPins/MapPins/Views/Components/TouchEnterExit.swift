@@ -28,12 +28,12 @@ struct TouchEnterExit: ViewModifier {
 
     func dragObserver(_ geo: GeometryProxy) -> some View {
         if geo.frame(in: .global).contains(dragLocation) {
-            DispatchQueue.main.async {
+            Task { @MainActor in
                 didEnter = true
                 onEnter?()
             }
         } else if didEnter {
-            DispatchQueue.main.async {
+            Task { @MainActor in
                 didEnter = false
                 onExit?()
             }
@@ -69,12 +69,12 @@ class TouchEnterExitProxy<ID: Hashable> {
     func check(dragPosition: CGPoint) {
         for (id, frame) in frames {
             if frame.contains(dragPosition) {
-                DispatchQueue.main.async { [self] in
+                Task { @MainActor in
                     didEnter[id] = true
                     onEnter?(id)
                 }
             } else if didEnter[id] == true {
-                DispatchQueue.main.async { [self] in
+                Task { @MainActor in
                     didEnter[id] = false
                     onExit?(id)
                 }

@@ -90,9 +90,11 @@
 		1DC7C328297AEF0700A451DE /* LoadedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C327297AEF0700A451DE /* LoadedData.swift */; };
 		1DC7C32E297E803C00A451DE /* FileStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC7C32D297E803C00A451DE /* FileStorageKeys.swift */; };
 		1DD88E8E299E91F700CD2663 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD88E8D299E91F700CD2663 /* Neumorphic */; };
+		1DD88E93299FD1E300CD2663 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD88E92299FD1E300CD2663 /* Notifications.swift */; };
+		1DD88E9929A10D5E00CD2663 /* PinListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD88E9829A10D5E00CD2663 /* PinListViewModel.swift */; };
 		1DE6F2F029768E8800AF4E64 /* OnboardingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */; };
 		1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F42976980500AF4E64 /* LottieView.swift */; };
-		1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */; };
+		1DE6F2F829769ACA00AF4E64 /* AppConstants+UIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2F729769ACA00AF4E64 /* AppConstants+UIProperties.swift */; };
 		1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */; };
 		1DF947B62983DE5B005B6DDD /* CreateEditPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF947B52983DE5B005B6DDD /* CreateEditPinView.swift */; };
 		1DF947B82983DFD6005B6DDD /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF947B72983DFD6005B6DDD /* CloseButton.swift */; };
@@ -200,9 +202,11 @@
 		1DC7C325297AEE6B00A451DE /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
 		1DC7C327297AEF0700A451DE /* LoadedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadedData.swift; sourceTree = "<group>"; };
 		1DC7C32D297E803C00A451DE /* FileStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageKeys.swift; sourceTree = "<group>"; };
+		1DD88E92299FD1E300CD2663 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		1DD88E9829A10D5E00CD2663 /* PinListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinListViewModel.swift; sourceTree = "<group>"; };
 		1DE6F2EF29768E8800AF4E64 /* OnboardingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntroView.swift; sourceTree = "<group>"; };
 		1DE6F2F42976980500AF4E64 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProperties.swift; sourceTree = "<group>"; };
+		1DE6F2F729769ACA00AF4E64 /* AppConstants+UIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppConstants+UIProperties.swift"; sourceTree = "<group>"; };
 		1DE6F2FA2976E95400AF4E64 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		1DF947B52983DE5B005B6DDD /* CreateEditPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditPinView.swift; sourceTree = "<group>"; };
 		1DF947B72983DFD6005B6DDD /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				1D18F151298FF1EC00BC0DCA /* PinListView.swift */,
+				1DD88E9829A10D5E00CD2663 /* PinListViewModel.swift */,
 			);
 			path = PinList;
 			sourceTree = "<group>";
@@ -537,10 +542,11 @@
 		1DE6F2F12976955F00AF4E64 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				1DE6F2F729769ACA00AF4E64 /* UIProperties.swift */,
+				1DE6F2F729769ACA00AF4E64 /* AppConstants+UIProperties.swift */,
 				1D18F14E298E529500BC0DCA /* UIImage+Helper.swift */,
 				1D18F161299407A600BC0DCA /* Array+Helper.swift */,
 				1D610137299D49960064E420 /* View+Helper.swift */,
+				1DD88E92299FD1E300CD2663 /* Notifications.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -810,7 +816,7 @@
 				1DC7C321297AEC0800A451DE /* PinModel.swift in Sources */,
 				1D18F15C2993993A00BC0DCA /* PreferencesService.swift in Sources */,
 				1D61013C299D8CD00064E420 /* PinImagesDetailView.swift in Sources */,
-				1DE6F2F829769ACA00AF4E64 /* UIProperties.swift in Sources */,
+				1DE6F2F829769ACA00AF4E64 /* AppConstants+UIProperties.swift in Sources */,
 				1D239C56297040C400A166A2 /* Lotties.swift in Sources */,
 				1DF947B62983DE5B005B6DDD /* CreateEditPinView.swift in Sources */,
 				1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */,
@@ -825,6 +831,7 @@
 				1D239C8A297052A800A166A2 /* Fonts.swift in Sources */,
 				1D239C8C297053E800A166A2 /* Assets.swift in Sources */,
 				1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */,
+				1DD88E9929A10D5E00CD2663 /* PinListViewModel.swift in Sources */,
 				1DC7C324297AEE4000A451DE /* Engine.swift in Sources */,
 				1DC7C328297AEF0700A451DE /* LoadedData.swift in Sources */,
 				1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */,
@@ -847,6 +854,7 @@
 				1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */,
 				1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */,
 				1DE6F2F52976980500AF4E64 /* LottieView.swift in Sources */,
+				1DD88E93299FD1E300CD2663 /* Notifications.swift in Sources */,
 				1DA0A3372982D16E007FED5C /* EmptyList.swift in Sources */,
 				1D61013A299D87720064E420 /* PinImagesViewModel.swift in Sources */,
 				1D0353D5298BBFE600B4AFD2 /* GeoLocationService.swift in Sources */,

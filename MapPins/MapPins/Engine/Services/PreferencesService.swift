@@ -43,14 +43,6 @@ class PreferenceService: ObservableObject {
         filters.isEmpty || filters.contains(where: { $0 == category })
     }
 
-    var transportModeImage: UIImage? {
-        switch transportMode {
-        case .walking: return UIImage(systemName: "figure.walk")
-        case .automobile: return UIImage(systemName: "car")
-        default: return UIImage(systemName: "tram")
-        }
-    }
-
     func updateFilter(category: PinCategory, add: Bool) {
         if add {
             filters.appendIfNotContains(category)

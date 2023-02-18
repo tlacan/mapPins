@@ -10,9 +10,24 @@ import Neumorphic
 
 struct PinListView: View {
     let engine: Engine
+    @State var showCreate: Bool = false
+
     @StateObject var viewModel: PinListViewModel
     @ObservedObject var pinService: PinService
     @ObservedObject var preferencesService: PreferenceService
+
+    struct ViewConstants {
+        struct Filter {
+            static let height: CGFloat = 48
+            static let imageHeight: CGFloat = 24
+            static let shaddowOuterOffset: CGFloat = 5
+            static let shaddowOuterRadius: CGFloat = 5
+        }
+
+        struct PinItem {
+            static let imageHeight: CGFloat = 24
+        }
+    }
 
     init(engine: Engine) {
         self.engine = engine
@@ -69,17 +84,27 @@ struct PinListView: View {
                         }
                     }.id(letter)
                 }
-            }.firstLetterSectionIndex(proxy: proxy, sections: viewModel.content.keys.sorted(by: { $0 < $1 }))
-            .emptyListView(displayEmptyList: viewModel.content.isEmpty, emptyListView: {
-                Text(L10n.General.noResult)
-                    .foregroundColor(Color(uiColor: UIColor.systemGray2))
-                    .font(.system(size: 28.0))
-            })
+            }
+            .listStyle(InsetGroupedListStyle())
+            .firstLetterSectionIndex(proxy: proxy, sections: viewModel.content.keys.sorted(by: { $0 < $1 }))
+            .emptyListView(displayEmptyList: viewModel.content.isEmpty)
         }.task {
             viewModel.updateContent(pins: pinService.pins.responseArray ?? [], filterText: viewModel.search)
         }
         .onReceive(pinService.$pins, perform: { pins in
             viewModel.updateContent(pins: pinService.pins.responseArray ?? [], filterText: viewModel.search)
+        })
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showCreate = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
+        .sheet(isPresented: $showCreate, content: {
+            CreateEditPinView(engine: engine, editedPin: nil)
         })
         .navigationTitle(L10n.List.title)
         .searchable(text: $viewModel.search, placement: .navigationBarDrawer(displayMode: .always), prompt: L10n.Search.placeholder)
@@ -113,14 +138,13 @@ struct PinListView: View {
                         .fill(Color.Neumorphic.main)
                         .clipShape(Circle())
                         .softInnerShadow(Circle())
-                        .frame(height: 48)
+                        .frame(height: ViewConstants.Filter.height)
                 } else {
                     Circle()
                         .fill(Color.Neumorphic.main)
                         .clipShape(Circle())
-                        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 5, y: 5)
-                        .shadow(color: Color.white.opacity(0.7), radius: 5, x: -3, y: -3)
-                        .frame(height: 48)
+                        .softOuterShadow(offset: ViewConstants.Filter.shaddowOuterOffset, radius: ViewConstants.Filter.shaddowOuterRadius)
+                        .frame(height: ViewConstants.Filter.height)
                 }
                 if let image = category.image {
                     Image(uiImage: image)
@@ -128,7 +152,7 @@ struct PinListView: View {
                         .renderingMode(.template)
                         .scaledToFit()
                         .foregroundColor(Color.gray)
-                        .frame(height: 24)
+                        .frame(height: ViewConstants.Filter.imageHeight)
                 }
             }
         }.padding(.vertical)
@@ -146,7 +170,7 @@ struct PinListView: View {
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 24)
+                        .frame(height: ViewConstants.PinItem.imageHeight)
                 }
                 Text(pin.name.capitalized)
                     .foregroundColor(XCAsset.Colors.text.swiftUIColor)
@@ -158,38 +182,6 @@ struct PinListView: View {
 
                 }
                 .tint(.red)
-            }
-        }
-    }
-}
-
-@MainActor
-class PinListViewModel: ObservableObject {
-    let engine: Engine
-
-    @Published var content: [String: [PinModel]] = [:]
-    @Published var showPinDetail: Bool = false
-    @Published var selectedPin: PinModel?
-    @Published var search = ""
-
-    init(engine: Engine) {
-        self.engine = engine
-    }
-
-    func updateContent(pins: [PinModel], filterText: String?) {
-        content.removeAll()
-        var pins = pins.sorted(by: { $0.name.uppercased() < $1.name.uppercased() })
-        if let filterText = filterText, !filterText.isEmpty {
-            pins = pins.filter({ $0.name.lowercased().contains(filterText.lowercased()) })
-        }
-        pins = pins.filter(({ engine.preferenceService.isCategoryOn($0.category) }))
-
-        for pin in pins {
-            let index = pin.name.first?.uppercased() ?? " "
-            if !content.keys.contains(index) {
-                content[index] = [pin]
-            } else {
-                content[index]?.append(pin)
             }
         }
     }

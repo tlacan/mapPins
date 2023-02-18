@@ -46,6 +46,12 @@ internal enum L10n {
       internal static let library = L10n.tr("Localizable", "createPin.image.library", fallback: "Add From Library")
     }
   }
+  internal enum EditPin {
+    internal enum Button {
+      /// View On Map
+      internal static let viewOnMap = L10n.tr("Localizable", "editPin.button.viewOnMap", fallback: "View On Map")
+    }
+  }
   internal enum Error {
     /// Impossible to get coordinates for this place.
     internal static let geocodeAddress = L10n.tr("Localizable", "error.geocodeAddress", fallback: "Impossible to get coordinates for this place.")
@@ -127,6 +133,10 @@ internal enum L10n {
     internal enum Acknowledgements {
       /// Acknowledgements
       internal static let entry = L10n.tr("Localizable", "settings.acknowledgements.entry", fallback: "Acknowledgements")
+    }
+    internal enum TransportMode {
+      /// Transport Mode
+      internal static let entry = L10n.tr("Localizable", "settings.transportMode.entry", fallback: "Transport Mode")
     }
   }
   internal enum Tab {

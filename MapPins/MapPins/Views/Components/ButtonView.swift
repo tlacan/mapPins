@@ -12,6 +12,12 @@ struct ButtonView: View {
     let text: String
     let action: () -> Void
 
+    struct ViewConstants {
+        static let minFontScale = 0.2
+        static let lineLimit = 2
+        static let radius: CGFloat = 24
+    }
+
     init(image: UIImage? = nil, text: String, action: @escaping () -> Void) {
         self.image = image
         self.text = text
@@ -28,15 +34,15 @@ struct ButtonView: View {
                         .padding(.leading)
                 }
                 Text(text)
-                    .minimumScaleFactor(0.2)
-                    .lineLimit(2)
-                    .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
+                    .minimumScaleFactor(ViewConstants.minFontScale)
+                    .lineLimit(ViewConstants.lineLimit)
+                    .font(FontFamily.Poppins.regular.swiftUIFont(size: AppConstants.TextSize.description.rawValue))
                     .foregroundColor(XCAsset.Colors.background.swiftUIColor)
                     .padding(image != nil ? .trailing : .horizontal)
             }
         }
-            .frame(height: UIProperties.Button.height.rawValue)
-            .background(XCAsset.Colors.text.swiftUIColor           .cornerRadius(24))
+            .frame(height: AppConstants.Button.height.rawValue)
+            .background(XCAsset.Colors.text.swiftUIColor.cornerRadius(ViewConstants.radius))
     }
 }
 

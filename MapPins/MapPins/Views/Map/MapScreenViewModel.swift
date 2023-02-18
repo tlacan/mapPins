@@ -26,6 +26,7 @@ class MapScreenViewModel: ObservableObject {
     @Published var directionsMap: MKDirections?
     @Published var estimatedTime: String?
     @Published var centerOnUser: Bool = true
+    @Published var centerOnPin: PinModel?
 
     init(engine: Engine, selectedPin: PinModel? = nil) {
         self.engine = engine

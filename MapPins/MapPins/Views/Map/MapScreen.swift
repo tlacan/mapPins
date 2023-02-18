@@ -19,6 +19,17 @@ struct MapScreen: View {
 
     let engine: Engine
 
+    struct ViewConstants {
+        struct SideButton {
+            static let size: CGFloat = 40
+        }
+        struct FilterButton {
+            static let size: CGFloat = 16
+            static let offsetXY: CGFloat = 18
+            static let textFont: SwiftUI.Font = .system(size: 10)
+        }
+    }
+
     init(engine: Engine) {
         _viewModel = StateObject(wrappedValue: MapScreenViewModel(engine: engine))
         _preferenceService = ObservedObject(wrappedValue: engine.preferenceService)
@@ -60,7 +71,7 @@ struct MapScreen: View {
             PinMapView(engine: engine, viewModel: viewModel)
                 .edgesIgnoringSafeArea(.top)
             sideButtons()
-                .offset(x: -UIProperties.Padding.medium.rawValue, y: -UIProperties.Padding.medium.rawValue)
+                .offset(x: -AppConstants.Padding.medium.rawValue, y: -AppConstants.Padding.medium.rawValue)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .sheet(isPresented: $showCreate) {
@@ -74,6 +85,16 @@ struct MapScreen: View {
         }
         .onDisappear {
             engine.geoLocationService.stopUpdateLocation()
+        }
+        .onReceive(NotificationConstants.showPinOnMap.publisher) { notification in
+            Task { @MainActor in
+                withAnimation(.default) {
+                    if let pin = notification.object as? PinModel {
+                        viewModel.showSelected = false
+                        viewModel.centerOnPin = pin
+                    }
+                }
+            }
         }
     }
 
@@ -100,7 +121,7 @@ struct MapScreen: View {
                     .fill(XCAsset.Colors.background.swiftUIColor)
                 Image(systemName: imageSystemName)
                     .foregroundColor(XCAsset.Colors.black.swiftUIColor)
-            }.frame(width: 40, height: 40)
+            }.frame(width: ViewConstants.SideButton.size, height: ViewConstants.SideButton.size)
         }
     }
 
@@ -114,10 +135,10 @@ struct MapScreen: View {
                     Circle()
                         .fill(XCAsset.Colors.black.swiftUIColor)
                     Text("\(preferenceService.filters.count)")
-                        .font(.system(size: 10))
+                        .font(ViewConstants.FilterButton.textFont)
                         .foregroundColor(XCAsset.Colors.background.swiftUIColor)
-                }.frame(width: 16, height: 16)
-                    .offset(x: 18, y: 18)
+                }.frame(width: ViewConstants.FilterButton.size, height: ViewConstants.FilterButton.size)
+                    .offset(x: ViewConstants.FilterButton.offsetXY, y: ViewConstants.FilterButton.offsetXY)
             }
         }
     }

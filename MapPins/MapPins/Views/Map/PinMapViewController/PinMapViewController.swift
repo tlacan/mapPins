@@ -47,13 +47,13 @@ class PinMapViewController: UIViewController {
         }).store(in: &self.cancellables)
 
         engine.pinService.$pins.sink(receiveValue: { [weak self] pins in
-            DispatchQueue.main.async { [weak self] in
+            Task { @MainActor in
                 self?.updateAnnotations(filters: self?.engine.preferenceService.filters ?? [], pins: pins.responseArray ?? [])
             }
         }).store(in: &self.cancellables)
 
         engine.preferenceService.$filters.sink { [weak self] categories in
-            DispatchQueue.main.async { [weak self] in
+            Task { @MainActor in
                 self?.updateAnnotations(filters: categories, pins: self?.engine.pinService.pins.responseArray ?? [])
             }
         }.store(in: &self.cancellables)
@@ -67,8 +67,18 @@ class PinMapViewController: UIViewController {
         }.store(in: &self.cancellables)
 
         viewModel?.$centerOnUser.sink { [weak self] centerOnUser in
-            if centerOnUser {
-                self?.configureCenter(self?.engine.geoLocationService.latestUserLocation?.coordinate ?? UIProperties.Location.parisCenter)
+            Task { @MainActor in
+                if centerOnUser {
+                    self?.configureCenter(self?.engine.geoLocationService.latestUserLocation?.coordinate ?? AppConstants.Location.parisCenter)
+                }
+            }
+        }.store(in: &self.cancellables)
+
+        viewModel?.$centerOnPin.sink { [weak self] centerOnPin in
+            Task { @MainActor in
+                if let pinCoordinate = centerOnPin?.address.coordinate {
+                    self?.configureCenter(pinCoordinate)
+                }
             }
         }.store(in: &self.cancellables)
     }
@@ -87,7 +97,7 @@ class PinMapViewController: UIViewController {
 
     func configureMapView() {
         centerConfigured = engine.geoLocationService.latestUserLocation?.coordinate != nil
-        configureCenter(engine.geoLocationService.latestUserLocation?.coordinate ?? UIProperties.Location.parisCenter)
+        configureCenter(engine.geoLocationService.latestUserLocation?.coordinate ?? AppConstants.Location.parisCenter)
         mapView.showsUserLocation = true
         mapView.delegate = self
         mapView.register(

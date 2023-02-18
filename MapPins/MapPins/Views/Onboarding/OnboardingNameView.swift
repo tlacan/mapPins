@@ -11,16 +11,20 @@ struct OnboardingNameView: View {
     @AppStorage(UserDefaultsKeys.onboardingCompleted.rawValue) var onboardingCompleted: Bool = false
     @AppStorage(UserDefaultsKeys.name.rawValue) var name: String = ""
 
+    struct ViewConstants {
+        static let lottieMaxHeight: CGFloat = 380
+    }
+
     var body: some View {
         VStack {
             VStack {
                 LottieView(animation: Lottie.people, loop: true)
-                    .frame(maxHeight: 380)
+                    .frame(maxHeight: ViewConstants.lottieMaxHeight)
                 VStack {
                     L10n.Onboarding.Name.title.swiftUITitle()
                     L10n.Onboarding.Name.description.swiftUIDescription()
                     TextField(L10n.Onboarding.Name.placeholder, text: $name)
-                        .font(FontFamily.Poppins.regular.swiftUIFont(size: UIProperties.TextSize.description.rawValue))
+                        .font(FontFamily.Poppins.regular.swiftUIFont(size: AppConstants.TextSize.description.rawValue))
                         .textFieldStyle(.roundedBorder)
                         .textContentType(.givenName)
                         .autocorrectionDisabled()
@@ -30,8 +34,8 @@ struct OnboardingNameView: View {
                 onboardingCompleted = true
             })
                 .disabled(name.isEmpty)
-                .opacity(name.isEmpty ? UIProperties.Opacity.disabled.rawValue : UIProperties.Opacity.enabled.rawValue)
-                .padding(.bottom, UIProperties.Padding.medium.rawValue)
+                .opacity(name.isEmpty ? AppConstants.Opacity.disabled.rawValue : AppConstants.Opacity.enabled.rawValue)
+                .padding(.bottom, AppConstants.Padding.medium.rawValue)
         }.navigationBarHidden(true)
     }
 }

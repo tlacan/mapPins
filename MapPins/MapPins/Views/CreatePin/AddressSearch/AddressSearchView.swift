@@ -36,11 +36,7 @@ struct AddressSearchView: View {
             }
         }
         .listStyle(.plain)
-        .emptyListView(displayEmptyList: viewModel.address.isEmpty, emptyListView: {
-            Text(L10n.General.noResult)
-                .foregroundColor(Color(uiColor: UIColor.systemGray2))
-                .font(.system(size: 28.0))
-        })
+        .emptyListView(displayEmptyList: viewModel.address.isEmpty)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 BackButton {

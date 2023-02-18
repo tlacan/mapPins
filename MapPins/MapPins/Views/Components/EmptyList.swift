@@ -23,7 +23,7 @@ struct EmptyListModifier<EmptyListView: View>: ViewModifier {
 
 extension View {
     func emptyListView<EmptyListView: View>(displayEmptyList: Bool,
-                                         emptyListView: @escaping () -> EmptyListView) -> ModifiedContent<Self, EmptyListModifier<EmptyListView>> {
+        emptyListView: @escaping () -> EmptyListView = { L10n.General.noResult.swiftUIEmptyList() }) -> ModifiedContent<Self, EmptyListModifier<EmptyListView>> {
         modifier(EmptyListModifier(displayEmptyList: displayEmptyList, emptyListView: emptyListView)
         )
     }

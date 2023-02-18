@@ -37,6 +37,7 @@
 "createPin.images" = "Images";
 "createPin.image.library" = "Add From Library";
 "createPin.image.camera" = "Add From Camera";
+"editPin.button.viewOnMap" = "View On Map";
 
 "category.restaurant" = "Restaurant";
 "category.bar" = "Bar";
@@ -52,6 +53,7 @@
 "pinFilterView.title" = "Category Filter";
 
 "settings.acknowledgements.entry" = "Acknowledgements";
+"settings.transportMode.entry" = "Transport Mode";
 
 "map.directions.button" = "Directions";
 "map.maps.button" = "Maps";

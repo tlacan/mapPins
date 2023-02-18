@@ -18,25 +18,46 @@ struct MapPinSelectedView: View {
 
     @State var starConfig: StarRatingConfiguration
 
+    struct ViewConstants {
+        struct Rating {
+            static var starConfig: StarRatingConfiguration {
+                let starConfig = AppConstants.Star.configuration
+                starConfig.spacing = 6
+                return starConfig
+            }
+            static let offsetX: CGFloat = -8
+        }
+
+        struct SubtitleInfo {
+            static let height: CGFloat = 12
+            static let categoryFont: SwiftUI.Font = FontFamily.Poppins.bold.swiftUIFont(size: 12)
+            static let etaFont: SwiftUI.Font = FontFamily.Poppins.regular.swiftUIFont(size: 12)
+            static let textXOffsetWithRating: CGFloat = -18
+        }
+
+        struct Images {
+            static let spacing: CGFloat = 2
+            static let imagesPerRow = 3
+        }
+    }
+
     init(engine: Engine, pin: PinModel, viewModel: MapScreenViewModel) {
         _viewModel = ObservedObject(wrappedValue: viewModel)
         _imagesViewModel = StateObject(wrappedValue: PinImagesViewModel(pin: pin))
         self.pin = pin
         self.engine = engine
-        let starConfig = UIProperties.Star.configuration
-        starConfig.spacing = 6
-        _starConfig = State(initialValue: starConfig)
+        _starConfig = State(initialValue: ViewConstants.Rating.starConfig)
     }
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: UIProperties.Padding.small.rawValue) {
+            VStack(alignment: .leading, spacing: AppConstants.Padding.small.rawValue) {
                 pin.name.swiftUITitle()
                 subtitleInfo()
                 actionsButtons()
                 images()
             }
-            .padding(UIProperties.Padding.medium.rawValue)
+            .padding(AppConstants.Padding.medium.rawValue)
             .frame(maxWidth: .infinity)
             .sheet(isPresented: $imagesViewModel.showImageDetails) {
                 PinImagesDetailView(viewModel: imagesViewModel, deleteButton: false)
@@ -45,22 +66,22 @@ struct MapPinSelectedView: View {
     }
 
     @ViewBuilder func subtitleInfo() -> some View {
-        HStack(spacing: UIProperties.Padding.verySmall.rawValue) {
+        HStack(spacing: AppConstants.Padding.verySmall.rawValue) {
             if let rating = pin.rating {
                 String(format: "%.1f", locale: Locale.current, rating).swiftUIDescription()
                 StarRating(initialRating: rating, configuration: $starConfig)
                     .disabled(true)
-                    .offset(x: -8)
+                    .offset(x: ViewConstants.Rating.offsetX)
             }
-            HStack(spacing: UIProperties.Padding.verySmall.rawValue) {
+            HStack(spacing: AppConstants.Padding.verySmall.rawValue) {
                 Text(pin.category.uiText)
-                    .font(FontFamily.Poppins.bold.swiftUIFont(size: 12))
+                    .font(ViewConstants.SubtitleInfo.categoryFont)
                     .foregroundColor(XCAsset.Colors.text.swiftUIColor)
                 if let estimatedTime = viewModel.estimatedTime {
                     HStack {
                         Text(estimatedTime)
-                            .font(FontFamily.Poppins.regular.swiftUIFont(size: 12))
-                        if let transportImage = engine.preferenceService.transportModeImage {
+                            .font(ViewConstants.SubtitleInfo.etaFont)
+                        if let transportImage = engine.preferenceService.transportMode.image {
                             Image(uiImage: transportImage)
                                 .foregroundColor(XCAsset.Colors.black.swiftUIColor)
                         }
@@ -70,8 +91,10 @@ struct MapPinSelectedView: View {
                 }
             }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .offset(x: pin.rating != nil ? -18 : 0)
-        }.frame(height: 12, alignment: .leading)
+                .if(pin.rating != nil) { view in
+                    view.offset(x: ViewConstants.SubtitleInfo.textXOffsetWithRating)
+                }
+        }.frame(height: ViewConstants.SubtitleInfo.height, alignment: .leading)
     }
 
     @ViewBuilder func actionsButtons() -> some View {
@@ -96,28 +119,28 @@ struct MapPinSelectedView: View {
     func openSelectedInAppleMap() {
         guard let coordinate = viewModel.selectedPin?.address.coordinate else { return }
         let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: coordinate, addressDictionary: nil))
-        mapItem.name = viewModel.selectedPin?.name ?? "Destination"
+        mapItem.name = viewModel.selectedPin?.name ?? ""
         mapItem.openInMaps()
     }
 
     func openSelectedInGoogleMap() {
         guard let coordinate = viewModel.selectedPin?.address.coordinate else { return }
-        if let googleMapUrl = URL(string: "comgooglemaps://"), UIApplication.shared.canOpenURL(googleMapUrl) {
-            if let url = URL(string: "comgooglemaps-x-callback://?center=\(coordinate.latitude),\(coordinate.longitude)") {
+        if let googleMapUrl = URL(string: AppConstants.URLs.googleMapApp.rawValue), UIApplication.shared.canOpenURL(googleMapUrl) {
+            if let url = URL(string: "\(AppConstants.URLs.googleMapAppCenter.rawValue)\(coordinate.latitude),\(coordinate.longitude)") {
                 UIApplication.shared.open(url, options: [:])
                 return
             }
         }
-        if let urlDestination = URL(string: "https://www.google.co.in/maps?center=\(coordinate.latitude),\(coordinate.longitude)") {
+        if let urlDestination = URL(string: "\(AppConstants.URLs.googleMapCenter.rawValue)\(coordinate.latitude),\(coordinate.longitude)") {
             UIApplication.shared.open(urlDestination)
         }
     }
 
     @ViewBuilder func images() -> some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(alignment: .leading, spacing: ViewConstants.Images.spacing) {
             ForEach(0..<imagesViewModel.imageRows + 1, id: \.self) { row in
-                HStack(spacing: 2) {
-                    ForEach(0..<3) { col in
+                HStack(spacing: ViewConstants.Images.spacing) {
+                    ForEach(0..<ViewConstants.Images.imagesPerRow, id: \.self) { col in
                         PinImageThumbView(viewModel: imagesViewModel, col: col, row: row)
                     }
                 }
