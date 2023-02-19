@@ -72,7 +72,7 @@ struct PinListView: View {
                         tableView.showsVerticalScrollIndicator = false
                     }
             }
-        }
+        }.navigationViewStyle(.stack)
     }
 
     @ViewBuilder func mainContent() -> some View {

@@ -51,7 +51,7 @@ struct SettingsScreen: View {
                 }
                 mainContent()
             }
-        }
+        }.navigationViewStyle(.stack)
     }
 
     @ViewBuilder func mainContent() -> some View {

@@ -35,7 +35,7 @@ struct PinMapFilterView: View {
     @ViewBuilder func body15() -> some View {
         NavigationView {
             mainContent()
-        }
+        }.navigationViewStyle(.stack)
     }
 
     @ViewBuilder func mainContent() -> some View {

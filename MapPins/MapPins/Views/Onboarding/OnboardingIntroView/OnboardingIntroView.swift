@@ -49,7 +49,7 @@ struct OnboardingIntroView: View {
 
                 mainContent()
             }
-        }
+        }.navigationViewStyle(.stack)
     }
 
     @ViewBuilder func mainContent() -> some View {
