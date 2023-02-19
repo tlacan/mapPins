@@ -15,6 +15,9 @@ struct PinImageThumbView: View {
     let row: Int
 
     var body: some View {
+        let width = (mainWindowSize.width - (6 + AppConstants.Padding.medium.rawValue * 2)) / 3
+        let height: CGFloat = 120
+        let size = min(width, height)
         if let image = viewModel.image(col: col, row: row) {
             Button {
                 withAnimation(.default) {
@@ -23,7 +26,9 @@ struct PinImageThumbView: View {
                 }
             } label: {
                 Image(uiImage: image)
-                    .fit(width: (mainWindowSize.width - (6 + AppConstants.Padding.medium.rawValue * 2)) / 3, height: 120)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: size, height: size)
                     .clipped()
             }
         } else {

@@ -25,7 +25,7 @@ struct PinListView: View {
         }
 
         struct PinItem {
-            static let imageHeight: CGFloat = 24
+            static let size: CGFloat = 24
         }
     }
 
@@ -166,7 +166,9 @@ struct PinListView: View {
             HStack {
                 if let image = pin.category.image {
                     Image(uiImage: image)
-                        .fit(height: ViewConstants.PinItem.imageHeight, foregroundColor: XCAsset.Colors.black.swiftUIColor)
+                        .fit(width: ViewConstants.PinItem.size,
+                             height: ViewConstants.PinItem.size,
+                             foregroundColor: XCAsset.Colors.black.swiftUIColor)
                 }
                 Text(pin.name.capitalized)
                     .foregroundColor(XCAsset.Colors.text.swiftUIColor)
