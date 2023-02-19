@@ -68,6 +68,9 @@
 		1D61013A299D87720064E420 /* PinImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D610139299D87720064E420 /* PinImagesViewModel.swift */; };
 		1D61013C299D8CD00064E420 /* PinImagesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61013B299D8CD00064E420 /* PinImagesDetailView.swift */; };
 		1D88BBE82978890A00A0D05D /* OnboardingNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */; };
+		1D8A34DC29A2900E00391C2C /* launch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A34DB29A2900E00391C2C /* launch@3x.png */; };
+		1D8A34DF29A293F500391C2C /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A34DE29A293F500391C2C /* launch@2x.png */; };
+		1D8A34E329A2954700391C2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A34E229A2954700391C2C /* LaunchScreen.storyboard */; };
 		1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9BBC7829795023005DDBA9 /* TextViews.swift */; };
 		1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA0A32E298279CC007FED5C /* yummy-dark.json */; };
 		1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */; };
@@ -186,6 +189,9 @@
 		1D610139299D87720064E420 /* PinImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImagesViewModel.swift; sourceTree = "<group>"; };
 		1D61013B299D8CD00064E420 /* PinImagesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinImagesDetailView.swift; sourceTree = "<group>"; };
 		1D88BBE72978890A00A0D05D /* OnboardingNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNameView.swift; sourceTree = "<group>"; };
+		1D8A34DB29A2900E00391C2C /* launch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch@3x.png"; path = "MapPins/resources/launch@3x.png"; sourceTree = SOURCE_ROOT; };
+		1D8A34DE29A293F500391C2C /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch@2x.png"; path = "MapPins/resources/launch@2x.png"; sourceTree = SOURCE_ROOT; };
+		1D8A34E229A2954700391C2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D9BBC7829795023005DDBA9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		1DA0A32E298279CC007FED5C /* yummy-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "yummy-dark.json"; sourceTree = "<group>"; };
 		1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
@@ -370,10 +376,13 @@
 				1D239C63297050A700A166A2 /* fonts */,
 				1D239C47296F57E700A166A2 /* generated */,
 				1D239C4A296F74DC00A166A2 /* animations */,
+				1D8A34DE29A293F500391C2C /* launch@2x.png */,
+				1D8A34DB29A2900E00391C2C /* launch@3x.png */,
 				1D239C19296F4C4300A166A2 /* Assets.xcassets */,
 				1D239C5D2970465200A166A2 /* Colors.xcassets */,
 				1D239C46296F57C500A166A2 /* Localizable.strings */,
 				1DA0B565299A92FB006B6A9E /* Acknowledgements.plist */,
+				1D8A34E229A2954700391C2C /* LaunchScreen.storyboard */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -709,8 +718,10 @@
 				1D239C83297050DB00A166A2 /* Poppins-ThinItalic.ttf in Resources */,
 				1D239C78297050DB00A166A2 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				1D239C80297050DB00A166A2 /* Poppins-MediumItalic.ttf in Resources */,
+				1D8A34DC29A2900E00391C2C /* launch@3x.png in Resources */,
 				1D239C522970174A00A166A2 /* yummy.json in Resources */,
 				1D239C7A297050DB00A166A2 /* Poppins-Thin.ttf in Resources */,
+				1D8A34E329A2954700391C2C /* LaunchScreen.storyboard in Resources */,
 				1D239C82297050DB00A166A2 /* Poppins-Light.ttf in Resources */,
 				1D239C77297050DB00A166A2 /* Poppins-LightItalic.ttf in Resources */,
 				1D239C86297050DB00A166A2 /* Poppins-ExtraLight.ttf in Resources */,
@@ -718,6 +729,7 @@
 				1D239C87297050DB00A166A2 /* Poppins-ExtraBold.ttf in Resources */,
 				1D239C1D296F4C4300A166A2 /* Preview Assets.xcassets in Resources */,
 				1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */,
+				1D8A34DF29A293F500391C2C /* launch@2x.png in Resources */,
 				1D239C44296F57C500A166A2 /* Localizable.strings in Resources */,
 				1D239C7C297050DB00A166A2 /* Poppins-Black.ttf in Resources */,
 				1D0353EA298C118200B4AFD2 /* PinMapViewController.xib in Resources */,
@@ -1043,6 +1055,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ask your position to show relevant data on map";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to store place images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
@@ -1075,6 +1088,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ask your position to show relevant data on map";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Access to store place images";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
