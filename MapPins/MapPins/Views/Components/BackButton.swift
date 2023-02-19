@@ -12,7 +12,7 @@ struct BackButton: View {
 
     var body: some View {
         Button(action: action) {
-            Image(systemName: "chevron.backward.circle.fill")
+            Image(systemSymbol: .chevronBackwardCircleFill)
                 .foregroundColor(XCAsset.Colors.black.swiftUIColor)
         }
     }

@@ -19,6 +19,30 @@ extension View {
     func `if`<Content: View>(_ condition: Bool, _ success: (Self) -> Content) -> some View {
         !condition ? AnyView(self) : AnyView(success(self))
     }
+
+    func outerShaddow(radius: CGFloat = 5, offset: CGFloat = 5, opacityDark: CGFloat = 0.2, opacityLight: CGFloat = 0.2) -> some View {
+        self
+        .shadow(color: XCAsset.Colors.black.swiftUIColor.opacity(opacityDark), radius: radius, x: offset, y: offset)
+        .shadow(color: XCAsset.Colors.background.swiftUIColor.opacity(opacityLight), radius: radius, x: -offset, y: -offset)
+    }
+}
+
+extension SwiftUI.Image {
+    func fit(width: CGFloat? = nil, height: CGFloat? = nil, foregroundColor: Color? = nil) -> some View {
+        self
+        .resizable()
+        .renderingMode(.template)
+        .scaledToFit()
+        .if(foregroundColor) { view in
+            view.foregroundColor(foregroundColor)
+        }
+        .if(height) { view in
+            view.frame(height: height)
+        }
+        .if(width) { view in
+            view.frame(width: width)
+        }
+    }
 }
 
 extension UIView {

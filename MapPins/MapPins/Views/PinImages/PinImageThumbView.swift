@@ -23,9 +23,7 @@ struct PinImageThumbView: View {
                 }
             } label: {
                 Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: (mainWindowSize.width - (6 + AppConstants.Padding.medium.rawValue * 2)) / 3, height: 120)
+                    .fit(width: (mainWindowSize.width - (6 + AppConstants.Padding.medium.rawValue * 2)) / 3, height: 120)
                     .clipped()
             }
         } else {

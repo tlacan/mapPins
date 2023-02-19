@@ -78,7 +78,7 @@ struct MapScreen: View {
             CreateEditPinView(engine: engine, editedPin: nil)
         }
         .sheet(isPresented: $showFilter) {
-            PinFilterView(engine: engine)
+            PinMapFilterView(engine: engine)
         }
         .onAppear {
             engine.geoLocationService.startUpdateLocationIfNeeded(continuous: true)

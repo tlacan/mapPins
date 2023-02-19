@@ -10,6 +10,8 @@ import AckGenUI
 import MapKit
 
 struct SettingsScreen: View {
+    @Environment(\.colorScheme) var colorScheme
+
     let engine: Engine
     let transportModes = [MKDirectionsTransportType.automobile, MKDirectionsTransportType.walking, MKDirectionsTransportType.transit]
     @ObservedObject var geolocationService: GeoLocationService
@@ -41,6 +43,7 @@ struct SettingsScreen: View {
     @ViewBuilder func body15() -> some View {
         NavigationView {
             ZStack {
+                Color(uiColor: .systemBackground).ignoresSafeArea()
                 NavigationLink(isActive: $showAcknowledgement) {
                     AcknowledgementsList()
                 } label: {
@@ -53,9 +56,13 @@ struct SettingsScreen: View {
 
     @ViewBuilder func mainContent() -> some View {
         List {
-            transportModeEntry()
-            localisation()
-            acknowledgementsEntry()
+            Section {
+                transportModeEntry()
+                localisation()
+                acknowledgementsEntry()
+            } footer: {
+                version()
+            }
         }
         .listStyle(.insetGrouped)
         .navigationTitle(L10n.Tab.Settings.title)
@@ -70,7 +77,7 @@ struct SettingsScreen: View {
         } label: {
             HStack {
                 Text(L10n.Settings.Localisation.entry)
-                    .foregroundColor(XCAsset.Colors.text.swiftUIColor)
+                    .foregroundColor(colorScheme == .dark ? Color.white : XCAsset.Colors.text.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 if geolocationService.locationManager.authorizationStatus == .authorizedWhenInUse {
                     Text(L10n.Settings.Localisation.whenInUse)
@@ -111,5 +118,17 @@ struct SettingsScreen: View {
         } label: {
             Text(L10n.Settings.Acknowledgements.entry)
         }
+    }
+
+    func version() -> some View {
+        let version = (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "")
+        let build = (Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
+        guard let name = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String else {
+            return AnyView(EmptyView())
+        }
+        return AnyView(
+            Text("\(name) v\(version)-\(build)")
+                .frame(maxWidth: .infinity)
+        )
     }
 }

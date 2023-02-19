@@ -19,20 +19,17 @@ struct MapPinSelectedView: View {
     @State var starConfig: StarRatingConfiguration
 
     struct ViewConstants {
-        struct Rating {
-            static var starConfig: StarRatingConfiguration {
-                let starConfig = AppConstants.Star.configuration
-                starConfig.spacing = 6
-                return starConfig
-            }
-            static let offsetX: CGFloat = -8
+        static var starConfig: StarRatingConfiguration {
+            let starConfig = AppConstants.Star.configuration
+            starConfig.spacing = 6
+            return starConfig
         }
 
         struct SubtitleInfo {
             static let height: CGFloat = 12
             static let categoryFont: SwiftUI.Font = FontFamily.Poppins.bold.swiftUIFont(size: 12)
             static let etaFont: SwiftUI.Font = FontFamily.Poppins.regular.swiftUIFont(size: 12)
-            static let textXOffsetWithRating: CGFloat = -18
+            static let ratingWidth: CGFloat = 84
         }
 
         struct Images {
@@ -46,7 +43,7 @@ struct MapPinSelectedView: View {
         _imagesViewModel = StateObject(wrappedValue: PinImagesViewModel(pin: pin))
         self.pin = pin
         self.engine = engine
-        _starConfig = State(wrappedValue: ViewConstants.Rating.starConfig)
+        _starConfig = State(wrappedValue: ViewConstants.starConfig)
     }
 
     var body: some View {
@@ -71,7 +68,7 @@ struct MapPinSelectedView: View {
                 String(format: "%.1f", locale: Locale.current, rating).swiftUIDescription()
                 StarRating(initialRating: rating, configuration: $starConfig)
                     .disabled(true)
-                    .offset(x: ViewConstants.Rating.offsetX)
+                    .frame(width: ViewConstants.SubtitleInfo.ratingWidth)
             }
             HStack(spacing: AppConstants.Padding.verySmall.rawValue) {
                 Text(pin.category.uiText)
@@ -91,9 +88,6 @@ struct MapPinSelectedView: View {
                 }
             }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .if(pin.rating != nil) { view in
-                    view.offset(x: ViewConstants.SubtitleInfo.textXOffsetWithRating)
-                }
         }.frame(height: ViewConstants.SubtitleInfo.height, alignment: .leading)
     }
 

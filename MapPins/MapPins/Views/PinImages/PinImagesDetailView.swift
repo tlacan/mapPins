@@ -41,8 +41,7 @@ struct PinImagesDetailView: View {
         TabView(selection: $viewModel.detailIndex) {
             ForEach(0...viewModel.images.count - 1, id: \.self) { index in
                 Image(uiImage: viewModel.images[index])
-                    .resizable()
-                    .scaledToFill()
+                    .fit()
                     .frame(maxWidth: .infinity)
             }
         }

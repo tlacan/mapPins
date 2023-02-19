@@ -94,6 +94,12 @@ internal enum L10n {
   internal enum List {
     /// List
     internal static let title = L10n.tr("Localizable", "list.title", fallback: "List")
+    internal enum Swipe {
+      internal enum Action {
+        /// View On Map
+        internal static let viewOnMap = L10n.tr("Localizable", "list.swipe.action.viewOnMap", fallback: "View On Map")
+      }
+    }
   }
   internal enum Map {
     internal enum Directions {

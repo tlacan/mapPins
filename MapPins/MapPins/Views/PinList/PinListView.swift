@@ -9,6 +9,8 @@ import SwiftUI
 import Neumorphic
 
 struct PinListView: View {
+    @Environment(\.colorScheme) var colorScheme
+
     let engine: Engine
     @State var showCreate: Bool = false
 
@@ -20,8 +22,6 @@ struct PinListView: View {
         struct Filter {
             static let height: CGFloat = 48
             static let imageHeight: CGFloat = 24
-            static let shaddowOuterOffset: CGFloat = 5
-            static let shaddowOuterRadius: CGFloat = 5
         }
 
         struct PinItem {
@@ -59,7 +59,9 @@ struct PinListView: View {
 
     @ViewBuilder func body15() -> some View {
         NavigationView {
-            VStack {
+            ZStack {
+                Color(uiColor: UIColor.systemBackground)
+                    .ignoresSafeArea()
                 NavigationLink(isActive: $viewModel.showPinDetail, destination: {
                     if let pin = viewModel.selectedPin {
                         CreateEditPinView(engine: engine, editedPin: pin)
@@ -99,7 +101,7 @@ struct PinListView: View {
                 Button {
                     showCreate = true
                 } label: {
-                    Image(systemName: "plus")
+                    Image(systemSymbol: .plus)
                 }
             }
         }
@@ -145,44 +147,46 @@ struct PinListView: View {
                     Circle()
                         .fill(Color.Neumorphic.main)
                         .clipShape(Circle())
-                        .softOuterShadow(offset: ViewConstants.Filter.shaddowOuterOffset, radius: ViewConstants.Filter.shaddowOuterRadius)
+                        .outerShaddow()
                         .frame(height: ViewConstants.Filter.height)
                 }
                 Image(uiImage: category.image)
-                    .resizable()
-                    .renderingMode(.template)
-                    .scaledToFit()
-                    .foregroundColor(Color.gray)
-                    .frame(height: ViewConstants.Filter.imageHeight)
+                    .fit(height: ViewConstants.Filter.imageHeight, foregroundColor: Color.gray)
             }
         }.padding(.vertical)
     }
 
     @ViewBuilder func pinItem(_ pin: PinModel) -> some View {
         Button {
+            viewModel.selectedPin = pin
             withAnimation(.default) {
-                viewModel.selectedPin = pin
                 viewModel.showPinDetail = true
             }
         } label: {
             HStack {
                 if let image = pin.category.image {
                     Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: ViewConstants.PinItem.imageHeight)
+                        .fit(height: ViewConstants.PinItem.imageHeight, foregroundColor: XCAsset.Colors.black.swiftUIColor)
                 }
                 Text(pin.name.capitalized)
                     .foregroundColor(XCAsset.Colors.text.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Image(systemName: "chevron.forward")
+                Image(systemSymbol: .chevronForward)
                     .foregroundColor(Color.gray)
-            }.swipeActions {
-                Button("Burn") {
-
-                }
-                .tint(.red)
             }
+        }.swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button(role: .destructive) {
+                pinService.deletePin(pin)
+            } label: {
+                Image(systemSymbol: .trash)
+            }
+        }
+        .swipeActions(edge: .leading, allowsFullSwipe: false) {
+            Button {
+                NotificationConstants.showPinOnMap.post(object: pin)
+            } label: {
+                Image(systemSymbol: .map)
+            }.tint(.blue)
         }
     }
 }

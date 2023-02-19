@@ -24,7 +24,7 @@
 		1D18F1542990489600BC0DCA /* ListSectionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F1532990489600BC0DCA /* ListSectionIndex.swift */; };
 		1D18F156299048C500BC0DCA /* TouchEnterExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F155299048C500BC0DCA /* TouchEnterExit.swift */; };
 		1D18F15C2993993A00BC0DCA /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F15B2993993A00BC0DCA /* PreferencesService.swift */; };
-		1D18F1602993FE4500BC0DCA /* PinFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F15F2993FE4500BC0DCA /* PinFilterView.swift */; };
+		1D18F1602993FE4500BC0DCA /* PinMapFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F15F2993FE4500BC0DCA /* PinMapFilterView.swift */; };
 		1D18F162299407A600BC0DCA /* Array+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D18F161299407A600BC0DCA /* Array+Helper.swift */; };
 		1D239C16296F4C4200A166A2 /* MapPinsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C15296F4C4200A166A2 /* MapPinsApp.swift */; };
 		1D239C18296F4C4200A166A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D239C17296F4C4200A166A2 /* ContentView.swift */; };
@@ -140,7 +140,7 @@
 		1D18F1532990489600BC0DCA /* ListSectionIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionIndex.swift; sourceTree = "<group>"; };
 		1D18F155299048C500BC0DCA /* TouchEnterExit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEnterExit.swift; sourceTree = "<group>"; };
 		1D18F15B2993993A00BC0DCA /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
-		1D18F15F2993FE4500BC0DCA /* PinFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinFilterView.swift; sourceTree = "<group>"; };
+		1D18F15F2993FE4500BC0DCA /* PinMapFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinMapFilterView.swift; sourceTree = "<group>"; };
 		1D18F161299407A600BC0DCA /* Array+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Helper.swift"; sourceTree = "<group>"; };
 		1D239C12296F4C4200A166A2 /* MapPins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapPins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D239C15296F4C4200A166A2 /* MapPinsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinsApp.swift; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		1D18F15E2993FE3200BC0DCA /* PinFilter */ = {
 			isa = PBXGroup;
 			children = (
-				1D18F15F2993FE4500BC0DCA /* PinFilterView.swift */,
+				1D18F15F2993FE4500BC0DCA /* PinMapFilterView.swift */,
 			);
 			path = PinFilter;
 			sourceTree = "<group>";
@@ -825,7 +825,7 @@
 				1DF947B62983DE5B005B6DDD /* CreateEditPinView.swift in Sources */,
 				1DE6F2FB2976E95400AF4E64 /* ButtonView.swift in Sources */,
 				1DA0A3392982D750007FED5C /* AddressSearchViewModel.swift in Sources */,
-				1D18F1602993FE4500BC0DCA /* PinFilterView.swift in Sources */,
+				1D18F1602993FE4500BC0DCA /* PinMapFilterView.swift in Sources */,
 				1D0353D1298BBEC000B4AFD2 /* PinMapView.swift in Sources */,
 				1DA0B578299D42B6006B6A9E /* MapScreenViewModel.swift in Sources */,
 				1D18F152298FF1EC00BC0DCA /* PinListView.swift in Sources */,

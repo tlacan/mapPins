@@ -56,50 +56,62 @@ struct CreateEditPinView: View {
 
     @available(iOS 16, *)
     @ViewBuilder func body16() -> some View {
-        NavigationStack {
-            ZStack(alignment: .bottom) {
-                mainContent()
+        if context == .create {
+            NavigationStack {
+                content16()
             }
-            .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel, context: context))
-                .navigationDestination(isPresented: $showAddressAutocomplete) {
-                    AddressSearchView { address in
-                        withAnimation(.default) {
-                            showAddressAutocomplete = false
-                            viewModel.address = address
-                        }
-                    }
-                }
-                .toolbarBackground(XCAsset.Colors.background.swiftUIColor, for: .navigationBar)
-                .toolbarBackground(.visible, for: .navigationBar)
+        } else {
+            content16()
         }
     }
 
-    @ViewBuilder func body15() -> some View {
-        NavigationView {
-            ZStack(alignment: .bottom) {
-                NavigationLink(isActive: $showAddressAutocomplete) {
-                    AddressSearchView { address in
-                        withAnimation(.default) {
-                            showAddressAutocomplete = false
-                            viewModel.address = address
-                        }
-                    }
-                } label: { EmptyView() }
-                mainContent()
-            }
-            .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel, context: context))
-                .sheet(isPresented: $imagesViewModel.showLibrary) {
-                    ImagePickerView(sourceType: .photoLibrary) { image in
-                        imagesViewModel.images.append(image)
-                    }
-                }
-                .onAppear {
-                    let appearance = UINavigationBarAppearance()
-                    appearance.backgroundColor = XCAsset.Colors.background.color
-                    UINavigationBar.appearance().standardAppearance = appearance
-                    UINavigationBar.appearance().scrollEdgeAppearance = appearance
-                }
+    @available(iOS 16, *)
+    @ViewBuilder func content16() -> some View {
+        ZStack(alignment: .bottom) {
+            mainContent()
         }
+        .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel, context: context))
+            .navigationDestination(isPresented: $showAddressAutocomplete) {
+                AddressSearchView { address in
+                    withAnimation(.default) {
+                        showAddressAutocomplete = false
+                        viewModel.address = address
+                    }
+                }
+            }
+            .toolbarBackground(XCAsset.Colors.background.swiftUIColor, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+    }
+
+    @ViewBuilder func body15() -> some View {
+        if context == .create {
+            NavigationView {
+                content15()
+            }
+        } else {
+            content15()
+        }
+    }
+
+    @ViewBuilder func content15() -> some View {
+        ZStack(alignment: .bottom) {
+            XCAsset.Colors.background.swiftUIColor.ignoresSafeArea()
+            NavigationLink(isActive: $showAddressAutocomplete) {
+                AddressSearchView { address in
+                    withAnimation(.default) {
+                        showAddressAutocomplete = false
+                        viewModel.address = address
+                    }
+                }
+            } label: { EmptyView() }
+            mainContent()
+        }
+            .modifier(CreateEditPinViewNavigationModifier(viewModel: viewModel, imagesViewModel: imagesViewModel, context: context))
+            .sheet(isPresented: $imagesViewModel.showLibrary) {
+                ImagePickerView(sourceType: .photoLibrary) { image in
+                    imagesViewModel.images.append(image)
+                }
+            }
     }
 
     @ViewBuilder func mainContent() -> some View {

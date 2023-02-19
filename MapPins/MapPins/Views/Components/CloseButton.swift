@@ -12,7 +12,7 @@ struct CloseButton: View {
 
     var body: some View {
         Button(action: action) {
-            Image(systemName: "xmark.circle.fill")
+            Image(systemSymbol: .xmarkCircleFill)
                 .foregroundColor(XCAsset.Colors.black.swiftUIColor)
         }
     }

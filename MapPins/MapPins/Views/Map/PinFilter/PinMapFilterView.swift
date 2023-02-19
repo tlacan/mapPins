@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PinFilterView: View {
+struct PinMapFilterView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var preferencesService: PreferenceService
     let engine: Engine
