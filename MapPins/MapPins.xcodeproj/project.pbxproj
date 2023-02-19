@@ -71,6 +71,8 @@
 		1D8A34DC29A2900E00391C2C /* launch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A34DB29A2900E00391C2C /* launch@3x.png */; };
 		1D8A34DF29A293F500391C2C /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A34DE29A293F500391C2C /* launch@2x.png */; };
 		1D8A34E329A2954700391C2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D8A34E229A2954700391C2C /* LaunchScreen.storyboard */; };
+		1D8A34E629A2C3C100391C2C /* CreatePinImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A34E529A2C3C100391C2C /* CreatePinImages.swift */; };
+		1D8A34EC29A2CBE000391C2C /* PreferenceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A34EB29A2CBE000391C2C /* PreferenceServiceTests.swift */; };
 		1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9BBC7829795023005DDBA9 /* TextViews.swift */; };
 		1DA0A32F298279CD007FED5C /* yummy-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DA0A32E298279CC007FED5C /* yummy-dark.json */; };
 		1DA0A3332982BE6F007FED5C /* AddressSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */; };
@@ -192,6 +194,8 @@
 		1D8A34DB29A2900E00391C2C /* launch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch@3x.png"; path = "MapPins/resources/launch@3x.png"; sourceTree = SOURCE_ROOT; };
 		1D8A34DE29A293F500391C2C /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "launch@2x.png"; path = "MapPins/resources/launch@2x.png"; sourceTree = SOURCE_ROOT; };
 		1D8A34E229A2954700391C2C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1D8A34E529A2C3C100391C2C /* CreatePinImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinImages.swift; sourceTree = "<group>"; };
+		1D8A34EB29A2CBE000391C2C /* PreferenceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceServiceTests.swift; sourceTree = "<group>"; };
 		1D9BBC7829795023005DDBA9 /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		1DA0A32E298279CC007FED5C /* yummy-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "yummy-dark.json"; sourceTree = "<group>"; };
 		1DA0A3322982BE6F007FED5C /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 			children = (
 				1D0353DD298BE25500B4AFD2 /* CreatePinImages16View.swift */,
 				1D0353E1298BEC4B00B4AFD2 /* CreatePinImages15View.swift */,
+				1D8A34E529A2C3C100391C2C /* CreatePinImages.swift */,
 				1D0353DF298BE30400B4AFD2 /* PinImageThumbView.swift */,
 				1D610139299D87720064E420 /* PinImagesViewModel.swift */,
 				1D61013B299D8CD00064E420 /* PinImagesDetailView.swift */,
@@ -357,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				1D239C26296F4C4300A166A2 /* PinServiceTests.swift */,
+				1D8A34EB29A2CBE000391C2C /* PreferenceServiceTests.swift */,
 			);
 			path = MapPinsTests;
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				1D239C8C297053E800A166A2 /* Assets.swift in Sources */,
 				1DC7C326297AEE6B00A451DE /* PinService.swift in Sources */,
 				1DD88E9929A10D5E00CD2663 /* PinListViewModel.swift in Sources */,
+				1D8A34E629A2C3C100391C2C /* CreatePinImages.swift in Sources */,
 				1DC7C324297AEE4000A451DE /* Engine.swift in Sources */,
 				1DC7C328297AEF0700A451DE /* LoadedData.swift in Sources */,
 				1D9BBC7929795023005DDBA9 /* TextViews.swift in Sources */,
@@ -885,6 +892,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8A34EC29A2CBE000391C2C /* PreferenceServiceTests.swift in Sources */,
 				1D239C27296F4C4300A166A2 /* PinServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
