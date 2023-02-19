@@ -31,6 +31,7 @@ struct CreateEditPinView: View {
 
     struct ViewConstants {
         struct Rating {
+            static let width: CGFloat = 250
             static let height: CGFloat = 70
         }
         struct Categories {
@@ -168,18 +169,21 @@ struct CreateEditPinView: View {
     }
 
     @ViewBuilder func rating() -> some View {
-        VStack(alignment: .leading) {
+        VStack {
             L10n.CreatePin.rate.swiftUISectionHeader()
-            StarRating(initialRating: viewModel.rating ?? 0, configuration: $starConfig) { value in
-                viewModel.rating = value
-            }.frame(height: ViewConstants.Rating.height)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            VStack(alignment: .center) {
+                StarRating(initialRating: viewModel.rating ?? 0, configuration: $starConfig) { value in
+                    viewModel.rating = value
+                }.frame(width: ViewConstants.Rating.width, height: ViewConstants.Rating.height, alignment: .center)
+            }
             VStack {
                 if let rating = viewModel.rating {
                     String(format: "%.1f", locale: Locale.current, rating).swiftUIDescription()
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
-        }
+        }.frame(maxWidth: .infinity)
     }
 
     @ViewBuilder func categories() -> some View {
