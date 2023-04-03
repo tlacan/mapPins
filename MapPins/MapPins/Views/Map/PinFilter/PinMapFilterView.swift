@@ -32,6 +32,7 @@ struct PinMapFilterView: View {
         }
     }
 
+    @available(iOS, deprecated: 16)
     @ViewBuilder func body15() -> some View {
         NavigationView {
             mainContent()

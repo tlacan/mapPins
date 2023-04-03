@@ -84,6 +84,7 @@ struct CreateEditPinView: View {
             .toolbarBackground(.visible, for: .navigationBar)
     }
 
+    @available(iOS, deprecated: 16)
     @ViewBuilder func body15() -> some View {
         if context == .create {
             NavigationView {
@@ -94,6 +95,7 @@ struct CreateEditPinView: View {
         }
     }
 
+    @available(iOS, deprecated: 16)
     @ViewBuilder func content15() -> some View {
         ZStack(alignment: .bottom) {
             XCAsset.Colors.background.swiftUIColor.ignoresSafeArea()
