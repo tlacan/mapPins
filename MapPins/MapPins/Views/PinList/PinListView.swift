@@ -164,12 +164,10 @@ struct PinListView: View {
             }
         } label: {
             HStack {
-                if let image = pin.category.image {
-                    Image(uiImage: image)
-                        .fit(width: ViewConstants.PinItem.size,
-                             height: ViewConstants.PinItem.size,
-                             foregroundColor: XCAsset.Colors.black.swiftUIColor)
-                }
+                Image(uiImage: pin.category.image)
+                    .fit(width: ViewConstants.PinItem.size,
+                         height: ViewConstants.PinItem.size,
+                         foregroundColor: XCAsset.Colors.black.swiftUIColor)
                 Text(pin.name.capitalized)
                     .foregroundColor(XCAsset.Colors.text.swiftUIColor)
                     .frame(maxWidth: .infinity, alignment: .leading)

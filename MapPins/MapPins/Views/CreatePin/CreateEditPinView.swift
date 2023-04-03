@@ -199,14 +199,12 @@ struct CreateEditPinView: View {
                         }) {
                             ZStack {
                                 Circle().fill(viewModel.category?.rawValue == category.rawValue ? XCAsset.Colors.black.swiftUIColor : .clear)
-                                if let image = category.image {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                        .renderingMode(.template)
-                                        .scaledToFit()
-                                        .foregroundColor( viewModel.category?.rawValue == category.rawValue ? XCAsset.Colors.background.swiftUIColor : XCAsset.Colors.black.swiftUIColor)
-                                        .frame(width: ViewConstants.Categories.imageSize, height: ViewConstants.Categories.imageSize)
-                                }
+                                Image(uiImage: category.image)
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .scaledToFit()
+                                    .foregroundColor( viewModel.category?.rawValue == category.rawValue ? XCAsset.Colors.background.swiftUIColor : XCAsset.Colors.black.swiftUIColor)
+                                    .frame(width: ViewConstants.Categories.imageSize, height: ViewConstants.Categories.imageSize)
                             }.frame(width: ViewConstants.Categories.categorySize, height: ViewConstants.Categories.categorySize)
                         }
                     }.frame(maxWidth: .infinity)
